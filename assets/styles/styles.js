@@ -45,7 +45,25 @@ export const loginStyles = StyleSheet.create({
   logoContainer: {
     width: '100%',
     height: '52%',
-    backgroundColor: '#01f0b3'
+    backgroundColor: '#01f0b3',
+    justifyContent: 'center'
+  },
+  loginContainer: {
+    backfaceVisibility: 'hidden'
+  },
+  sigupContainer: {
+    position: "absolute",
+    width: '100%',
+    top: 0
+  },
+  closer: {
+    padding: 30
+  },
+  headerText: {
+    alignSelf: 'center',
+    fontSize: 18,
+    textAlign: 'center',
+    marginBottom: 20
   },
   infoContainer: {
     justifyContent: 'center',
@@ -61,5 +79,19 @@ export const loginStyles = StyleSheet.create({
   signUpText: {
     fontSize: 12,
     fontWeight: '700'
+  },
+  title: {
+    color: '#f7f7f7',
+    fontSize: 25,
+    fontWeight: '700',
+    textAlign: 'center'
+  },
+  icon: {
+    textAlign: 'center'
+  },
+  phrase: {
+    fontSize: 15,
+    color: '#f7f7f7',
+    textAlign: 'center'
   }
 })
