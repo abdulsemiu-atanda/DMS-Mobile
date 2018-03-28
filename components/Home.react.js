@@ -1,19 +1,13 @@
 
 
 import React, {Component} from 'react'
-import {
-  Animated,
-  Platform,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableHighlight,
-  TouchableOpacity,
-  View
-} from 'react-native'
+import {Animated, View} from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 
-import {styles, loginStyles} from '../assets/styles/styles'
+import LogIn from './LogIn.react'
+import SignUp from './SignUp.react'
+
+import {styles} from '../assets/styles/styles'
 
 export default class App extends Component {
   constructor() {
@@ -62,67 +56,20 @@ export default class App extends Component {
   }
 
   render() {
-    const frontAnimatedStyle = {
-      transform: [
-        { rotateY: this.frontInterpolate }
-      ]
-    }
-
-    const backAnimatedStyle = {
-      transform: [
-        { rotateY: this.backInterpolate }
-      ]
-    }
-
     return (
       <View style={styles.container}>
-        <Animated.View style={[loginStyles.loginContainer, frontAnimatedStyle, {opacity: this.frontOpacity}]}>
-          <View style={loginStyles.logoContainer}>
-            <Text style={loginStyles.title}>DMS</Text>
-            <Icon style={loginStyles.icon} name='ios-briefcase-outline' size={100} color='#f7f7f7' />
-            <Text style={loginStyles.phrase}>Manage your documents elegantly.</Text>
-          </View>
-          <View style={[loginStyles.form, {height: '35%'}]}>
-            <Text style={loginStyles.label}>EMAIL</Text>
-            <TextInput autoCapitalize='none' keyboardType='email-address' style={loginStyles.input} placeholder='jason@bourne.com' />
-            <Text style={loginStyles.label}>PASSWORD</Text>
-            <TextInput autoCapitalize='none' secureTextEntry style={loginStyles.input} />
-            <TouchableHighlight style={loginStyles.button}>
-              <Text style={loginStyles.buttonText}>Sign In</Text>
-            </TouchableHighlight>
-          </View>
-          <View style={[loginStyles.infoContainer, {height: '16%'}]}>
-            <Text style={loginStyles.infoText}>DON'T HAVE AN ACCOUNT?</Text>
-            <TouchableOpacity onPress={this.flipCard}>
-              <Text style={loginStyles.signUpText}>SIGN UP</Text>
-            </TouchableOpacity>
-          </View>
-        </Animated.View>
-        <Animated.View style={[loginStyles.loginContainer, loginStyles.sigupContainer, backAnimatedStyle, {opacity: this.backOpacity}]}>
-          <TouchableOpacity style={loginStyles.closer} onPress={this.flipCard}>
-            <Icon name='ios-close' size={40} color='#cfcfd1' />
-          </TouchableOpacity>
-          <View style={loginStyles.form}>
-            <Text style={loginStyles.headerText}>Sign Up</Text>
-            <Text style={loginStyles.label}>FULL NAME</Text>
-            <TextInput autoCapitalize='none' style={loginStyles.input} placeholder='Jason Bourne' />
-            <Text style={loginStyles.label}>USERNAME</Text>
-            <TextInput autoCapitalize='none' style={loginStyles.input} placeholder='jbourne' />
-            <Text style={loginStyles.label}>EMAIL</Text>
-            <TextInput autoCapitalize='none' keyboardType='email-address' style={loginStyles.input} placeholder='jason@bourne.com' />
-            <Text style={loginStyles.label}>PASSWORD</Text>
-            <TextInput autoCapitalize='none' secureTextEntry style={loginStyles.input} />
-            <TouchableHighlight style={loginStyles.button}>
-              <Text style={loginStyles.buttonText}>Create</Text>
-            </TouchableHighlight>
-          </View>
-          <View style={loginStyles.infoContainer}>
-            <Text style={loginStyles.infoText}>ALREADY HAVE AN ACCOUNT?</Text>
-            <TouchableOpacity onPress={this.flipCard}>
-              <Text style={loginStyles.signUpText}>SIGN IN</Text>
-            </TouchableOpacity>
-          </View>
-        </Animated.View>
+        <LogIn
+          frontOpacity={this.frontOpacity}
+          frontInterpolate={this.frontInterpolate}
+          flipCard={this.flipCard}
+          navigation={this.props.navigation}
+        />
+        <SignUp
+          backOpacity={this.backOpacity}
+          backInterpolate={this.backInterpolate}
+          flipCard={this.flipCard}
+          navigation={this.props.navigation}
+        />
       </View>
     );
   }
