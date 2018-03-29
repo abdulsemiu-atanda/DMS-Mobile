@@ -2,8 +2,11 @@ import React, {Component} from 'react'
 import {Animated, Text, TextInput, TouchableHighlight, TouchableOpacity, View} from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 import PropTypes from 'prop-types'
+import {connect} from 'react-redux'
 
 import {loginStyles} from '../assets/styles/styles'
+import {signUpRequest} from '../requests/userRequest'
+import {validateFields} from '../util/util'
 
 class SignUp extends Component {
   render() {
@@ -21,13 +24,15 @@ class SignUp extends Component {
           <View style={loginStyles.form}>
             <Text style={loginStyles.headerText}>Sign Up</Text>
             <Text style={loginStyles.label}>FULL NAME</Text>
-            <TextInput autoCapitalize='none' style={loginStyles.input} placeholder='Jason Bourne' />
+            <TextInput ref={ref => this.fullname = ref} autoCapitalize='none' style={loginStyles.input} placeholder='Jason Bourne' />
             <Text style={loginStyles.label}>USERNAME</Text>
-            <TextInput autoCapitalize='none' style={loginStyles.input} placeholder='jbourne' />
+            <TextInput ref={ref => this.username = ref} autoCapitalize='none' style={loginStyles.input} placeholder='jbourne' />
             <Text style={loginStyles.label}>EMAIL</Text>
-            <TextInput autoCapitalize='none' keyboardType='email-address' style={loginStyles.input} placeholder='jason@bourne.com' />
+            <TextInput ref={ref => this.email = ref} autoCapitalize='none' keyboardType='email-address' style={loginStyles.input} placeholder='jason@bourne.com' />
             <Text style={loginStyles.label}>PASSWORD</Text>
-            <TextInput autoCapitalize='none' secureTextEntry style={loginStyles.input} />
+            <TextInput ref={ref => this.password = ref} autoCapitalize='none' secureTextEntry style={loginStyles.input} />
+            <Text style={loginStyles.label}>CONFIRM PASSWORD</Text>
+            <TextInput ref={ref => this.confirmPassword = ref} autoCapitalize='none' secureTextEntry style={loginStyles.input} />
             <TouchableHighlight style={loginStyles.button}>
               <Text style={loginStyles.buttonText}>Create</Text>
             </TouchableHighlight>
@@ -49,4 +54,9 @@ SignUp.propTypes = {
   flipCard: PropTypes.func
 }
 
-export default SignUp
+const mapStateToProps = state => ({
+  form: state.form,
+  user: state.user
+})
+
+export default connect(mapStateToProps, {validateFields})(SignUp)
