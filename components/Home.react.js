@@ -13,6 +13,7 @@ export default class App extends Component {
   constructor() {
     super()
 
+    this.state = {showLogIn: true}
     this.flipCard = this.flipCard.bind(this)
   }
   componentWillMount() {
@@ -40,36 +41,41 @@ export default class App extends Component {
   }
 
   flipCard() {
-    if (this.value >= 90) {
-      Animated.spring(this.animatedValue,{
-        toValue: 0,
-        friction: 8,
-        tension: 10
-      }).start();
-    } else {
-      Animated.spring(this.animatedValue,{
-        toValue: 180,
-        friction: 8,
-        tension: 10
-      }).start();
-    }
+    this.setState({showLogIn: !this.state.showLogIn}, () => {
+      if (this.value >= 90) {
+        Animated.spring(this.animatedValue,{
+          toValue: 0,
+          friction: 8,
+          tension: 10
+        }).start();
+      } else {
+        Animated.spring(this.animatedValue,{
+          toValue: 180,
+          friction: 8,
+          tension: 10
+        }).start();
+      }
+    })
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <LogIn
-          frontOpacity={this.frontOpacity}
-          frontInterpolate={this.frontInterpolate}
-          flipCard={this.flipCard}
-          navigation={this.props.navigation}
-        />
-        <SignUp
-          backOpacity={this.backOpacity}
-          backInterpolate={this.backInterpolate}
-          flipCard={this.flipCard}
-          navigation={this.props.navigation}
-        />
+        {
+          this.state.showLogIn ?
+          <LogIn
+            frontOpacity={this.frontOpacity}
+            frontInterpolate={this.frontInterpolate}
+            flipCard={this.flipCard}
+            navigation={this.props.navigation}
+          /> :
+          <SignUp
+            backOpacity={this.backOpacity}
+            backInterpolate={this.backInterpolate}
+            flipCard={this.flipCard}
+            navigation={this.props.navigation}
+          />
+        }
       </View>
     );
   }

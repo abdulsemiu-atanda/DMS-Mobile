@@ -12,11 +12,11 @@ const initialState = {token: null, signingUp: false, logingIn: false, error: {},
 const userReducer = (state=initialState, action) => {
   switch(action.type) {
     case LOG_IN_ERROR:
-      return {...state, loginError: action.data.status, error: {logIn: action.data.error}}
+      return {...state, logingIn: false, loginError: action.data.status, error: {logIn: action.data.error}}
     case LOG_IN_LOADING:
       return {...state, logingIn: action.data}
     case LOG_IN_SUCCESS:
-      return {...state, logingIn: false, signingUp: false, signupError: false, loginError: false, token: action.data.token}
+      return {...state, logingIn: false, signingUp: false, signupError: false, loginError: false, token: action.data.token, message: action.data.message}
     case SIGN_UP_ERROR:
       return {...state, signupError: action.data.error.status, error: {signUp: action.data.error}}
     case SIGN_UP_LOADING:

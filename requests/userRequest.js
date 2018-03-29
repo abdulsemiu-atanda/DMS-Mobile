@@ -1,4 +1,4 @@
-import sendRequest from './requestUtil'
+import sendRequest, {createRequest} from './requestUtil'
 import {
   logInError,
   logInSuccess,
@@ -24,7 +24,7 @@ export const signUpRequest = data => {
 export const logInRequest = data => {
   return dispatch => {
     dispatch(logInLoading(true))
-    sendRequest('user', 'POST', data)
+    sendRequest('user/login', 'POST', data)
     .then(res => res.json())
     .then(res => {
       dispatch(logInSuccess(res))

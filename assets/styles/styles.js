@@ -1,4 +1,6 @@
-import {StyleSheet} from 'react-native'
+import {StyleSheet, Dimensions} from 'react-native'
+
+const {width, height} = Dimensions.get('window')
 
 export const styles = StyleSheet.create({
   container: {
@@ -43,13 +45,17 @@ export const loginStyles = StyleSheet.create({
     fontSize: 10
   },
   logoContainer: {
-    width: '100%',
-    height: '52%',
+    flex: 3,
     backgroundColor: '#01f0b3',
     justifyContent: 'center'
   },
   loginContainer: {
-    backfaceVisibility: 'hidden'
+    backfaceVisibility: 'hidden',
+    flex: 1
+  },
+  error: {
+    color: 'red',
+    marginTop: 10
   },
   sigupContainer: {
     position: "absolute",
