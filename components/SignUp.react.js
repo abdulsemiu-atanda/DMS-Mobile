@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Animated, Text, TextInput, TouchableHighlight, TouchableOpacity, View} from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
+import PropTypes from 'prop-types'
 
 import {loginStyles} from '../assets/styles/styles'
 
@@ -40,6 +41,12 @@ class SignUp extends Component {
         </Animated.View>
     )
   }
+}
+
+SignUp.propTypes = {
+  backOpacity: PropTypes.object,
+  backInterpolate: PropTypes.object,
+  flipCard: PropTypes.func
 }
 
 export default SignUp

@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {Animated, ActivityIndicator, Text, View, TextInput, TouchableHighlight, TouchableOpacity} from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 import {connect} from 'react-redux'
+import PropTypes from 'prop-types'
 
 import {logInRequest} from '../requests/userRequest'
 
@@ -66,5 +67,15 @@ class LogIn extends Component {
 const mapStateToProps = state => ({
   user: state.user
 })
+
+LogIn.propTypes = {
+  frontOpacity: PropTypes.object,
+  frontInterpolate: PropTypes.object,
+  flipCard: PropTypes.func,
+  user: PropTypes.shape({
+    logingIn: PropTypes.bool,
+    message: PropTypes.string
+  })
+}
 
 export default connect(mapStateToProps, {logInRequest})(LogIn)
