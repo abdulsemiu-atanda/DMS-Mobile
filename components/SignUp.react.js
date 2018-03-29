@@ -9,6 +9,22 @@ import {signUpRequest} from '../requests/userRequest'
 import {validateFields} from '../util/util'
 
 class SignUp extends Component {
+  constructor() {
+    super()
+
+    this.onSignUp = this.onSignUp.bind(this)
+  }
+  onSignUp() {
+    const data = {
+      fullname: this.fullname._lastNativeText,
+      confirmPassword: this.confirmPassword._lastNativeText,
+      email: this.email._lastNativeText,
+      password: this.password._lastNativeText,
+      username: this.username._lastNativeText
+    }
+
+    this.props.validateFields(data)
+  }
   render() {
     const backAnimatedStyle = {
       transform: [
@@ -33,7 +49,7 @@ class SignUp extends Component {
             <TextInput ref={ref => this.password = ref} autoCapitalize='none' secureTextEntry style={loginStyles.input} />
             <Text style={loginStyles.label}>CONFIRM PASSWORD</Text>
             <TextInput ref={ref => this.confirmPassword = ref} autoCapitalize='none' secureTextEntry style={loginStyles.input} />
-            <TouchableHighlight style={loginStyles.button}>
+            <TouchableHighlight onPress={this.onSignUp} style={loginStyles.button}>
               <Text style={loginStyles.buttonText}>Create</Text>
             </TouchableHighlight>
           </View>

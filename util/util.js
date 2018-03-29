@@ -14,13 +14,13 @@ export const validateFields = data => {
     Object.keys(data).forEach(field => {
       switch (field) {
         case 'email':
-          return /^\S+@\S+$/g.test(data[field]) ? dispatch(emailCorrect(true)) : dispatch(emailError(true))
+          return  dispatch(emailCorrect(/^\S+@\S+$/g.test(data[field])))
         case 'username':
-          return data[field].trim() === '' ? dispatch(usernameError(true)) : dispatch(usernameCorrect(true))
+          return dispatch(usernameCorrect(data[field].trim() !== ''))
         case 'password':
-          return data.password === data.confirmPassword ? dispatch(passwordMatch(true)) : dispatch(passwordMatchError(true))
+          return  dispatch(passwordMatch(data.password === data.confirmPassword))
         case 'fullname':
-          return data[field].trim() === '' ? dispatch(fullnameError(true)) : dispatch(fullnameCorrect(true))
+          return dispatch(fullnameCorrect(data[field].trim() !== ''))
         default:
           break
       }
