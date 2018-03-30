@@ -1,10 +1,10 @@
 import {StackNavigator} from 'react-navigation'
 
-import Home from '../../components/Home.react'
+import Auth from '../../components/Auth.react'
 
 const AppNavigator = StackNavigator({
-  Home: {
-    screen: Home,
+  Auth: {
+    screen: Auth,
     navigationOptions: {
       header: null
     }

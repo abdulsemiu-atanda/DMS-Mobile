@@ -9,7 +9,7 @@ import SignUp from './SignUp.react'
 
 import {styles} from '../assets/styles/styles'
 
-export default class App extends Component {
+export default class Auth extends Component {
   constructor() {
     super()
 

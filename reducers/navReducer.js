@@ -1,6 +1,6 @@
 import AppNavigator from '../config/routes/routes'
 
-const initialState = AppNavigator.router.getStateForAction(AppNavigator.router.getActionForPathAndParams('Home'))
+const initialState = AppNavigator.router.getStateForAction(AppNavigator.router.getActionForPathAndParams('Auth'))
 
 const navReducer = (state = initialState, action) => {
   const nextState = AppNavigator.router.getStateForAction(action, state);
