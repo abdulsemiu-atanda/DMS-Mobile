@@ -1,12 +1,8 @@
 import {
   emailCorrect,
-  emailError,
   fullnameCorrect,
-  fullnameError,
   passwordMatch,
-  passwordMatchError,
   usernameCorrect,
-  usernameError
 } from '../actions/formActions'
 
 export const validateFields = data => {

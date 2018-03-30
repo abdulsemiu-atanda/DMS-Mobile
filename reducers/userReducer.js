@@ -22,7 +22,7 @@ const userReducer = (state=initialState, action) => {
     case SIGN_UP_LOADING:
       return {...state, signingUp: action.data}
     case SIGN_UP_SUCCESS:
-      return {...state, logingIn: false, signingUp: false, signupError: false, loginError: false, token: action.data.token}
+      return {...state, logingIn: false, signingUp: false, signupError: false, loginError: false, token: action.data.token, message: action.data.message}
     default:
       return state
   }

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Animated, Text, TextInput, TouchableHighlight, TouchableOpacity, View} from 'react-native'
+import {Animated, ActivityIndicator, Text, TextInput, TouchableHighlight, TouchableOpacity, View} from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
@@ -12,25 +12,53 @@ class SignUp extends Component {
   constructor() {
     super()
 
+    this.state = {passwordMatch: ''}
+    this.confirmPassword = this.confirmPassword.bind(this)
     this.onSignUp = this.onSignUp.bind(this)
   }
+
+  confirmPassword(evt) {
+    if (this.password._lastNativeText === evt.nativeEvent.text) this.setState({passwordMatch: 'true'})
+
+    else {
+      this.setState({passwordMatch: 'false'})
+      setTimeout(() => this.setState({passwordMatch: ''}), 2000)
+    }
+  }
+
   onSignUp() {
     const data = {
       fullname: this.fullname._lastNativeText,
-      confirmPassword: this.confirmPassword._lastNativeText,
       email: this.email._lastNativeText,
       password: this.password._lastNativeText,
       username: this.username._lastNativeText
     }
 
-    this.props.validateFields(data)
+    if (this.state.passwordMatch === 'true' && (!Object.values(data).includes(undefined))) {
+      const fullnameArray = this.fullname._lastNativeText.split(' ')
+      const userData = {
+        firstName: fullnameArray[0],
+        lastName: fullnameArray[1],
+        email: this.email._lastNativeText,
+        password: this.password._lastNativeText,
+        username: this.username._lastNativeText,
+        roleId: 2
+      }
+
+      this.props.signUpRequest(userData)
+    } else {
+      this.setState({passwordMatch: 'false'})
+      setTimeout(() => this.setState({passwordMatch: ''}), 2000)
+    }
   }
+
   render() {
     const backAnimatedStyle = {
       transform: [
         { rotateY: this.props.backInterpolate }
       ]
     }
+    const signUpFail = !this.props.user.signingUp && (this.props.user.message === 'Inalid Email' || this.props.user.message === 'User already exists')
 
     return (
       <Animated.View style={[loginStyles.loginContainer, loginStyles.sigupContainer, backAnimatedStyle, {opacity: this.props.backOpacity}]}>
@@ -48,10 +76,16 @@ class SignUp extends Component {
             <Text style={loginStyles.label}>PASSWORD</Text>
             <TextInput ref={ref => this.password = ref} autoCapitalize='none' secureTextEntry style={loginStyles.input} />
             <Text style={loginStyles.label}>CONFIRM PASSWORD</Text>
-            <TextInput ref={ref => this.confirmPassword = ref} autoCapitalize='none' secureTextEntry style={loginStyles.input} />
+            <TextInput onEndEditing={this.confirmPassword} autoCapitalize='none' secureTextEntry style={loginStyles.input} />
             <TouchableHighlight onPress={this.onSignUp} style={loginStyles.button}>
+            {
+              this.props.user.signingUp ?
+              <ActivityIndicator color='#01f0b3' size='large' animating={this.props.user.signingUp} /> :
               <Text style={loginStyles.buttonText}>Create</Text>
+            }
             </TouchableHighlight>
+            {this.state.passwordMatch === 'false' && <Text style={loginStyles.error}>Your password do not match</Text>}
+            {signUpFail && <Text style={loginStyles.error}>{this.props.user.message}</Text>}
           </View>
           <View style={loginStyles.infoContainer}>
             <Text style={loginStyles.infoText}>ALREADY HAVE AN ACCOUNT?</Text>
@@ -75,4 +109,4 @@ const mapStateToProps = state => ({
   user: state.user
 })
 
-export default connect(mapStateToProps, {validateFields})(SignUp)
+export default connect(mapStateToProps, {validateFields, signUpRequest})(SignUp)
