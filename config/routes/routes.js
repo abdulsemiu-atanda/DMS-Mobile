@@ -2,6 +2,7 @@ import {StackNavigator} from 'react-navigation'
 
 import Auth from '../../components/Auth.react'
 import Home from '../../components/Home.react'
+import AppHeader from '../../components/shared/AppHeader.react'
 
 const AppNavigator = StackNavigator({
   Auth: {
@@ -13,7 +14,7 @@ const AppNavigator = StackNavigator({
   Home: {
     screen: Home,
     navigationOptions: {
-      title: 'DMS'
+      header: AppHeader
     }
   }
 })

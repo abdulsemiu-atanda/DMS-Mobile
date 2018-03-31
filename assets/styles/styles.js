@@ -1,4 +1,4 @@
-import {StyleSheet, Dimensions} from 'react-native'
+import {StyleSheet, Dimensions, Platform} from 'react-native'
 
 const {width, height} = Dimensions.get('window')
 
@@ -99,5 +99,27 @@ export const loginStyles = StyleSheet.create({
     fontSize: 15,
     color: '#f7f7f7',
     textAlign: 'center'
+  }
+})
+
+export const headerStyles = StyleSheet.create({
+  container: {
+    backgroundColor: '#ffe4e1',
+    height: (height * 0.07),
+    flexDirection: 'row',
+    width,
+    justifyContent: 'space-between'
+  },
+  iconContainer: {
+    flexDirection: 'row'
+  },
+  icon: {
+    marginTop: 15,
+    marginRight: 15
+  },
+  title: {
+    fontWeight: '600',
+    marginTop: 20,
+    marginLeft: 20
   }
 })
