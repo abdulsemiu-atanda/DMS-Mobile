@@ -12,7 +12,16 @@ class LogIn extends Component {
   constructor() {
     super()
 
+
+    this.state = {navigationComplete: false}
     this.onLogIn = this.onLogIn.bind(this)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (!nextProps.user.logingIn && !this.state.navigationComplete && nextProps.user.token) {
+      this.props.goToHome()
+      this.setState({navigationComplete: true})
+    }
   }
   
   onLogIn() {
@@ -72,6 +81,7 @@ LogIn.propTypes = {
   frontOpacity: PropTypes.object,
   frontInterpolate: PropTypes.object,
   flipCard: PropTypes.func,
+  goToHome: PropTypes.func,
   user: PropTypes.shape({
     logingIn: PropTypes.bool,
     message: PropTypes.string

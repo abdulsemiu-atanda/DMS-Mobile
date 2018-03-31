@@ -15,6 +15,7 @@ export default class Auth extends Component {
 
     this.state = {showLogIn: true}
     this.flipCard = this.flipCard.bind(this)
+    this.goToHome = this.goToHome.bind(this)
   }
   componentWillMount() {
     this.animatedValue = new Animated.Value(0);
@@ -58,6 +59,10 @@ export default class Auth extends Component {
     })
   }
 
+  goToHome() {
+    this.props.navigation.navigate('Home')
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -67,13 +72,13 @@ export default class Auth extends Component {
             frontOpacity={this.frontOpacity}
             frontInterpolate={this.frontInterpolate}
             flipCard={this.flipCard}
-            navigation={this.props.navigation}
+            goToHome={this.goToHome}
           /> :
           <SignUp
             backOpacity={this.backOpacity}
             backInterpolate={this.backInterpolate}
             flipCard={this.flipCard}
-            navigation={this.props.navigation}
+            goToHome={this.goToHome}
           />
         }
       </View>
