@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Animated, ActivityIndicator, Text, View, TextInput, TouchableHighlight, TouchableOpacity} from 'react-native'
+import {Animated, ActivityIndicator, AsyncStorage, Text, View, TextInput, TouchableHighlight, TouchableOpacity} from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
@@ -19,7 +19,9 @@ class LogIn extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (!nextProps.user.logingIn && !this.state.navigationComplete && nextProps.user.token) {
-      this.props.goToHome()
+      AsyncStorage.setItem('token', nextProps.user.token).then(() => {
+        this.props.goToHome()
+      }).catch(err => console.warn(err))
       this.setState({navigationComplete: true})
     }
   }

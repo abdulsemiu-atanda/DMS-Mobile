@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {View} from 'react-native'
+import {View, AsyncStorage} from 'react-native'
 
 export default class Home extends Component {
   render() {

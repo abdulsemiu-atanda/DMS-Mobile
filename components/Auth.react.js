@@ -17,6 +17,7 @@ export default class Auth extends Component {
     this.flipCard = this.flipCard.bind(this)
     this.goToHome = this.goToHome.bind(this)
   }
+
   componentWillMount() {
     this.animatedValue = new Animated.Value(0);
     this.value = 0;
