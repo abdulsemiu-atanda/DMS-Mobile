@@ -7,7 +7,7 @@ import {
   SIGN_UP_ERROR
 } from '../actionTypes/userConstants'
 
-const initialState = {token: null, signingUp: false, logingIn: false, error: {}, signupError: false, loginError: false}
+const initialState = {accessToken: null, token: null, signingUp: false, logingIn: false, error: {}, signupError: false, loginError: false}
 
 const userReducer = (state=initialState, action) => {
   switch(action.type) {
@@ -16,7 +16,7 @@ const userReducer = (state=initialState, action) => {
     case LOG_IN_LOADING:
       return {...state, logingIn: action.data}
     case LOG_IN_SUCCESS:
-      return {...state, logingIn: false, signingUp: false, signupError: false, loginError: false, token: action.data.token, message: action.data.message}
+      return {...state, accessToken: action.data.refreshToken, logingIn: false, signingUp: false, signupError: false, loginError: false, token: action.data.token, message: action.data.message}
     case SIGN_UP_ERROR:
       return {...state, signupError: action.data.error.status, error: {signUp: action.data.error}}
     case SIGN_UP_LOADING:

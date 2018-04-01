@@ -104,7 +104,7 @@ export const loginStyles = StyleSheet.create({
 
 export const headerStyles = StyleSheet.create({
   container: {
-    backgroundColor: '#ffe4e1',
+    backgroundColor: '#f7f7f7',
     height: (height * 0.07),
     flexDirection: 'row',
     width,

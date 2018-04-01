@@ -19,7 +19,9 @@ class LogIn extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (!nextProps.user.logingIn && !this.state.navigationComplete && nextProps.user.token) {
-      AsyncStorage.setItem('token', nextProps.user.token).then(() => {
+      const tokenObject = {token: nextProps.user.token, accessToken: nextProps.user.accessToken}
+
+      AsyncStorage.setItem('token', JSON.stringify(tokenObject)).then(() => {
         this.props.goToHome()
       }).catch(err => console.warn(err))
       this.setState({navigationComplete: true})
