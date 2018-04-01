@@ -9,10 +9,10 @@ const AppHeader = props => (
     <Text style={headerStyles.title}>DMS</Text>
     <View style={headerStyles.iconContainer}>
       <TouchableOpacity>
-        <Icon name='ios-search' size={25} color='#01f0b3' style={headerStyles.icon} />
+        <Icon name='ios-search' size={25} color='#0983ff' style={headerStyles.icon} />
       </TouchableOpacity>
       <TouchableOpacity>
-        <Icon name={Platform.OS === 'ios' ? 'ios-more' : 'md-more'} size={30} color='#01f0b3' style={headerStyles.icon} />
+        <Icon name={Platform.OS === 'ios' ? 'ios-more' : 'md-more'} size={30} color='#0983ff' style={headerStyles.icon} />
       </TouchableOpacity>
     </View>
   </View>
