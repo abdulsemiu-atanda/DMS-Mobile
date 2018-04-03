@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import {View, AsyncStorage} from 'react-native'
+import {connect} from 'react-redux'
 
-export default class Home extends Component {
+class Home extends Component {
   async componentWillMount() {
     const tokens = await AsyncStorage.getItem('token')
 
@@ -13,3 +14,9 @@ export default class Home extends Component {
     )
   }
 }
+
+const mapStateToProps = state => ({
+  documents: state.document
+})
+
+export default connect(mapStateToProps)(Home)
