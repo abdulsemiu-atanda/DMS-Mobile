@@ -6,6 +6,7 @@ import Auth from '../../components/Auth.react'
 import AuthLoading from '../../components/AuthLoading.react'
 import Home from '../../components/Home.react'
 import AppHeader from '../../components/shared/AppHeader.react'
+import colors from '../../assets/styles/colors'
 
 const AuthStack = StackNavigator({
   SignIn: {
@@ -34,7 +35,7 @@ const HomeTabs = TabNavigator({
 }, {
   swipeEnabled: true,
   tabBarOptions: {
-    activeTintColor: '#0983ff',
+    activeTintColor: colors.blue,
     labelStyle: {
       fontSize: 15
     }

@@ -3,6 +3,7 @@ import {View, Text, TouchableOpacity, Platform} from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 
 import {headerStyles} from '../../assets/styles/styles'
+import colors from '../../assets/styles/colors'
 
 const AppHeader = props => (
   <View style={headerStyles.container}>
@@ -12,7 +13,7 @@ const AppHeader = props => (
         <Icon name='ios-search' size={25} color='#0983ff' style={headerStyles.icon} />
       </TouchableOpacity>
       <TouchableOpacity>
-        <Icon name={Platform.OS === 'ios' ? 'ios-more' : 'md-more'} size={30} color='#0983ff' style={headerStyles.icon} />
+        <Icon name={Platform.OS === 'ios' ? 'ios-more' : 'md-more'} size={30} color={colors.blue} style={headerStyles.icon} />
       </TouchableOpacity>
     </View>
   </View>

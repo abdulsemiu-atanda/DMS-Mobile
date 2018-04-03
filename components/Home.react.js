@@ -1,6 +1,9 @@
 import React, {Component} from 'react'
 import {View, AsyncStorage} from 'react-native'
 import {connect} from 'react-redux'
+import PropTypes from 'prop-types'
+
+import EmptyDocument from './shared/EmptyDocument.react'
 
 class Home extends Component {
   async componentWillMount() {
@@ -9,6 +12,10 @@ class Home extends Component {
     console.log(JSON.parse(tokens))
   }
   render() {
+    const {documents, documentLoading} = this.props.document
+
+    if (!documentLoading && !documents.length)
+      return <EmptyDocument screen={this.props.navigation.state.routeName} />
     return (
       <View />
     )
@@ -16,7 +23,14 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => ({
-  documents: state.document
+  document: state.document
 })
+
+Home.propTypes = {
+  document: PropTypes.shape({
+    documentLoading: PropTypes.bool,
+    documents: PropTypes.arrayOf(PropTypes.object)
+  })
+}
 
 export default connect(mapStateToProps)(Home)

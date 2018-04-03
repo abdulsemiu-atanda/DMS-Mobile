@@ -1,11 +1,13 @@
 import {StyleSheet, Dimensions, Platform} from 'react-native'
 
+import colors from './colors'
+
 const {width, height} = Dimensions.get('window')
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F7F7F7',
+    backgroundColor: colors.white,
   },
   welcome: {
     fontSize: 20,
@@ -21,21 +23,21 @@ export const styles = StyleSheet.create({
 
 export const loginStyles = StyleSheet.create({
   button: {
-    backgroundColor: '#0983ff',
+    backgroundColor: colors.blue,
     height: 40,
     alignItems: 'center',
     marginTop: 20,
     padding: 7
   },
   buttonText: {
-    color: '#aacfff',
+    color: colors.darkBlue,
     fontSize: 18
   },
   form: {
     padding: 30
   },
   input: {
-    borderBottomColor: '#bbb',
+    borderBottomColor: colors.grey,
     borderBottomWidth: 1,
     marginTop: 10,
     marginBottom: 10
@@ -46,7 +48,7 @@ export const loginStyles = StyleSheet.create({
   },
   logoContainer: {
     flex: 3,
-    backgroundColor: '#01f0b3',
+    backgroundColor: colors.lightGreen,
     justifyContent: 'center'
   },
   loginContainer: {
@@ -97,14 +99,14 @@ export const loginStyles = StyleSheet.create({
   },
   phrase: {
     fontSize: 15,
-    color: '#f7f7f7',
+    color: colors.white,
     textAlign: 'center'
   }
 })
 
 export const headerStyles = StyleSheet.create({
   container: {
-    backgroundColor: '#f7f7f7',
+    backgroundColor: colors.white,
     height: (height * 0.07),
     flexDirection: 'row',
     width,
@@ -121,5 +123,30 @@ export const headerStyles = StyleSheet.create({
     fontWeight: '600',
     marginTop: 20,
     marginLeft: 20
+  }
+})
+
+export const emptyDocumentStyles = StyleSheet.create({
+  button: {
+    alignContent: 'center',
+    alignSelf: 'center',
+    backgroundColor: colors.blue,
+    padding: 7,
+    width: (width * 0.4)
+  },
+  buttonText: {
+    color: colors.darkBlue,
+    fontSize: 15,
+    textAlign: 'center'
+  },
+  container: {
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'center'
+  },
+  instructions: {
+    fontFamily: 'Verdana',
+    textAlign: 'center',
+    marginBottom: 20
   }
 })
