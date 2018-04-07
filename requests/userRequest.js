@@ -5,7 +5,10 @@ import {
   logInLoading,
   signUpError,
   signUpLoading,
-  signUpSuccess
+  signUpSuccess,
+  refreshingToken,
+  refreshingTokenError,
+  tokenRefreshed
 } from '../actions/userActions'
 import {documentLoading, documentLoadingError, documentLoadingSuccess} from '../actions/documentActions'
 
@@ -47,3 +50,14 @@ export const fetchDocRequest = token => {
   }
 }
 
+export const refreshToken = ({accessToken, token}) => {
+  return dispatch => {
+    dispatch(refreshingToken(true))
+    sendRequest(`user/${accessToken}`, 'GET', null, token)
+    .then(res => res.json())
+    .then(res => {
+      dispatch(tokenRefreshed(res))
+      dispatch(refreshingToken(false))
+    }).catch(err => dispatch(refreshingTokenError(true, err)))
+  }
+}

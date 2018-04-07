@@ -5,12 +5,21 @@ import PropTypes from 'prop-types'
 
 import EmptyDocument from './shared/EmptyDocument.react'
 
+import {fetchDocRequest, refreshToken} from '../requests/userRequest'
+import {isTokenExpired} from '../util/util'
+
 class Home extends Component {
+
   async componentWillMount() {
     const tokens = await AsyncStorage.getItem('token')
+    const tokensObject = JSON.parse(tokens)
 
-    console.log(JSON.parse(tokens))
+    if (isTokenExpired(tokensObject.token))
+      this.props.refreshToken(tokensObject)
+    else
+      this.props.fetchDocRequest(tokensObject.token)
   }
+
   render() {
     const {documents, documentLoading} = this.props.document
 
@@ -33,4 +42,4 @@ Home.propTypes = {
   })
 }
 
-export default connect(mapStateToProps)(Home)
+export default connect(mapStateToProps, {fetchDocRequest, refreshToken})(Home)

@@ -4,10 +4,24 @@ import {
   LOG_IN_SUCCESS,
   SIGN_UP_LOADING,
   SIGN_UP_SUCCESS,
-  SIGN_UP_ERROR
+  SIGN_UP_ERROR,
+  REFRESHING_TOKEN,
+  REFRESHING_TOKEN_ERROR,
+  TOKEN_REFRESHED
 } from '../actionTypes/userConstants'
 
-const initialState = {accessToken: null, token: null, signingUp: false, logingIn: false, error: {}, signupError: false, loginError: false}
+const initialState = {
+  accessToken: null,
+  token: null,
+  signingUp: false,
+  logingIn: false,
+  error: {},
+  signupError: false,
+  loginError: false,
+  refreshingToken: false,
+  refreshingTokenError: false,
+  tokenError: {}
+}
 
 const userReducer = (state=initialState, action) => {
   switch(action.type) {
@@ -23,6 +37,12 @@ const userReducer = (state=initialState, action) => {
       return {...state, signingUp: action.data}
     case SIGN_UP_SUCCESS:
       return {...state, logingIn: false, signingUp: false, signupError: false, loginError: false, token: action.data.token, message: action.data.message}
+    case REFRESHING_TOKEN:
+      return {...state, refreshingToken: action.data}
+    case REFRESHING_TOKEN_ERROR:
+      return {...state, refreshingTokenError: action.data.status, token: action.data.error}
+    case TOKEN_REFRESHED:
+      return {...state, token: action.data.token, accessToken: action.data.refreshToken}
     default:
       return state
   }

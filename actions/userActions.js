@@ -4,7 +4,10 @@ import {
   LOG_IN_SUCCESS,
   SIGN_UP_LOADING,
   SIGN_UP_SUCCESS,
-  SIGN_UP_ERROR
+  SIGN_UP_ERROR,
+  REFRESHING_TOKEN,
+  REFRESHING_TOKEN_ERROR,
+  TOKEN_REFRESHED
 } from '../actionTypes/userConstants'
 
 export const signUpLoading = bool => ({
@@ -35,4 +38,19 @@ export const logInSuccess = data => ({
 export const logInError = (error, bool) => ({
   type: LOG_IN_ERROR,
   data: {error, status: bool}
+})
+
+export const refreshingToken = bool => ({
+  type: REFRESHING_TOKEN,
+  data: bool
+})
+
+export const refreshingTokenError = (bool, error) => ({
+  type: REFRESHING_TOKEN_ERROR,
+  data: {error, status: bool}
+})
+
+export const tokenRefreshed = data => ({
+  type: TOKEN_REFRESHED,
+  data
 })
