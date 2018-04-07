@@ -7,6 +7,7 @@ import {
   signUpLoading,
   signUpSuccess
 } from '../actions/userActions'
+import {documentLoading, documentLoadingError, documentLoadingSuccess} from '../actions/documentActions'
 
 export const signUpRequest = data => {
   return dispatch => {
@@ -31,6 +32,18 @@ export const logInRequest = data => {
       dispatch(logInLoading(false))
     })
     .catch(err => dispatch(logInError(err, true)))
+  }
+}
+
+export const fetchDocRequest = token => {
+  return dispatch => {
+    dispatch(documentLoading(true))
+    sendRequest('document', 'GET', null, token)
+    .then(res => res.json())
+    .then(res => {
+      dispatch(documentLoadingSuccess(res))
+      dispatch(documentLoading(false))
+    }).catch(err => dispatch(documentLoadingError(true, err)))
   }
 }
 

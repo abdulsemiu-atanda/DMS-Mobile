@@ -1,3 +1,4 @@
+import jwt from 'jwt-decode'
 import {
   emailCorrect,
   fullnameCorrect,
@@ -22,4 +23,10 @@ export const validateFields = data => {
       }
     })
   }
+}
+
+export const isTokenExpired = token => {
+  const decoded = jwt(token)
+
+  return decoded.exp < Date.now() / 1000
 }
