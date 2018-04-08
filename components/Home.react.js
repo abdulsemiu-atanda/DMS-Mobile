@@ -1,15 +1,15 @@
 import React, {Component} from 'react'
-import {View, AsyncStorage} from 'react-native'
+import {View, AsyncStorage, ActivityIndicator} from 'react-native'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 
 import EmptyDocument from './shared/EmptyDocument.react'
+import DocumentList from './shared/DocumentList.react'
 
 import {fetchDocRequest, refreshToken} from '../requests/userRequest'
 import {isTokenExpired} from '../util/util'
 
 class Home extends Component {
-
   async componentWillMount() {
     const tokens = await AsyncStorage.getItem('token')
     const tokensObject = JSON.parse(tokens)
@@ -23,11 +23,14 @@ class Home extends Component {
   render() {
     const {documents, documentLoading} = this.props.document
 
-    if (!documentLoading && !documents.length)
+    if (documentLoading)
+      return <ActivityIndicator size='large' color='blue' animating={documentLoading} />
+    else if (!documentLoading && !documents.length)
       return <EmptyDocument screen={this.props.navigation.state.routeName} />
-    return (
-      <View />
-    )
+    else
+      return (
+        <DocumentList screen={this.props.navigation.state.routeName} documents={documents} />
+      )
   }
 }
 

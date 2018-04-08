@@ -1,6 +1,7 @@
 import {
   DOCUMENTS_LOADING,
-  DOCUMENTS_LOADING_ERROR,DOCUMENTS_LOADING_SUCCESS
+  DOCUMENTS_LOADING_ERROR,
+  DOCUMENTS_LOADING_SUCCESS
 } from '../actionTypes/documentConstants'
 
 export const documentLoading = bool => ({

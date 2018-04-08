@@ -150,3 +150,33 @@ export const emptyDocumentStyles = StyleSheet.create({
     marginBottom: 20
   }
 })
+
+export const documentListStyles = StyleSheet.create({
+  container: {
+    borderRadius: 5,
+    width,
+    padding: 7,
+  },
+  content: {
+    backgroundColor: colors.white,
+    height: (height * 0.2),
+    padding: 10
+  },
+  contentText: {
+    marginBottom: (height * 0.08)
+  },
+  hr: {
+    borderBottomColor: colors.grey,
+    borderBottomWidth: 1,
+    marginBottom: 2
+  },
+  title: {
+    fontWeight: '700',
+    fontSize: 15,
+    marginBottom: 2
+  },
+  footer: {
+    color: colors.grey,
+    fontSize: 10
+  }
+})
