@@ -7,7 +7,10 @@ import {
   SIGN_UP_ERROR,
   REFRESHING_TOKEN,
   REFRESHING_TOKEN_ERROR,
-  TOKEN_REFRESHED
+  TOKEN_REFRESHED,
+  LOADING_USER_DOCUMENTS,
+  LOADING_USER_DOCUMENTS_ERROR,
+  USER_DOCUMENTS
 } from '../actionTypes/userConstants'
 
 const initialState = {
@@ -20,7 +23,11 @@ const initialState = {
   loginError: false,
   refreshingToken: false,
   refreshingTokenError: false,
-  tokenError: {}
+  tokenError: {},
+  loadingDocuments: false,
+  loadingDocumentsError: false,
+  documentError: {},
+  documents: []
 }
 
 const userReducer = (state=initialState, action) => {
@@ -43,6 +50,12 @@ const userReducer = (state=initialState, action) => {
       return {...state, refreshingTokenError: action.data.status, token: action.data.error}
     case TOKEN_REFRESHED:
       return {...state, token: action.data.token, accessToken: action.data.refreshToken}
+    case LOADING_USER_DOCUMENTS:
+      return {...state, loadingDocuments: action.data}
+    case LOADING_USER_DOCUMENTS_ERROR:
+      return {...state, loadingDocumentsError: action.data.status, documentError: action.data.error}
+    case USER_DOCUMENTS:
+      return {...state, documents: action.data}
     default:
       return state
   }

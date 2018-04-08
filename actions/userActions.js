@@ -7,7 +7,10 @@ import {
   SIGN_UP_ERROR,
   REFRESHING_TOKEN,
   REFRESHING_TOKEN_ERROR,
-  TOKEN_REFRESHED
+  TOKEN_REFRESHED,
+  LOADING_USER_DOCUMENTS,
+  LOADING_USER_DOCUMENTS_ERROR,
+  USER_DOCUMENTS
 } from '../actionTypes/userConstants'
 
 export const signUpLoading = bool => ({
@@ -52,5 +55,20 @@ export const refreshingTokenError = (bool, error) => ({
 
 export const tokenRefreshed = data => ({
   type: TOKEN_REFRESHED,
+  data
+})
+
+export const loadingUserDocuments = bool => ({
+  type: LOADING_USER_DOCUMENTS,
+  data: bool
+})
+
+export const loadingUserDocumentsError = (bool, error) => ({
+  type: LOADING_USER_DOCUMENTS_ERROR,
+  data: {error, status: bool}
+})
+
+export const userDocuments = data => ({
+  type: USER_DOCUMENTS,
   data
 })

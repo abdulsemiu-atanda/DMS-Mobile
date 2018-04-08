@@ -1,3 +1,5 @@
+import jwt from 'jwt-decode'
+
 import sendRequest, {createRequest} from './requestUtil'
 import {
   logInError,
@@ -8,7 +10,10 @@ import {
   signUpSuccess,
   refreshingToken,
   refreshingTokenError,
-  tokenRefreshed
+  tokenRefreshed,
+  loadingUserDocuments,
+  loadingUserDocumentsError,
+  userDocuments
 } from '../actions/userActions'
 import {documentLoading, documentLoadingError, documentLoadingSuccess} from '../actions/documentActions'
 
@@ -59,5 +64,19 @@ export const refreshToken = ({accessToken, token}) => {
       dispatch(tokenRefreshed(res))
       dispatch(refreshingToken(false))
     }).catch(err => dispatch(refreshingTokenError(true, err)))
+  }
+}
+
+export const fetchUserDocRequest = token => {
+  const decoded = jwt(token)
+
+  return dispatch => {
+    dispatch(loadingUserDocuments(true))
+    sendRequest(`user/${decoded.id}/document`, 'GET', null, token)
+    .then(res => res.json())
+    .then(res => {
+      dispatch(userDocuments(res))
+      dispatch(loadingUserDocuments(false))
+    }).catch(err => dispatch(loadingUserDocumentsError(true, err)))
   }
 }

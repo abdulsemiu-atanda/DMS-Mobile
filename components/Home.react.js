@@ -6,10 +6,16 @@ import PropTypes from 'prop-types'
 import EmptyDocument from './shared/EmptyDocument.react'
 import DocumentList from './shared/DocumentList.react'
 
-import {fetchDocRequest, refreshToken} from '../requests/userRequest'
+import {fetchDocRequest, fetchUserDocRequest, refreshToken} from '../requests/userRequest'
 import {isTokenExpired} from '../util/util'
 
 class Home extends Component {
+  constructor() {
+    super()
+
+    this.doucmentListProps = this.doucmentListProps.bind(this)
+  }
+
   async componentWillMount() {
     const tokens = await AsyncStorage.getItem('token')
     const tokensObject = JSON.parse(tokens)
@@ -18,6 +24,10 @@ class Home extends Component {
       this.props.refreshToken(tokensObject)
     else
       this.props.fetchDocRequest(tokensObject.token)
+  }
+
+  doucmentListProps() {
+    return this.props.navigation.state.routeName === 'All' ? this.props.document.documents : []
   }
 
   render() {
@@ -29,13 +39,14 @@ class Home extends Component {
       return <EmptyDocument screen={this.props.navigation.state.routeName} />
     else
       return (
-        <DocumentList screen={this.props.navigation.state.routeName} documents={documents} />
+        <DocumentList screen={this.props.navigation.state.routeName} documents={this.doucmentListProps()} />
       )
   }
 }
 
 const mapStateToProps = state => ({
-  document: state.document
+  document: state.document,
+  user: state.user
 })
 
 Home.propTypes = {
@@ -45,4 +56,11 @@ Home.propTypes = {
   })
 }
 
-export default connect(mapStateToProps, {fetchDocRequest, refreshToken})(Home)
+export default connect(
+  mapStateToProps,
+  {
+    fetchDocRequest,
+    fetchUserDocRequest,
+    refreshToken
+  }
+  )(Home)
