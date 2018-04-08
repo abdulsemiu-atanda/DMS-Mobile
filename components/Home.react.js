@@ -1,19 +1,22 @@
 import React, {Component} from 'react'
-import {View, AsyncStorage, ActivityIndicator} from 'react-native'
+import {View, AsyncStorage, ActivityIndicator, TouchableHighlight, Platform} from 'react-native'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
+import Icon from 'react-native-vector-icons/Ionicons'
 
 import EmptyDocument from './shared/EmptyDocument.react'
 import DocumentList from './shared/DocumentList.react'
 
 import {fetchDocRequest, fetchUserDocRequest, refreshToken} from '../requests/userRequest'
 import {isTokenExpired} from '../util/util'
+import color from '../assets/styles/colors'
+import {homeStyles} from '../assets/styles/styles'
 
 class Home extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
-    this.state = {tokens: {}, hasRequestUserDocuments: false, loading: true}
+    this.state = {tokens: {}, hasRequestUserDocuments: false, loading: (props.user.documents.length < 1)}
     this.documentListProps = this.documentListProps.bind(this)
   }
 
@@ -52,12 +55,17 @@ class Home extends Component {
     const {routeName} = this.props.navigation.state
 
     if (this.state.loading || documentLoading || (routeName !== 'All' && this.props.user.loadingDocuments))
-      return <ActivityIndicator size='large' color='blue' animating={documentLoading} />
+      return <ActivityIndicator size='large' color='blue' animating={this.state.loading || documentLoading || (routeName !== 'All' && this.props.user.loadingDocuments)} />
     else if (!documentLoading && !documents.length)
       return <EmptyDocument screen={routeName} />
     else
       return (
-        <DocumentList screen={routeName} documents={this.documentListProps()} />
+        <View style={homeStyles.container}>
+          <DocumentList screen={routeName} documents={this.documentListProps()} />
+          <TouchableHighlight style={homeStyles.button}>
+            <Icon style={homeStyles.buttonIcon} name={Platform.OS === 'ios' ? 'ios-add' : 'md-add'} size={30} color={color.darkBlue} />
+          </TouchableHighlight>
+        </View>
       )
   }
 }

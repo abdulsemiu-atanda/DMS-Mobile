@@ -3,6 +3,7 @@
 import React, {Component} from 'react'
 import {Animated, View} from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
+import PropTypes from 'prop-types'
 
 import LogIn from './LogIn.react'
 import SignUp from './SignUp.react'
@@ -85,4 +86,10 @@ export default class Auth extends Component {
       </View>
     );
   }
+}
+
+Auth.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func
+  })
 }

@@ -155,7 +155,6 @@ export const documentListStyles = StyleSheet.create({
   container: {
     borderRadius: 5,
     width,
-    padding: 7,
   },
   content: {
     backgroundColor: colors.white,
@@ -165,10 +164,39 @@ export const documentListStyles = StyleSheet.create({
   contentText: {
     marginBottom: (height * 0.08)
   },
+  collection: {
+    borderBottomColor: colors.grey,
+    borderBottomWidth: 1,
+  },
+  collectionView: {
+    height: (height * 0.08),
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    width,
+    padding: 10
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width,
+    padding: 10
+  },
+  headerHr: {
+    width: (width * 0.8),
+    marginBottom: 8
+  },
+  headerText: {
+    fontSize: 12
+  },
   hr: {
     borderBottomColor: colors.grey,
     borderBottomWidth: 1,
     marginBottom: 2
+  },
+  rootNode: {
+    flex: 1,
+    fontFamily: 'Verdana',
+    padding: 7
   },
   title: {
     fontWeight: '700',
@@ -178,5 +206,24 @@ export const documentListStyles = StyleSheet.create({
   footer: {
     color: colors.grey,
     fontSize: 10
+  }
+})
+
+export const homeStyles = StyleSheet.create({
+  button: {
+    backgroundColor: colors.blue,
+    position: 'absolute',
+    top: (height * 0.8),
+    left: (width * 0.88),
+    width: (width * 0.09),
+    borderRadius: 20,
+    justifyContent: 'center'
+  },
+  buttonIcon: {
+    alignSelf: 'center'
+  },
+  container: {
+    backgroundColor: colors.whitish,
+    flex: 1
   }
 })

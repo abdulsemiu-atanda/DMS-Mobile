@@ -30,3 +30,5 @@ export const isTokenExpired = token => {
 
   return decoded.exp < Date.now() / 1000
 }
+
+export const ucFirst = string => `${string.charAt(0).toUpperCase()}${string.slice(1)}`
