@@ -1,9 +1,11 @@
+import settings from '../private/data/settings.json'
+
 const constructBody = (method, data) => {
   return method === 'POST' || method === 'PUT' ? {body: JSON.stringify(data)} : {}
 }
 
 const sendRequest = (url, method, data, authToken) => {
-  const requestUrl = `https://docman-api.herokuapp.com/api/${url}`
+  const requestUrl = `${settings.baseUrl}${url}`
 
   return fetch(requestUrl, {
     method,
