@@ -14,10 +14,10 @@ class Home extends Component {
     super()
 
     this.state = {tokens: {}, hasRequestUserDocuments: false}
-    this.doucmentListProps = this.doucmentListProps.bind(this)
+    this.documentListProps = this.documentListProps.bind(this)
   }
 
-  async componentWillMount() {
+  async componentDidMount() {
     const tokens = await AsyncStorage.getItem('token')
     const tokensObject = JSON.parse(tokens)
 
@@ -28,14 +28,15 @@ class Home extends Component {
     this.setState({tokens: tokensObject})
   }
   
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.document.documents.length > 0 && !this.state.hasRequestUserDocuments) {
-      this.props.fetchUserDocRequest(this.state.tokens.token)
-      this.setState({hasRequestUserDocuments: true})
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.document.documents.length > 0 && nextProps.user.documents.length < 1 && !prevState.hasRequestUserDocuments) {
+      nextProps.fetchUserDocRequest(prevState.tokens.token)
+      return {hasRequestUserDocuments: true}
     }
+    return null
   }
 
-  doucmentListProps() {
+  documentListProps() {
     const homeDocuments = this.props.document.documents.filter(document => document.access !== 'private')
 
     if (this.props.navigation.state.routeName === 'All')
@@ -56,7 +57,7 @@ class Home extends Component {
       return <EmptyDocument screen={routeName} />
     else
       return (
-        <DocumentList screen={routeName} documents={this.doucmentListProps()} />
+        <DocumentList screen={routeName} documents={this.documentListProps()} />
       )
   }
 }

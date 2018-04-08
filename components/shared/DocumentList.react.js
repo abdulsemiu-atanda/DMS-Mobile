@@ -12,15 +12,20 @@ class DocumentList extends Component {
 
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
 
-    this.state = {dataSource: ds.cloneWithRows(props.documents)}
+    this.state = {dataSource: ds.cloneWithRows(props.documents), documents: props.documents}
 
     this.renderRow = this.renderRow.bind(this)
   }
 
-  componentWillReceiveProps(nextProps) {
+  static getDerivedStateFromProps(nextProps, prevState) {
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
 
-    this.setState({dataSource: ds.cloneWithRows(nextProps.documents)})
+    if (nextProps.documents.length !== prevState.documents.length)
+      return {
+        dataSource: ds.cloneWithRows(nextProps.documents),
+        documents: nextProps.documents
+      }
+    return null
   }
 
   renderRow(document) {

@@ -17,15 +17,18 @@ class LogIn extends Component {
     this.onLogIn = this.onLogIn.bind(this)
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (!nextProps.user.logingIn && !this.state.navigationComplete && nextProps.user.token) {
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (!nextProps.user.logingIn && !prevState.navigationComplete && nextProps.user.token) {
       const tokenObject = {token: nextProps.user.token, accessToken: nextProps.user.accessToken}
 
       AsyncStorage.setItem('token', JSON.stringify(tokenObject)).then(() => {
-        this.props.goToHome()
+        nextProps.goToHome()
       }).catch(err => console.warn(err))
-      this.setState({navigationComplete: true})
+      return {
+        navigationComplete: true
+      }
     }
+    return null
   }
   
   onLogIn() {

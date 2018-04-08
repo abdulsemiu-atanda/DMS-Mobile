@@ -18,7 +18,7 @@ export default class Auth extends Component {
     this.goToHome = this.goToHome.bind(this)
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.animatedValue = new Animated.Value(0);
     this.value = 0;
     this.animatedValue.addListener(({ value }) => {

@@ -53,3 +53,5 @@ buck-out/
 */fastlane/screenshots
 
 private/data/settings.json
+# Bundle artifact
+*.jsbundle
