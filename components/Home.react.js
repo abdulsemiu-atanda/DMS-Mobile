@@ -13,6 +13,7 @@ class Home extends Component {
   constructor() {
     super()
 
+    this.state = {tokens: {}, hasRequestUserDocuments: false}
     this.doucmentListProps = this.doucmentListProps.bind(this)
   }
 
@@ -22,24 +23,38 @@ class Home extends Component {
 
     if (isTokenExpired(tokensObject.token))
       this.props.refreshToken(tokensObject)
-    else
+    else if (this.props.document.documents < 1)
       this.props.fetchDocRequest(tokensObject.token)
+    this.setState({tokens: tokensObject})
+  }
+  
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.document.documents.length > 0 && !this.state.hasRequestUserDocuments) {
+      this.props.fetchUserDocRequest(this.state.tokens.token)
+      this.setState({hasRequestUserDocuments: true})
+    }
   }
 
   doucmentListProps() {
-    return this.props.navigation.state.routeName === 'All' ? this.props.document.documents : []
+    if (this.props.navigation.state.routeName === 'All')
+      return this.props.document.documents
+    else if (this.props.navigation.state.routeName !== 'All' && !this.props.user.documents.message)
+      return this.props.user.documents
+    else
+      return []
   }
 
   render() {
     const {documents, documentLoading} = this.props.document
+    const {routeName} = this.props.navigation.state
 
-    if (documentLoading)
+    if (documentLoading || (routeName !== 'All' && this.props.user.loadingDocuments))
       return <ActivityIndicator size='large' color='blue' animating={documentLoading} />
     else if (!documentLoading && !documents.length)
-      return <EmptyDocument screen={this.props.navigation.state.routeName} />
+      return <EmptyDocument screen={routeName} />
     else
       return (
-        <DocumentList screen={this.props.navigation.state.routeName} documents={this.doucmentListProps()} />
+        <DocumentList screen={routeName} documents={this.doucmentListProps()} />
       )
   }
 }

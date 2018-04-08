@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {Text, TouchableOpacity, View, ListView} from 'react-native'
 import moment from 'moment'
 
+import EmptyDocument from './EmptyDocument.react'
 import {documentListStyles} from '../../assets/styles/styles'
 
 class DocumentList extends Component {
@@ -39,14 +40,17 @@ class DocumentList extends Component {
   }
 
   render() {
-    return (
-      <ListView
-        style={{backgroundColor: '#f7f7f7'}}
-        dataSource={this.state.dataSource}
-        renderRow={this.renderRow}
-        enableEmptySections={true}
-      />
-    )
+    if (this.props.documents.length > 0)
+      return (
+        <ListView
+          style={{backgroundColor: '#f7f7f7'}}
+          dataSource={this.state.dataSource}
+          renderRow={this.renderRow}
+          enableEmptySections={true}
+        />
+      )
+    else
+      return <EmptyDocument {...this.props} />
   }
 }
 
