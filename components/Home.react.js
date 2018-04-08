@@ -36,8 +36,10 @@ class Home extends Component {
   }
 
   doucmentListProps() {
+    const homeDocuments = this.props.document.documents.filter(document => document.access !== 'private')
+
     if (this.props.navigation.state.routeName === 'All')
-      return this.props.document.documents
+      return homeDocuments
     else if (this.props.navigation.state.routeName !== 'All' && !this.props.user.documents.message)
       return this.props.user.documents
     else
