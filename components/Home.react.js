@@ -13,7 +13,7 @@ class Home extends Component {
   constructor() {
     super()
 
-    this.state = {tokens: {}, hasRequestUserDocuments: false}
+    this.state = {tokens: {}, hasRequestUserDocuments: false, loading: true}
     this.documentListProps = this.documentListProps.bind(this)
   }
 
@@ -31,7 +31,7 @@ class Home extends Component {
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.document.documents.length > 0 && nextProps.user.documents.length < 1 && !prevState.hasRequestUserDocuments) {
       nextProps.fetchUserDocRequest(prevState.tokens.token)
-      return {hasRequestUserDocuments: true}
+      return {hasRequestUserDocuments: true, loading: false}
     }
     return null
   }
@@ -51,7 +51,7 @@ class Home extends Component {
     const {documents, documentLoading} = this.props.document
     const {routeName} = this.props.navigation.state
 
-    if (documentLoading || (routeName !== 'All' && this.props.user.loadingDocuments))
+    if (this.state.loading || documentLoading || (routeName !== 'All' && this.props.user.loadingDocuments))
       return <ActivityIndicator size='large' color='blue' animating={documentLoading} />
     else if (!documentLoading && !documents.length)
       return <EmptyDocument screen={routeName} />
