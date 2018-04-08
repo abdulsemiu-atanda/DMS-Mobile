@@ -92,7 +92,7 @@ Home.propTypes = {
     })
   }),
   user: PropTypes.shape({
-    documents: PropTypes.arrayOf(PropTypes.object) || PropTypes.object,
+    documents: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.object]),
     loadingDocuments: PropTypes.bool
   })
 }

@@ -8,7 +8,7 @@ import colors from '../../assets/styles/colors'
 
 const AppHeader = props => {
   const {routes} = props.navigation.state
-  const title = routes.length === 2 ? routes[1].params.documents[0].access.toUpperCase() : 'DMS'
+  const title = (routes.length === 2 && routes[1].params) ? routes[1].params.documents[0].access.toUpperCase() : 'DMS'
 
   return (
     <View style={headerStyles.container}>
