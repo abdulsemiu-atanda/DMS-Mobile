@@ -4,8 +4,10 @@ import Icon from 'react-native-vector-icons/Ionicons'
 
 import Auth from '../../components/Auth.react'
 import AuthLoading from '../../components/AuthLoading.react'
-import Home from '../../components/Home.react'
 import AppHeader from '../../components/shared/AppHeader.react'
+import DocumentList from '../../components/shared/DocumentList.react'
+import Home from '../../components/Home.react'
+
 import colors from '../../assets/styles/colors'
 
 const AuthStack = StackNavigator({
@@ -45,6 +47,12 @@ const HomeTabs = TabNavigator({
 const AppStack = StackNavigator({
   Home: {
     screen: HomeTabs,
+    navigationOptions: {
+      header: AppHeader
+    }
+  },
+  ViewDocuments: {
+    screen: DocumentList,
     navigationOptions: {
       header: AppHeader
     }

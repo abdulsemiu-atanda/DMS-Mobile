@@ -17,6 +17,8 @@ class Home extends Component {
     super(props)
 
     this.state = {tokens: {}, hasRequestUserDocuments: false, loading: (props.user.documents.length < 1)}
+
+    this.addDocument = this.addDocument.bind(this)
     this.documentListProps = this.documentListProps.bind(this)
   }
 
@@ -39,6 +41,10 @@ class Home extends Component {
     return null
   }
 
+  addDocument() {
+    console.log('Add Document')
+  }
+
   documentListProps() {
     const homeDocuments = this.props.document.documents.filter(document => document.access !== 'private')
 
@@ -57,12 +63,12 @@ class Home extends Component {
     if (this.state.loading || documentLoading || (routeName !== 'All' && this.props.user.loadingDocuments))
       return <ActivityIndicator size='large' color='blue' animating={this.state.loading || documentLoading || (routeName !== 'All' && this.props.user.loadingDocuments)} />
     else if (!documentLoading && !documents.length)
-      return <EmptyDocument screen={routeName} />
+      return <EmptyDocument addDocument={this.addDocument} screen={routeName} />
     else
       return (
         <View style={homeStyles.container}>
-          <DocumentList screen={routeName} documents={this.documentListProps()} />
-          <TouchableHighlight style={homeStyles.button}>
+          <DocumentList navigation={this.props.navigation} screen={routeName} documents={this.documentListProps()} />
+          <TouchableHighlight onPress={this.addDocument} style={homeStyles.button}>
             <Icon style={homeStyles.buttonIcon} name={Platform.OS === 'ios' ? 'ios-add' : 'md-add'} size={30} color={color.darkBlue} />
           </TouchableHighlight>
         </View>

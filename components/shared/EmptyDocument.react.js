@@ -14,13 +14,14 @@ const EmptyDocument = props => (
         'Oops! You have not added any document.'
       }
     </Text>
-    <TouchableHighlight style={emptyDocumentStyles.button}>
+    <TouchableHighlight onPress={props.addDocument} style={emptyDocumentStyles.button}>
       <Text style={emptyDocumentStyles.buttonText}>ADD DOCUMENT</Text>
     </TouchableHighlight>
   </View>
 )
 
 EmptyDocument.propTypes = {
+  addDocument: PropTypes.func,
   screen: PropTypes.string
 }
 

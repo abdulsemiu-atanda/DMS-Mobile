@@ -154,6 +154,7 @@ export const emptyDocumentStyles = StyleSheet.create({
 export const documentListStyles = StyleSheet.create({
   container: {
     borderRadius: 5,
+    marginBottom: 5,
     width,
   },
   content: {
@@ -186,7 +187,8 @@ export const documentListStyles = StyleSheet.create({
     marginBottom: 8
   },
   headerText: {
-    fontSize: 12
+    fontSize: 12,
+    fontFamily: 'Verdana'
   },
   hr: {
     borderBottomColor: colors.grey,
@@ -195,7 +197,6 @@ export const documentListStyles = StyleSheet.create({
   },
   rootNode: {
     flex: 1,
-    fontFamily: 'Verdana',
     padding: 7
   },
   title: {

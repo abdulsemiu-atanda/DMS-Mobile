@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 
 import EmptyDocument from './EmptyDocument.react'
 
+import colors from '../../assets/styles/colors'
 import {documentListStyles} from '../../assets/styles/styles'
 import {ucFirst} from '../../util/util'
 
@@ -14,9 +15,14 @@ class DocumentList extends Component {
   constructor(props) {
     super(props)
 
+    const {params, routeName} = props.navigation.state
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
 
-    this.state = {dataSource: ds.cloneWithRows(props.documents), documents: props.documents, access: ''}
+    this.state = {
+      dataSource: routeName === 'ViewDocuments' ? ds.cloneWithRows(params.documents) : ds.cloneWithRows(props.documents),
+      documents: props.documents,
+      access: ''
+    }
 
     this.renderRow = this.renderRow.bind(this)
   }
@@ -24,7 +30,7 @@ class DocumentList extends Component {
   static getDerivedStateFromProps(nextProps, prevState) {
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
 
-    if (nextProps.documents.length !== prevState.documents.length)
+    if (nextProps.documents && nextProps.documents.length !== prevState.documents.length)
       return {
         dataSource: ds.cloneWithRows(nextProps.documents),
         documents: nextProps.documents
@@ -32,21 +38,27 @@ class DocumentList extends Component {
     return null
   }
 
+  viewDocuments(access) {
+    const accessDocuments = this.props.documents.filter(document => document.access === access)
+
+    this.props.navigation.navigate('ViewDocuments', {documents: accessDocuments})
+  }
+
   renderRow(document) {
     const {content, createdAt, updatedAt, title, access} = document
-    const count = this.props.documents.filter(document => document.access === access).length
+    const count = this.props.documents && this.props.documents.filter(document => document.access === access).length
 
     if (this.props.screen === 'Collection' && this.previousValue !== access) {
       this.previousValue = access
       return (
         <View style={documentListStyles.collectionView}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => this.viewDocuments(access)}>
             <Text style={documentListStyles.headerText}>{ucFirst(access)} ({count})</Text>
           </TouchableOpacity>
           <View style={documentListStyles.hr} />
         </View>
       )
-    } else if (this.previousValue === access) return null
+    } else if (this.props.screen === 'Collection' && this.previousValue === access) return null
     return (
       <View style={documentListStyles.container}>
         <TouchableOpacity>
@@ -62,7 +74,9 @@ class DocumentList extends Component {
   }
 
   render() {
-    if (this.props.documents.length > 0)
+    const {params} = this.props.navigation.state
+
+    if ((params && params.documents.length) || this.props.documents.length > 0)
       return (
         <View style={documentListStyles.rootNode}>
           {this.props.screen === 'Collection' &&
@@ -72,7 +86,7 @@ class DocumentList extends Component {
             </View>
           }
           <ListView
-            style={{backgroundColor: '#f7f7f7'}}
+            style={{backgroundColor: colors.whitish}}
             dataSource={this.state.dataSource}
             renderRow={this.renderRow}
             enableEmptySections={true}
