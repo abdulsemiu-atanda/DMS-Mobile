@@ -70,6 +70,15 @@ Home.propTypes = {
   document: PropTypes.shape({
     documentLoading: PropTypes.bool,
     documents: PropTypes.arrayOf(PropTypes.object)
+  }),
+  navigation: PropTypes.shape({
+    state: PropTypes.shape({
+      routeName: PropTypes.string
+    })
+  }),
+  user: PropTypes.shape({
+    documents: PropTypes.arrayOf(PropTypes.object) || PropTypes.object,
+    loadingDocuments: PropTypes.bool
   })
 }
 

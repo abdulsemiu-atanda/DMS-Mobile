@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Text, TouchableOpacity, View, ListView} from 'react-native'
 import moment from 'moment'
+import PropTypes from 'prop-types'
 
 import EmptyDocument from './EmptyDocument.react'
 import {documentListStyles} from '../../assets/styles/styles'
@@ -52,6 +53,10 @@ class DocumentList extends Component {
     else
       return <EmptyDocument {...this.props} />
   }
+}
+
+DocumentList.propTypes = {
+  documents: PropTypes.arrayOf(PropTypes.object)
 }
 
 export default DocumentList
