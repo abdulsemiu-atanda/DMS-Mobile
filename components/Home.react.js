@@ -67,7 +67,7 @@ class Home extends Component {
     else
       return (
         <View style={homeStyles.container}>
-          <DocumentList navigation={this.props.navigation} screen={routeName} documents={this.documentListProps()} />
+          <DocumentList addDocument={this.addDocument} navigation={this.props.navigation} screen={routeName} documents={this.documentListProps()} />
           <TouchableHighlight onPress={this.addDocument} style={homeStyles.button}>
             <Icon style={homeStyles.buttonIcon} name={Platform.OS === 'ios' ? 'ios-add' : 'md-add'} size={30} color={color.darkBlue} />
           </TouchableHighlight>
