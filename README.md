@@ -72,7 +72,7 @@ Document Management Application built with React-Native
 ├── ios
 ├── private
 │   ├── data
-│       ├── newConatants.js
+│       ├── settings.json.example
 ├── reducers
 │   ├── newReducer.js
 ├── requests
@@ -81,7 +81,7 @@ Document Management Application built with React-Native
 
 ## Adding a Feature
 - Create your branch off master as follows `YOUR_NAME/TYPE/FEATURE-DETAIL`.
-- Commit your changes and make a Pull request to master
+- Commit your changes and make a Pull request to master.
 
 # Reporting Issue
 Found something out of place or a feature request please create an issue [here](https://github.com/abdulsemiu-atanda/DMS-Mobile/issues)
