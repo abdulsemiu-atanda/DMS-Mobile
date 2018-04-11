@@ -54,8 +54,6 @@ Document Management Application built with React-Native
 ```
 
 ├── _tests_
-├── actions
-│   ├── newActions.js
 ├── actionTypes
 │   ├── newConatants.js
 ├── android
