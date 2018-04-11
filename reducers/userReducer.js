@@ -1,3 +1,5 @@
+import { List } from 'immutable'
+
 import {
   LOG_IN_ERROR,
   LOG_IN_LOADING,
@@ -12,6 +14,7 @@ import {
   LOADING_USER_DOCUMENTS_ERROR,
   USER_DOCUMENTS
 } from '../actionTypes/userConstants'
+import {makeImmutable} from '../util/util'
 
 const initialState = {
   accessToken: null,
@@ -27,7 +30,7 @@ const initialState = {
   loadingDocuments: false,
   loadingDocumentsError: false,
   documentError: {},
-  documents: []
+  documents: List([])
 }
 
 const userReducer = (state=initialState, action) => {
@@ -55,7 +58,7 @@ const userReducer = (state=initialState, action) => {
     case LOADING_USER_DOCUMENTS_ERROR:
       return {...state, loadingDocumentsError: action.data.status, documentError: action.data.error}
     case USER_DOCUMENTS:
-      return {...state, documents: action.data}
+      return {...state, documents: makeImmutable(action.data)}
     default:
       return state
   }

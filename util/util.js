@@ -1,4 +1,6 @@
 import jwt from 'jwt-decode'
+import Immutable from 'immutable'
+
 import {
   emailCorrect,
   fullnameCorrect,
@@ -32,3 +34,5 @@ export const isTokenExpired = token => {
 }
 
 export const ucFirst = string => `${string.charAt(0).toUpperCase()}${string.slice(1)}`
+
+export const makeImmutable = data => Immutable.fromJS(data)
