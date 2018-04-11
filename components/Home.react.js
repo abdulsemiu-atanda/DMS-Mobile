@@ -3,6 +3,7 @@ import {View, AsyncStorage, ActivityIndicator, TouchableHighlight, Platform} fro
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import Icon from 'react-native-vector-icons/Ionicons'
+import {List, Map} from 'immutable'
 
 import EmptyDocument from './shared/EmptyDocument.react'
 import DocumentList from './shared/DocumentList.react'
@@ -28,13 +29,13 @@ class Home extends Component {
 
     if (isTokenExpired(tokensObject.token))
       this.props.refreshToken(tokensObject)
-    else if (this.props.document.documents < 1)
+    else if (this.props.document.documents.size < 1)
       this.props.fetchDocRequest(tokensObject.token)
     this.setState({tokens: tokensObject})
   }
   
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.document.documents.length > 0 && nextProps.user.documents.length < 1 && !prevState.hasRequestUserDocuments) {
+    if (nextProps.document.documents.size > 0 && nextProps.user.documents.size < 1 && !prevState.hasRequestUserDocuments) {
       nextProps.fetchUserDocRequest(prevState.tokens.token)
       return {hasRequestUserDocuments: true, loading: false}
     }
@@ -46,14 +47,14 @@ class Home extends Component {
   }
 
   documentListProps() {
-    const homeDocuments = this.props.document.documents.filter(document => document.access !== 'private')
+    const homeDocuments = this.props.document.documents.filterNot(document => document.get('access') === 'private')
 
     if (this.props.navigation.state.routeName === 'All')
       return homeDocuments
-    else if (this.props.navigation.state.routeName !== 'All' && !this.props.user.documents.message)
+    else if (this.props.navigation.state.routeName !== 'All' && !this.props.user.documents.get('message'))
       return this.props.user.documents
     else
-      return []
+      return List([])
   }
 
   render() {
@@ -61,8 +62,17 @@ class Home extends Component {
     const {routeName} = this.props.navigation.state
 
     if (this.state.loading || documentLoading || (routeName !== 'All' && this.props.user.loadingDocuments))
-      return <ActivityIndicator size='large' color='blue' animating={this.state.loading || documentLoading || (routeName !== 'All' && this.props.user.loadingDocuments)} />
-    else if (!documentLoading && !documents.length)
+      return (
+        <ActivityIndicator
+          animating={
+            this.state.loading || documentLoading ||
+            (routeName !== 'All' &&this.props.user.loadingDocuments)
+          }
+          color='blue'
+          size='large'
+        />
+      )
+    else if (!documentLoading && !documents.size)
       return <EmptyDocument addDocument={this.addDocument} screen={routeName} />
     else
       return (
@@ -84,7 +94,7 @@ const mapStateToProps = state => ({
 Home.propTypes = {
   document: PropTypes.shape({
     documentLoading: PropTypes.bool,
-    documents: PropTypes.arrayOf(PropTypes.object)
+    documents: PropTypes.instanceOf(List)
   }),
   navigation: PropTypes.shape({
     state: PropTypes.shape({
@@ -92,7 +102,7 @@ Home.propTypes = {
     })
   }),
   user: PropTypes.shape({
-    documents: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.object]),
+    documents: PropTypes.oneOfType([PropTypes.instanceOf(List), PropTypes.instanceOf(Map)]),
     loadingDocuments: PropTypes.bool
   })
 }

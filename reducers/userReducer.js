@@ -1,3 +1,5 @@
+import { List } from 'immutable'
+
 import {
   LOG_IN_ERROR,
   LOG_IN_LOADING,
@@ -12,6 +14,7 @@ import {
   LOADING_USER_DOCUMENTS_ERROR,
   USER_DOCUMENTS
 } from '../actionTypes/userConstants'
+import {makeImmutable} from '../util/util'
 
 const initialState = {
   accessToken: null,
@@ -27,23 +30,45 @@ const initialState = {
   loadingDocuments: false,
   loadingDocumentsError: false,
   documentError: {},
-  documents: []
+  documents: List([])
 }
 
 const userReducer = (state=initialState, action) => {
   switch(action.type) {
     case LOG_IN_ERROR:
-      return {...state, logingIn: false, loginError: action.data.status, error: {logIn: action.data.error}}
+      return {
+          ...state,
+          logingIn: false,
+          loginError: action.data.status,
+          error: {logIn: action.data.error}
+        }
     case LOG_IN_LOADING:
       return {...state, logingIn: action.data}
     case LOG_IN_SUCCESS:
-      return {...state, accessToken: action.data.refreshToken, logingIn: false, signingUp: false, signupError: false, loginError: false, token: action.data.token, message: action.data.message}
+      return {
+          ...state,
+          accessToken: action.data.refreshToken,
+          logingIn: false,
+          signingUp: false,
+          signupError: false,
+          loginError: false,
+          token: action.data.token,
+          message: action.data.message
+        }
     case SIGN_UP_ERROR:
       return {...state, signupError: action.data.error.status, error: {signUp: action.data.error}}
     case SIGN_UP_LOADING:
       return {...state, signingUp: action.data}
     case SIGN_UP_SUCCESS:
-      return {...state, logingIn: false, signingUp: false, signupError: false, loginError: false, token: action.data.token, message: action.data.message}
+      return {
+          ...state,
+          logingIn: false,
+          signingUp: false,
+          signupError: false,
+          loginError: false,
+          token: action.data.token,
+          message: action.data.message
+        }
     case REFRESHING_TOKEN:
       return {...state, refreshingToken: action.data}
     case REFRESHING_TOKEN_ERROR:
@@ -53,9 +78,13 @@ const userReducer = (state=initialState, action) => {
     case LOADING_USER_DOCUMENTS:
       return {...state, loadingDocuments: action.data}
     case LOADING_USER_DOCUMENTS_ERROR:
-      return {...state, loadingDocumentsError: action.data.status, documentError: action.data.error}
+      return {
+          ...state,
+          loadingDocumentsError: action.data.status,
+          documentError: action.data.error
+        }
     case USER_DOCUMENTS:
-      return {...state, documents: action.data}
+      return {...state, documents: makeImmutable(action.data)}
     default:
       return state
   }

@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {Text, TouchableOpacity, View, ListView, Dimensions} from 'react-native'
 import moment from 'moment'
 import PropTypes from 'prop-types'
+import {List} from 'immutable'
 
 import EmptyDocument from './EmptyDocument.react'
 
@@ -19,7 +20,10 @@ class DocumentList extends Component {
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
 
     this.state = {
-      dataSource: routeName === 'ViewDocuments' ? ds.cloneWithRows(params.documents) : ds.cloneWithRows(props.documents),
+      dataSource:
+        routeName === 'ViewDocuments' ?
+        ds.cloneWithRows(params.documents.toJS()) :
+        ds.cloneWithRows(props.documents.toJS()),
       documents: props.documents,
       access: ''
     }
@@ -30,23 +34,24 @@ class DocumentList extends Component {
   static getDerivedStateFromProps(nextProps, prevState) {
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
 
-    if (nextProps.documents && nextProps.documents.length !== prevState.documents.length)
+    if (nextProps.documents && nextProps.documents.size !== prevState.documents.size)
       return {
-        dataSource: ds.cloneWithRows(nextProps.documents),
+        dataSource: ds.cloneWithRows(nextProps.documents.toJS()),
         documents: nextProps.documents
       }
     return null
   }
 
   viewDocuments(access) {
-    const accessDocuments = this.props.documents.filter(document => document.access === access)
+    const accessDocuments = this.props.documents.filter(document => document.get('access') === access)
 
     this.props.navigation.navigate('ViewDocuments', {documents: accessDocuments})
   }
 
   renderRow(document) {
     const {content, createdAt, updatedAt, title, access} = document
-    const count = this.props.documents && this.props.documents.filter(document => document.access === access).length
+    const count = this.props.documents &&
+      this.props.documents.filter(document => document.get('access') === access).size
 
     if (this.props.screen === 'Collection' && this.previousValue !== access) {
       this.previousValue = access
@@ -66,7 +71,9 @@ class DocumentList extends Component {
             <Text style={documentListStyles.title}>{title}</Text>
             <Text style={documentListStyles.contentText} numberOfLines={3}>{content}</Text>
             <View style={documentListStyles.hr} />
-            <Text style={documentListStyles.footer}>Modified: {moment(updatedAt).format('MMM Do YY')} / Created: {moment(createdAt).format('MMM Do YY')}</Text>
+            <Text style={documentListStyles.footer}>
+              Modified: {moment(updatedAt).format('MMM Do YY')} / Created: {moment(createdAt).format('MMM Do YY')}
+            </Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -76,7 +83,7 @@ class DocumentList extends Component {
   render() {
     const {params} = this.props.navigation.state
 
-    if ((params && params.documents.length) || this.props.documents.length > 0)
+    if ((params && params.documents.size) || this.props.documents.size > 0)
       return (
         <View style={documentListStyles.rootNode}>
           {this.props.screen === 'Collection' &&
@@ -99,7 +106,7 @@ class DocumentList extends Component {
 }
 
 DocumentList.propTypes = {
-  documents: PropTypes.arrayOf(PropTypes.object)
+  documents: PropTypes.instanceOf(List)
 }
 
 export default DocumentList

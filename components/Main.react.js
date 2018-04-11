@@ -14,7 +14,7 @@ class Main extends Component {
       <AppNavigator navigation={addNavigationHelpers({
         dispatch: this.props.dispatch,
         state: this.props.nav,
-        addListener,
+        addListener
       })} />
     )
   }
