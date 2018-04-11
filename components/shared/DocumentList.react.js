@@ -20,7 +20,10 @@ class DocumentList extends Component {
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
 
     this.state = {
-      dataSource: routeName === 'ViewDocuments' ? ds.cloneWithRows(params.documents.toJS()) : ds.cloneWithRows(props.documents.toJS()),
+      dataSource:
+        routeName === 'ViewDocuments' ?
+        ds.cloneWithRows(params.documents.toJS()) :
+        ds.cloneWithRows(props.documents.toJS()),
       documents: props.documents,
       access: ''
     }
@@ -47,7 +50,8 @@ class DocumentList extends Component {
 
   renderRow(document) {
     const {content, createdAt, updatedAt, title, access} = document
-    const count = this.props.documents && this.props.documents.filter(document => document.get('access') === access).size
+    const count = this.props.documents &&
+      this.props.documents.filter(document => document.get('access') === access).size
 
     if (this.props.screen === 'Collection' && this.previousValue !== access) {
       this.previousValue = access
@@ -67,7 +71,9 @@ class DocumentList extends Component {
             <Text style={documentListStyles.title}>{title}</Text>
             <Text style={documentListStyles.contentText} numberOfLines={3}>{content}</Text>
             <View style={documentListStyles.hr} />
-            <Text style={documentListStyles.footer}>Modified: {moment(updatedAt).format('MMM Do YY')} / Created: {moment(createdAt).format('MMM Do YY')}</Text>
+            <Text style={documentListStyles.footer}>
+              Modified: {moment(updatedAt).format('MMM Do YY')} / Created: {moment(createdAt).format('MMM Do YY')}
+            </Text>
           </View>
         </TouchableOpacity>
       </View>
