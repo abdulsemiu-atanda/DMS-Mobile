@@ -1,11 +1,6 @@
 import {List} from 'immutable'
 
-import {
-  DOCUMENTS,
-  DOCUMENTS_LOADING,
-  DOCUMENTS_LOADING_ERROR,
-  DOCUMENTS_LOADING_SUCCESS
-} from '../actionTypes/documentConstants'
+import {DOCUMENTS} from '../actionTypes/documentConstants'
 import {makeImmutable} from '../util/util'
 import {asyncActionNames} from '../util/asyncUtils'
 
