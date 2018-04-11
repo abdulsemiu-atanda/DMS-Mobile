@@ -7,7 +7,7 @@ import {
 } from '../actionTypes/documentConstants'
 import {makeImmutable} from '../util/util'
 
-const initialState = {documentLoading: false, documents: List([]), documentLoadingError: false, error: {}, immutable: null}
+const initialState = {documentLoading: false, documents: List([]), documentLoadingError: false, error: {}}
 
 export default documentReducer = (state=initialState, action) => {
   switch (action.type) {
