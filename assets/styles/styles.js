@@ -217,7 +217,7 @@ export const homeStyles = StyleSheet.create({
   button: {
     backgroundColor: colors.blue,
     position: 'absolute',
-    top: (height * 0.75),
+    top: Platform.OS === 'ios' ? (height * 0.8) : (height * 0.75),
     left: (width * 0.88),
     width: (width * 0.09),
     height: (width * 0.09),
