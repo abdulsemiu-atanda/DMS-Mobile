@@ -55,7 +55,7 @@ class LogIn extends Component {
             <Icon style={loginStyles.icon} name='ios-briefcase-outline' size={100} color='#f7f7f7' />
             <Text style={loginStyles.phrase}>Manage your documents elegantly.</Text>
           </View>
-          <View style={[loginStyles.form, {flex: 2}]}>
+          <View style={loginStyles.form}>
             <Text style={loginStyles.label}>USERNAME</Text>
             <TextInput ref={ref => this.username = ref} autoCapitalize='none' keyboardType='email-address' style={loginStyles.input} placeholder='jason@bourne.com' />
             <Text style={loginStyles.label}>PASSWORD</Text>

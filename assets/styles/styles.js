@@ -34,10 +34,11 @@ export const loginStyles = StyleSheet.create({
     fontSize: 18
   },
   form: {
-    padding: 30
+    padding: 30,
+    flex: 2
   },
   input: {
-    borderBottomColor: colors.grey,
+    borderBottomColor: Platform.OS === 'ios' ? colors.grey : 'rgba(0,0,0,0)',
     borderBottomWidth: 1,
     marginTop: 10,
     marginBottom: 10
@@ -53,7 +54,8 @@ export const loginStyles = StyleSheet.create({
   },
   loginContainer: {
     backfaceVisibility: 'hidden',
-    flex: 1
+    flex: 1,
+    height
   },
   error: {
     color: 'red',
@@ -62,10 +64,11 @@ export const loginStyles = StyleSheet.create({
   sigupContainer: {
     position: "absolute",
     width: '100%',
-    top: 0
+    flex: 1
   },
   closer: {
-    padding: 30
+    padding: 30,
+    height: (height * 0.1)
   },
   headerText: {
     alignSelf: 'center',
@@ -214,10 +217,11 @@ export const homeStyles = StyleSheet.create({
   button: {
     backgroundColor: colors.blue,
     position: 'absolute',
-    top: (height * 0.8),
+    top: (height * 0.75),
     left: (width * 0.88),
     width: (width * 0.09),
-    borderRadius: 20,
+    height: (width * 0.09),
+    borderRadius: (width * 0.09) / 2,
     justifyContent: 'center'
   },
   buttonIcon: {

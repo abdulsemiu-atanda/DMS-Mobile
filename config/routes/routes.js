@@ -1,4 +1,5 @@
 import React from 'react'
+import {Platform} from 'react-native';
 import {StackNavigator, SwitchNavigator, TabNavigator} from 'react-navigation'
 import Icon from 'react-native-vector-icons/Ionicons'
 
@@ -37,10 +38,13 @@ const HomeTabs = TabNavigator({
 }, {
   swipeEnabled: true,
   tabBarOptions: {
-    activeTintColor: colors.blue,
+    activeTintColor: Platform.OS === 'android' ? colors.white : colors.blue,
+    inActiveTintColor: colors.darkBlue,
     labelStyle: {
       fontSize: 15
-    }
+    },
+    showLabel: Platform.OS === 'android' ? false : true,
+    showIcon: true
   }
 })
 
