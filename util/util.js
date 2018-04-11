@@ -1,32 +1,6 @@
 import jwt from 'jwt-decode'
 import Immutable from 'immutable'
 
-import {
-  emailCorrect,
-  fullnameCorrect,
-  passwordMatch,
-  usernameCorrect,
-} from '../actions/formActions'
-
-export const validateFields = data => {
-  return dispatch => {
-    Object.keys(data).forEach(field => {
-      switch (field) {
-        case 'email':
-          return  dispatch(emailCorrect(/^\S+@\S+$/g.test(data[field])))
-        case 'username':
-          return dispatch(usernameCorrect(data[field].trim() !== ''))
-        case 'password':
-          return  dispatch(passwordMatch(data.password === data.confirmPassword))
-        case 'fullname':
-          return dispatch(fullnameCorrect(data[field].trim() !== ''))
-        default:
-          break
-      }
-    })
-  }
-}
-
 export const isTokenExpired = token => {
   const decoded = jwt(token)
 
