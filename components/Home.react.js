@@ -62,7 +62,16 @@ class Home extends Component {
     const {routeName} = this.props.navigation.state
 
     if (this.state.loading || documentLoading || (routeName !== 'All' && this.props.user.loadingDocuments))
-      return <ActivityIndicator size='large' color='blue' animating={this.state.loading || documentLoading || (routeName !== 'All' && this.props.user.loadingDocuments)} />
+      return (
+        <ActivityIndicator
+          animating={
+            this.state.loading || documentLoading ||
+            (routeName !== 'All' &&this.props.user.loadingDocuments)
+          }
+          color='blue'
+          size='large'
+        />
+      )
     else if (!documentLoading && !documents.size)
       return <EmptyDocument addDocument={this.addDocument} screen={routeName} />
     else

@@ -57,7 +57,13 @@ class LogIn extends Component {
           </View>
           <View style={loginStyles.form}>
             <Text style={loginStyles.label}>USERNAME</Text>
-            <TextInput ref={ref => this.username = ref} autoCapitalize='none' keyboardType='email-address' style={loginStyles.input} placeholder='jason@bourne.com' />
+            <TextInput
+              ref={ref => this.username = ref}
+              autoCapitalize='none'
+              keyboardType='email-address'
+              style={loginStyles.input}
+              placeholder='jason@bourne.com'
+            />
             <Text style={loginStyles.label}>PASSWORD</Text>
             <TextInput ref={ref => this.password = ref} autoCapitalize='none' secureTextEntry style={loginStyles.input} />
             <TouchableHighlight disabled={this.props.user.logingIn} onPress={this.onLogIn} style={loginStyles.button}>
