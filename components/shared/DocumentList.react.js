@@ -42,7 +42,8 @@ class DocumentList extends Component {
   }
 
   viewDocuments(access) {
-    const accessDocuments = this.props.documents.filter(document => document.get('access') === access)
+    const accessDocuments = this.props.documents.filter(document =>
+      document.get('access') === access)
 
     this.props.navigation.navigate('ViewDocuments', {documents: accessDocuments})
   }
@@ -71,7 +72,9 @@ class DocumentList extends Component {
             <Text style={documentListStyles.contentText} numberOfLines={3}>{content}</Text>
             <View style={documentListStyles.hr} />
             <Text style={documentListStyles.footer}>
-              Modified: {moment(updatedAt).format('MMM Do YY')} / Created: {moment(createdAt).format('MMM Do YY')}
+              Modified: {
+                moment(updatedAt).format('MMM Do YY')
+              } / Created: {moment(createdAt).format('MMM Do YY')}
             </Text>
           </View>
         </TouchableOpacity>

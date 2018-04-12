@@ -1,5 +1,14 @@
 import React, {Component} from 'react'
-import {Animated, ActivityIndicator, AsyncStorage, Text, View, TextInput, TouchableHighlight, TouchableOpacity} from 'react-native'
+import {
+  Animated,
+  ActivityIndicator,
+  AsyncStorage,
+  Text,
+  View,
+  TextInput,
+  TouchableHighlight,
+  TouchableOpacity
+} from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
@@ -46,10 +55,14 @@ class LogIn extends Component {
         {rotateY: this.props.frontInterpolate}
       ]
     }
-    const loginFail = !this.props.user.logingIn && this.props.user.message === 'Username or password incorrect'
+    const loginFail = !this.props.user.logingIn &&
+      this.props.user.message === 'Username or password incorrect'
 
     return (
-      <Animated.View style={[loginStyles.loginContainer, frontAnimatedStyle, {opacity: this.props.frontOpacity}]}>
+      <Animated.View
+        style={
+          [loginStyles.loginContainer, frontAnimatedStyle, {opacity: this.props.frontOpacity}]
+        }>
         <View style={loginStyles.logoContainer}>
           <Text style={loginStyles.title}>DMS</Text>
           <Icon style={loginStyles.icon} name='ios-briefcase-outline' size={100} color='#f7f7f7' />
@@ -65,11 +78,23 @@ class LogIn extends Component {
             placeholder='jason@bourne.com'
           />
           <Text style={loginStyles.label}>PASSWORD</Text>
-          <TextInput ref={ref => this.password = ref} autoCapitalize='none' secureTextEntry style={loginStyles.input} />
-          <TouchableHighlight disabled={this.props.user.logingIn} onPress={this.onLogIn} style={loginStyles.button}>
+          <TextInput
+            ref={ref => this.password = ref}
+            autoCapitalize='none'
+            secureTextEntry
+            style={loginStyles.input}
+          />
+          <TouchableHighlight
+            disabled={this.props.user.logingIn}
+            onPress={this.onLogIn}
+            style={loginStyles.button}>
             {
               this.props.user.logingIn ?
-                <ActivityIndicator color='#01f0b3' size='large' animating={this.props.user.logingIn} /> :
+                <ActivityIndicator
+                  color='#01f0b3'
+                  size='large'
+                  animating={this.props.user.logingIn}
+                /> :
                 <Text style={loginStyles.buttonText}>Sign In</Text>
             }
           </TouchableHighlight>

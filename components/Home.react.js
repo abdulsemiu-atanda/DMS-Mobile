@@ -17,7 +17,11 @@ class Home extends Component {
   constructor(props) {
     super(props)
 
-    this.state = {tokens: {}, hasRequestUserDocuments: false, loading: (props.user.documents.length < 1)}
+    this.state = {
+      tokens: {},
+      hasRequestUserDocuments: false,
+      loading: (props.user.documents.length < 1)
+    }
 
     this.addDocument = this.addDocument.bind(this)
     this.documentListProps = this.documentListProps.bind(this)
@@ -35,7 +39,9 @@ class Home extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.document.documents.size > 0 && nextProps.user.documents.size < 1 && !prevState.hasRequestUserDocuments) {
+    if (nextProps.document.documents.size > 0
+        && nextProps.user.documents.size < 1 &&
+        !prevState.hasRequestUserDocuments) {
       nextProps.fetchUserDocRequest(prevState.tokens.token)
       return {hasRequestUserDocuments: true, loading: false}
     }
@@ -47,21 +53,24 @@ class Home extends Component {
   }
 
   documentListProps() {
-    const homeDocuments = this.props.document.documents.filterNot(document => document.get('access') === 'private')
+    const {navigation, document, user} = this.props
+    const {documents} = document
+    const homeDocuments = documents.filterNot(document => document.get('access') === 'private')
 
-    if (this.props.navigation.state.routeName === 'All')
+    if (navigation.state.routeName === 'All')
       return homeDocuments
-    else if (this.props.navigation.state.routeName !== 'All' && !this.props.user.documents.get('message'))
-      return this.props.user.documents
+    else if (navigation.state.routeName !== 'All' && !user.documents.get('message'))
+      return user.documents
     else
       return fromJS([])
   }
 
   render() {
+    const {loading} = this.state
     const {documents, documentLoading} = this.props.document
     const {routeName} = this.props.navigation.state
 
-    if (this.state.loading || documentLoading || (routeName !== 'All' && this.props.user.loadingDocuments)) {
+    if (loading || documentLoading || (routeName !== 'All' && this.props.user.loadingDocuments)) {
       return (
         <ActivityIndicator
           animating={
@@ -79,9 +88,19 @@ class Home extends Component {
     else {
       return (
         <View style={homeStyles.container}>
-          <DocumentList addDocument={this.addDocument} navigation={this.props.navigation} screen={routeName} documents={this.documentListProps()} />
+          <DocumentList
+            addDocument={this.addDocument}
+            navigation={this.props.navigation}
+            screen={routeName}
+            documents={this.documentListProps()}
+          />
           <TouchableHighlight onPress={this.addDocument} style={homeStyles.button}>
-            <Icon style={homeStyles.buttonIcon} name={Platform.OS === 'ios' ? 'ios-add' : 'md-add'} size={30} color={color.darkBlue} />
+            <Icon
+              style={homeStyles.buttonIcon}
+              name={Platform.OS === 'ios' ? 'ios-add' : 'md-add'}
+              size={30}
+              color={color.darkBlue}
+            />
           </TouchableHighlight>
         </View>
       )

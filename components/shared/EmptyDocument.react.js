@@ -10,7 +10,8 @@ const EmptyDocument = props => (
     <Icon name='ios-list-box-outline' size={70} color='grey' />
     <Text style={emptyDocumentStyles.instructions}>
       {props.screen === 'All' ?
-        'Oops! there are no public documents currently available for viewing. Please check again later or start by adding a public document.' :
+        'Oops! there are no public documents currently available for viewing.\
+        Please check again later or start by adding a public document.' :
         'Oops! You have not added any document.'
       }
     </Text>
