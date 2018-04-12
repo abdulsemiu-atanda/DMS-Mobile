@@ -1,69 +1,62 @@
 import jwt from 'jwt-decode'
 
-import sendRequest, {createRequest} from './requestUtil'
+import sendRequest from './requestUtil'
+import {asyncActions} from '../util/asyncUtils'
 import {
-  logInError,
-  logInSuccess,
-  logInLoading,
-  signUpError,
-  signUpLoading,
-  signUpSuccess,
-  refreshingToken,
-  refreshingTokenError,
-  tokenRefreshed,
-  loadingUserDocuments,
-  loadingUserDocumentsError,
-  userDocuments
-} from '../actions/userActions'
-import {documentLoading, documentLoadingError, documentLoadingSuccess} from '../actions/documentActions'
+  LOG_IN,
+  SIGN_UP,
+  TOKEN,
+  USER_DOCUMENTS
+} from '../actionTypes/userConstants'
+import {DOCUMENTS} from '../actionTypes/documentConstants'
 
 export const signUpRequest = data => {
   return dispatch => {
-    dispatch(signUpLoading(true))
+    dispatch(asyncActions(SIGN_UP).loading(true))
     sendRequest('user', 'POST', data)
     .then(res => res.json())
     .then(res => {
-      dispatch(signUpSuccess(res))
-      dispatch(signUpLoading(false))
+      dispatch(asyncActions(SIGN_UP).success(res))
+      dispatch(asyncActions(SIGN_UP).loading(true))
     })
-    .catch(err => dispatch(signUpError(err, true)))
+    .catch(err => dispatch(asyncActions(SIGN_UP).failure(true, err)))
   }
 }
 
 export const logInRequest = data => {
   return dispatch => {
-    dispatch(logInLoading(true))
+    dispatch(asyncActions(LOG_IN).loading(true))
     sendRequest('user/login', 'POST', data)
     .then(res => res.json())
     .then(res => {
-      dispatch(logInSuccess(res))
-      dispatch(logInLoading(false))
+      dispatch(asyncActions(LOG_IN).success(res))
+      dispatch(asyncActions(LOG_IN).loading(false))
     })
-    .catch(err => dispatch(logInError(err, true)))
+    .catch(err => dispatch(asyncActions(LOG_IN).failure(true, err)))
   }
 }
 
 export const fetchDocRequest = token => {
   return dispatch => {
-    dispatch(documentLoading(true))
+    dispatch(asyncActions(DOCUMENTS).loading(true))
     sendRequest('document', 'GET', null, token)
     .then(res => res.json())
     .then(res => {
-      dispatch(documentLoadingSuccess(res))
-      dispatch(documentLoading(false))
-    }).catch(err => dispatch(documentLoadingError(true, err)))
+      dispatch(asyncActions(DOCUMENTS).success(res))
+      dispatch(asyncActions(DOCUMENTS).loading(false))
+    }).catch(err => dispatch(asyncActions(DOCUMENTS).failure(true, err)))
   }
 }
 
 export const refreshToken = ({accessToken, token}) => {
   return dispatch => {
-    dispatch(refreshingToken(true))
+    dispatch(asyncActions(TOKEN).loading(true))
     sendRequest(`user/${accessToken}`, 'GET', null, token)
     .then(res => res.json())
     .then(res => {
-      dispatch(tokenRefreshed(res))
-      dispatch(refreshingToken(false))
-    }).catch(err => dispatch(refreshingTokenError(true, err)))
+      dispatch(asyncActions(TOKEN).success(res))
+      dispatch(asyncActions(TOKEN).loading(false))
+    }).catch(err => dispatch(asyncActions(TOKEN).failure(true, err)))
   }
 }
 
@@ -71,12 +64,12 @@ export const fetchUserDocRequest = token => {
   const decoded = jwt(token)
 
   return dispatch => {
-    dispatch(loadingUserDocuments(true))
+    dispatch(asyncActions(USER_DOCUMENTS).loading(true))
     sendRequest(`user/${decoded.id}/document`, 'GET', null, token)
     .then(res => res.json())
     .then(res => {
-      dispatch(userDocuments(res))
-      dispatch(loadingUserDocuments(false))
-    }).catch(err => dispatch(loadingUserDocumentsError(true, err)))
+      dispatch(asyncActions(USER_DOCUMENTS).success(res))
+      dispatch(asyncActions(USER_DOCUMENTS).loading(false))
+    }).catch(err => dispatch(asyncActions(USER_DOCUMENTS).failure(true, err)))
   }
 }

@@ -6,7 +6,6 @@ import {connect} from 'react-redux'
 
 import {loginStyles} from '../assets/styles/styles'
 import {signUpRequest} from '../requests/userRequest'
-import {validateFields} from '../util/util'
 
 class SignUp extends Component {
   constructor() {
@@ -105,8 +104,7 @@ SignUp.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  form: state.form,
   user: state.user
 })
 
-export default connect(mapStateToProps, {validateFields, signUpRequest})(SignUp)
+export default connect(mapStateToProps, {signUpRequest})(SignUp)
