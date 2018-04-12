@@ -70,7 +70,8 @@ class Home extends Component {
     const {documents, documentLoading} = this.props.document
     const {routeName} = this.props.navigation.state
 
-    if (loading || documentLoading || (routeName !== 'All' && this.props.user.loadingDocuments)) {
+    if (loading || documentLoading ||
+      (routeName === 'Collection' && this.props.user.loadingDocuments)) {
       return (
         <ActivityIndicator
           animating={
