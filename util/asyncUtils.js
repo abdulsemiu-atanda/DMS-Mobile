@@ -16,5 +16,5 @@ export const asyncActions = (actionName) => ({
   success: data => ({
     type: asyncActionNames(actionName).success,
     data
-  }),
+  })
 })

@@ -3,7 +3,7 @@ import {View, AsyncStorage, ActivityIndicator, TouchableHighlight, Platform} fro
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import Icon from 'react-native-vector-icons/Ionicons'
-import {List, Map} from 'immutable'
+import {fromJS, List, Map} from 'immutable'
 
 import EmptyDocument from './shared/EmptyDocument.react'
 import DocumentList from './shared/DocumentList.react'
@@ -33,7 +33,7 @@ class Home extends Component {
       this.props.fetchDocRequest(tokensObject.token)
     this.setState({tokens: tokensObject})
   }
-  
+
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.document.documents.size > 0 && nextProps.user.documents.size < 1 && !prevState.hasRequestUserDocuments) {
       nextProps.fetchUserDocRequest(prevState.tokens.token)
@@ -43,7 +43,7 @@ class Home extends Component {
   }
 
   addDocument() {
-    console.log('Add Document')
+    // console.log('Add Document')
   }
 
   documentListProps() {
@@ -54,27 +54,29 @@ class Home extends Component {
     else if (this.props.navigation.state.routeName !== 'All' && !this.props.user.documents.get('message'))
       return this.props.user.documents
     else
-      return List([])
+      return fromJS([])
   }
 
   render() {
     const {documents, documentLoading} = this.props.document
     const {routeName} = this.props.navigation.state
 
-    if (this.state.loading || documentLoading || (routeName !== 'All' && this.props.user.loadingDocuments))
+    if (this.state.loading || documentLoading || (routeName !== 'All' && this.props.user.loadingDocuments)) {
       return (
         <ActivityIndicator
           animating={
             this.state.loading || documentLoading ||
-            (routeName !== 'All' &&this.props.user.loadingDocuments)
+            (routeName !== 'All' && this.props.user.loadingDocuments)
           }
           color='blue'
           size='large'
         />
       )
-    else if (!documentLoading && !documents.size)
+    }
+    else if (!documentLoading && !documents.size) {
       return <EmptyDocument addDocument={this.addDocument} screen={routeName} />
-    else
+    }
+    else {
       return (
         <View style={homeStyles.container}>
           <DocumentList addDocument={this.addDocument} navigation={this.props.navigation} screen={routeName} documents={this.documentListProps()} />
@@ -83,6 +85,7 @@ class Home extends Component {
           </TouchableHighlight>
         </View>
       )
+    }
   }
 }
 
@@ -96,11 +99,13 @@ Home.propTypes = {
     documentLoading: PropTypes.bool,
     documents: PropTypes.instanceOf(List)
   }),
+  fetchDocRequest: PropTypes.func,
   navigation: PropTypes.shape({
     state: PropTypes.shape({
       routeName: PropTypes.string
     })
   }),
+  refreshToken: PropTypes.func,
   user: PropTypes.shape({
     documents: PropTypes.oneOfType([PropTypes.instanceOf(List), PropTypes.instanceOf(Map)]),
     loadingDocuments: PropTypes.bool
@@ -114,4 +119,4 @@ export default connect(
     fetchUserDocRequest,
     refreshToken
   }
-  )(Home)
+)(Home)
