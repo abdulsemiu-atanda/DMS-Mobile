@@ -33,11 +33,12 @@ class DocumentList extends Component {
   static getDerivedStateFromProps(nextProps, prevState) {
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
 
-    if (nextProps.documents && nextProps.documents.size !== prevState.documents.size){
+    if (nextProps.documents && nextProps.documents.size !== prevState.documents.size) {
       return {
         dataSource: ds.cloneWithRows(nextProps.documents.toJS()),
         documents: nextProps.documents
-      }}
+      }
+    }
     return null
   }
 
