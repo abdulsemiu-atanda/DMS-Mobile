@@ -98,7 +98,7 @@ class LogIn extends Component {
           </TouchableHighlight>
           {loginFail && <Text style={loginStyles.error}>{this.props.user.message}</Text>}
         </View>
-        <AuthFooter flipCard={this.props.flipCard} />
+        <AuthFooter screen='Login' flipCard={this.props.flipCard} />
       </Animated.View>
     )
   }

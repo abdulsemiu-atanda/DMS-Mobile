@@ -137,7 +137,7 @@ class SignUp extends Component {
           }
           {signUpFail && <Text style={loginStyles.error}>{this.props.user.message}</Text>}
         </View>
-        <AuthFooter flipCard={this.props.flipCard} />
+        <AuthFooter screen='Signup' flipCard={this.props.flipCard} />
       </Animated.View>
     )
   }
