@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import {
   Animated,
-  ActivityIndicator,
   Text,
   TextInput,
   TouchableHighlight,
@@ -12,8 +11,13 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 
+import AuthFooter from './shared/AuthFooter.react'
+import Loading from './shared/Loading.react'
+
+import {asyncRequest} from '../util/asyncUtils'
+import {SIGN_UP} from '../actionTypes/userConstants'
+
 import {loginStyles} from '../assets/styles/styles'
-import {signUpRequest} from '../requests/userRequest'
 
 class SignUp extends Component {
   constructor() {
@@ -53,7 +57,7 @@ class SignUp extends Component {
         roleId: 2
       }
 
-      this.props.signUpRequest(userData)
+      this.props.asyncRequest(SIGN_UP, 'user', 'POST', userData)
     } else {
       this.setState({passwordMatch: 'false'})
       setTimeout(() => this.setState({passwordMatch: ''}), 2000)
@@ -123,35 +127,27 @@ class SignUp extends Component {
           <TouchableHighlight onPress={this.onSignUp} style={loginStyles.button}>
             {
               this.props.user.signingUp ?
-                <ActivityIndicator
-                  color='#01f0b3'
-                  size='large'
-                  animating={this.props.user.signingUp}
-                /> :
+                <Loading animating={this.props.user.signingUp} /> :
                 <Text style={loginStyles.buttonText}>Create</Text>
             }
           </TouchableHighlight>
           {
             this.state.passwordMatch === 'false' &&
-            <Text style={loginStyles.error}>Your password do not match</Text>}
+            <Text style={loginStyles.error}>Your password do not match</Text>
+          }
           {signUpFail && <Text style={loginStyles.error}>{this.props.user.message}</Text>}
         </View>
-        <View style={loginStyles.infoContainer}>
-          <Text style={loginStyles.infoText}>ALREADY HAVE AN ACCOUNT?</Text>
-          <TouchableOpacity onPress={this.props.flipCard}>
-            <Text style={loginStyles.signUpText}>SIGN IN</Text>
-          </TouchableOpacity>
-        </View>
+        <AuthFooter flipCard={this.props.flipCard} />
       </Animated.View>
     )
   }
 }
 
 SignUp.propTypes = {
+  asyncRequest: PropTypes.func,
   backOpacity: PropTypes.object,
   backInterpolate: PropTypes.object,
   flipCard: PropTypes.func,
-  signUpRequest: PropTypes.func,
   user: PropTypes.shape({
     message: PropTypes.string,
     signingUp: PropTypes.bool
@@ -162,4 +158,4 @@ const mapStateToProps = state => ({
   user: state.user
 })
 
-export default connect(mapStateToProps, {signUpRequest})(SignUp)
+export default connect(mapStateToProps, {asyncRequest})(SignUp)

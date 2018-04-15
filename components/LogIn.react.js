@@ -1,19 +1,21 @@
 import React, {Component} from 'react'
 import {
   Animated,
-  ActivityIndicator,
   AsyncStorage,
   Text,
   View,
   TextInput,
-  TouchableHighlight,
-  TouchableOpacity
+  TouchableHighlight
 } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 
-import {logInRequest} from '../requests/userRequest'
+import AuthFooter from './shared/AuthFooter.react'
+import Loading from './shared/Loading.react'
+
+import {asyncRequest} from '../util/asyncUtils'
+import {LOG_IN} from '../actionTypes/userConstants'
 
 import {loginStyles} from '../assets/styles/styles'
 
@@ -46,7 +48,7 @@ class LogIn extends Component {
       password: this.password._lastNativeText
     }
 
-    this.props.logInRequest(logInData)
+    this.props.asyncRequest(LOG_IN, 'user/login', 'POST', logInData)
   }
 
   render() {
@@ -90,22 +92,13 @@ class LogIn extends Component {
             style={loginStyles.button}>
             {
               this.props.user.logingIn ?
-                <ActivityIndicator
-                  color='#01f0b3'
-                  size='large'
-                  animating={this.props.user.logingIn}
-                /> :
+                <Loading animating={this.props.user.logingIn} /> :
                 <Text style={loginStyles.buttonText}>Sign In</Text>
             }
           </TouchableHighlight>
           {loginFail && <Text style={loginStyles.error}>{this.props.user.message}</Text>}
         </View>
-        <View style={[loginStyles.infoContainer, {height: '16%'}]}>
-          <Text style={loginStyles.infoText}>DON'T HAVE AN ACCOUNT?</Text>
-          <TouchableOpacity onPress={this.props.flipCard}>
-            <Text style={loginStyles.signUpText}>SIGN UP</Text>
-          </TouchableOpacity>
-        </View>
+        <AuthFooter flipCard={this.props.flipCard} />
       </Animated.View>
     )
   }
@@ -116,15 +109,15 @@ const mapStateToProps = state => ({
 })
 
 LogIn.propTypes = {
+  asyncRequest: PropTypes.func,
   frontOpacity: PropTypes.object,
   frontInterpolate: PropTypes.object,
   flipCard: PropTypes.func,
   goToHome: PropTypes.func,
-  logInRequest: PropTypes.func,
   user: PropTypes.shape({
     logingIn: PropTypes.bool,
     message: PropTypes.string
   })
 }
 
-export default connect(mapStateToProps, {logInRequest})(LogIn)
+export default connect(mapStateToProps, {asyncRequest})(LogIn)

@@ -1,3 +1,5 @@
+import sendRequest from '../requests/requestUtil'
+
 export const asyncActionNames = baseName => ({
   failure: `${baseName}_FAILURE`,
   loading: `${baseName}_LOADING`,
@@ -18,3 +20,14 @@ export const asyncActions = (actionName) => ({
     data
   })
 })
+
+export const asyncRequest = (ACTION_NAME, endpoint, method, data, token) => dispatch => {
+  dispatch(asyncActions(ACTION_NAME).loading(true))
+  sendRequest(endpoint, method, data, token)
+    .then(res => res.json())
+    .then(res => {
+      dispatch(asyncActions(ACTION_NAME).success(res))
+      dispatch(asyncActions(ACTION_NAME).loading(false))
+    })
+    .catch(err => dispatch(asyncActions(ACTION_NAME).failure(true, err)))
+}
