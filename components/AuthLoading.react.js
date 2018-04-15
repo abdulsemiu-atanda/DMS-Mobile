@@ -3,8 +3,7 @@ import {
   ActivityIndicator,
   AsyncStorage,
   StatusBar,
-  StyleSheet,
-  View,
+  View
 } from 'react-native'
 import PropTypes from 'prop-types'
 
@@ -30,7 +29,7 @@ export default class AuthLoading extends React.Component {
     return (
       <View style={styles.container}>
         <ActivityIndicator />
-        <StatusBar barStyle="default" />
+        <StatusBar barStyle='default' />
       </View>
     );
   }

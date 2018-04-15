@@ -1,8 +1,8 @@
 import settings from '../private/data/settings.json'
 
-const constructBody = (method, data) => {
-  return method === 'POST' || method === 'PUT' ? {body: JSON.stringify(data)} : {}
-}
+const constructBody = (method, data) => (
+  method === 'POST' || method === 'PUT' ? {body: JSON.stringify(data)} : {}
+)
 
 const sendRequest = (url, method, data, authToken) => {
   const requestUrl = `${settings.baseUrl}${url}`

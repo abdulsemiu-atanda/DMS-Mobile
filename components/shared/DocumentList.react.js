@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Text, TouchableOpacity, View, ListView, Dimensions} from 'react-native'
+import {Text, TouchableOpacity, View, ListView} from 'react-native'
 import moment from 'moment'
 import PropTypes from 'prop-types'
 import {List} from 'immutable'
@@ -10,7 +10,6 @@ import colors from '../../assets/styles/colors'
 import {documentListStyles} from '../../assets/styles/styles'
 import {ucFirst} from '../../util/util'
 
-const {width} = Dimensions.get('window')
 
 class DocumentList extends Component {
   constructor(props) {
@@ -22,8 +21,8 @@ class DocumentList extends Component {
     this.state = {
       dataSource:
         routeName === 'ViewDocuments' ?
-        ds.cloneWithRows(params.documents.toJS()) :
-        ds.cloneWithRows(props.documents.toJS()),
+          ds.cloneWithRows(params.documents.toJS()) :
+          ds.cloneWithRows(props.documents.toJS()),
       documents: props.documents,
       access: ''
     }
@@ -34,16 +33,18 @@ class DocumentList extends Component {
   static getDerivedStateFromProps(nextProps, prevState) {
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
 
-    if (nextProps.documents && nextProps.documents.size !== prevState.documents.size)
+    if (nextProps.documents && nextProps.documents.size !== prevState.documents.size) {
       return {
         dataSource: ds.cloneWithRows(nextProps.documents.toJS()),
         documents: nextProps.documents
       }
+    }
     return null
   }
 
   viewDocuments(access) {
-    const accessDocuments = this.props.documents.filter(document => document.get('access') === access)
+    const accessDocuments = this.props.documents.filter(document =>
+      document.get('access') === access)
 
     this.props.navigation.navigate('ViewDocuments', {documents: accessDocuments})
   }
@@ -63,7 +64,7 @@ class DocumentList extends Component {
           <View style={documentListStyles.hr} />
         </View>
       )
-    } else if (this.props.screen === 'Collection' && this.previousValue === access) return null
+    } else if (this.props.screen === 'Collection' && this.previousValue === access) {return null}
     return (
       <View style={documentListStyles.container}>
         <TouchableOpacity>
@@ -72,7 +73,9 @@ class DocumentList extends Component {
             <Text style={documentListStyles.contentText} numberOfLines={3}>{content}</Text>
             <View style={documentListStyles.hr} />
             <Text style={documentListStyles.footer}>
-              Modified: {moment(updatedAt).format('MMM Do YY')} / Created: {moment(createdAt).format('MMM Do YY')}
+              Modified: {
+                moment(updatedAt).format('MMM Do YY')
+              } / Created: {moment(createdAt).format('MMM Do YY')}
             </Text>
           </View>
         </TouchableOpacity>
@@ -83,7 +86,7 @@ class DocumentList extends Component {
   render() {
     const {params} = this.props.navigation.state
 
-    if ((params && params.documents.size) || this.props.documents.size > 0)
+    if ((params && params.documents.size) || this.props.documents.size > 0) {
       return (
         <View style={documentListStyles.rootNode}>
           {this.props.screen === 'Collection' &&
@@ -99,14 +102,20 @@ class DocumentList extends Component {
             enableEmptySections={true}
           />
         </View>
-      )
-    else
+      )}
+    else {
       return <EmptyDocument {...this.props} />
+    }
   }
 }
 
 DocumentList.propTypes = {
-  documents: PropTypes.instanceOf(List)
+  documents: PropTypes.instanceOf(List),
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
+    state: PropTypes.object
+  }),
+  screen: PropTypes.string
 }
 
 export default DocumentList

@@ -1,4 +1,4 @@
-import {List} from 'immutable'
+import {fromJS} from 'immutable'
 
 import {
   LOG_IN,
@@ -23,45 +23,45 @@ const initialState = {
   loadingDocuments: false,
   loadingDocumentsError: false,
   documentError: {},
-  documents: List([])
+  documents: fromJS([])
 }
 
-const userReducer = (state=initialState, action) => {
+const userReducer = (state = initialState, action) => {
   switch(action.type) {
     case asyncActionNames(LOG_IN).failure:
       return {
-          ...state,
-          logingIn: false,
-          loginError: action.data.status,
-          error: {logIn: action.data.error}
-        }
+        ...state,
+        logingIn: false,
+        loginError: action.data.status,
+        error: {logIn: action.data.error}
+      }
     case asyncActionNames(LOG_IN).loading:
       return {...state, logingIn: action.data}
     case asyncActionNames(LOG_IN).success:
       return {
-          ...state,
-          accessToken: action.data.refreshToken,
-          logingIn: false,
-          signingUp: false,
-          signupError: false,
-          loginError: false,
-          token: action.data.token,
-          message: action.data.message
-        }
+        ...state,
+        accessToken: action.data.refreshToken,
+        logingIn: false,
+        signingUp: false,
+        signupError: false,
+        loginError: false,
+        token: action.data.token,
+        message: action.data.message
+      }
     case asyncActionNames(SIGN_UP).failure:
       return {...state, signupError: action.data.error.status, error: {signUp: action.data.error}}
     case asyncActionNames(SIGN_UP).loading:
       return {...state, signingUp: action.data}
     case asyncActionNames(SIGN_UP).success:
       return {
-          ...state,
-          logingIn: false,
-          signingUp: false,
-          signupError: false,
-          loginError: false,
-          token: action.data.token,
-          message: action.data.message
-        }
+        ...state,
+        logingIn: false,
+        signingUp: false,
+        signupError: false,
+        loginError: false,
+        token: action.data.token,
+        message: action.data.message
+      }
     case asyncActionNames(TOKEN).loading:
       return {...state, refreshingToken: action.data}
     case asyncActionNames(TOKEN).failure:
@@ -72,10 +72,10 @@ const userReducer = (state=initialState, action) => {
       return {...state, loadingDocuments: action.data}
     case asyncActionNames(USER_DOCUMENTS).failure:
       return {
-          ...state,
-          loadingDocumentsError: action.data.status,
-          documentError: action.data.error
-        }
+        ...state,
+        loadingDocumentsError: action.data.status,
+        documentError: action.data.error
+      }
     case asyncActionNames(USER_DOCUMENTS).success:
       return {...state, documents: makeImmutable(action.data)}
     default:

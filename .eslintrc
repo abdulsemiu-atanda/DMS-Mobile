@@ -1,0 +1,159 @@
+{
+  "extends": "eslint:recommended",
+  "parser": "babel-eslint",
+  "env": {
+    "jest": true,
+    "browser": true
+  },
+  "rules": {
+    "comma-dangle": [
+      1,
+      "never"
+    ],
+    "no-console": [
+      1,
+      {
+        "allow": ["warn", "error"]
+      }
+    ],
+    "no-empty": [
+      1
+    ],
+    "no-sparse-arrays": [
+      2
+    ],
+    "no-unreachable": [
+      2
+    ],
+    "block-scoped-var": [
+      2
+    ],
+    "curly": [
+      2,
+      "multi-or-nest",
+      "consistent"
+    ],
+    "eqeqeq": [
+      2,
+      "smart"
+    ],
+    "no-new-func": [
+      2
+    ],
+    "no-unused-expressions": [
+      2,
+      {
+        "allowShortCircuit": true,
+        "allowTernary": true
+      }
+    ],
+    "no-unused-vars": [
+      1,
+      {
+        "varsIgnorePattern": "React"
+      }
+    ],
+    "no-use-before-define": [
+      1
+    ],
+    "comma-spacing": [
+      2,
+      {
+        "before": false,
+        "after": true
+      }
+    ],
+    "eol-last": [
+      2
+    ],
+    "indent": [
+      2,
+      2,
+      {
+        "MemberExpression": 1,
+        "SwitchCase": 1
+      }
+    ],
+    "jsx-quotes": [
+      1,
+      "prefer-single"
+    ],
+    "babel/new-cap": [
+      1
+    ],
+    "no-lonely-if": [
+      2
+    ],
+    "no-trailing-spaces": [
+      2,
+      {
+        "skipBlankLines": false
+      }
+    ],
+    "space-infix-ops": [
+      2
+    ],
+    "spaced-comment": [
+      2,
+      "always"
+    ],
+    "arrow-body-style": [
+      1,
+      "as-needed"
+    ],
+    "arrow-spacing": [
+      2,
+      {
+        "before": true,
+        "after": true
+      }
+    ],
+    "no-const-assign": [2],
+    "babel/object-curly-spacing": [
+      2,
+      "never"
+    ],
+    "prefer-const": [1],
+    "prefer-arrow-callback": [1],
+    "react/jsx-closing-bracket-location": [
+      1,
+      {
+        "nonEmpty": "after-props",
+        "selfClosing": "tag-aligned"
+      }
+    ],
+    "react/jsx-curly-spacing": [
+      2,
+      "never"
+    ],
+    "react/jsx-first-prop-new-line": [
+      1,
+      "multiline"
+    ],
+    "react/jsx-key": [2],
+    "react/jsx-indent-props": [
+      2,
+      2
+    ],
+    "max-len": [
+      2,
+      {
+        "code": 100
+      }
+    ],
+    "react/jsx-no-undef": [2],
+    "react/jsx-pascal-case": [2],
+    "react/no-set-state": [0],
+    "react/prop-types": [
+      1,
+      {
+        "ignore": ["children", "loading"]
+      }
+    ],
+    "react/jsx-uses-vars": [1]
+  },
+  "plugins": [
+    "babel",
+    "react"
+  ]
+}
