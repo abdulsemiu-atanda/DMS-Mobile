@@ -115,14 +115,22 @@ class Home extends Component {
             screen={routeName}
             documents={this.documentListProps()}
           />
-          <TouchableHighlight onPress={this.addDocument} style={homeStyles.button}>
-            <Icon
-              style={homeStyles.buttonIcon}
-              name={Platform.OS === 'ios' ? 'ios-add' : 'md-add'}
-              size={30}
-              color={color.darkBlue}
-            />
-          </TouchableHighlight>
+          {
+            (
+              (routeName === 'All' && documents.size > 0) ||
+              (routeName === 'Collections' && this.props.user.documents > 0)
+            ) &&
+            (
+              <TouchableHighlight onPress={this.addDocument} style={homeStyles.button}>
+                <Icon
+                  style={homeStyles.buttonIcon}
+                  name={Platform.OS === 'ios' ? 'ios-add' : 'md-add'}
+                  size={30}
+                  color={color.darkBlue}
+                />
+              </TouchableHighlight>
+            )
+          }
         </View>
       )
     }
