@@ -38,7 +38,7 @@ Document Management Application built with React-Native
   - Find and open `dms.xcodproj`.
   - Click `play` icon in Xcode.
 - Android
-  ### react-Native-CLI
+  ### React-Native-CLI
   - Start application with `$ react-native run-android`.
   ### Android Studio
   - Open `android/` in Android Studio.
