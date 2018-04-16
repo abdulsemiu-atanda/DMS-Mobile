@@ -25,7 +25,7 @@ Document Management Application built with React-Native
 ## Installation
 - Ensure you have completed the steps above.
 - Clone this repository.
-- Change your directory with `$ cd dms/`.
+- Change your directory with `$ cd DMS-Mobile/`.
 - Install dependencies with `$ npm i` or `yarn`.
 - Ask a contributor for `settings.json`
 
