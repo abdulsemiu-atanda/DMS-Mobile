@@ -6,10 +6,10 @@ Document Management Application built with React-Native
 - Mac OS X
   - Homebrew
   - NodeJS
-  - Yarn (optionsl)
+  - Yarn (optional)
 - Windows
   - NodeJS
-  - Yarn (optionsl)
+  - Yarn (optional)
 
 ## Requirements
 - Mac OS X
@@ -18,7 +18,7 @@ Document Management Application built with React-Native
   - Install `watchman` with `$ brew install watchman`.
   - Install `react-native-cli` with `npm i -g react-native-cli`.
 - Windows
-  - Download `Android Studio` (optional)
+  - Download `Android Studio` (optional).
   - Install `watchman` by following instructions [here](https://facebook.github.io/watchman/docs/install.html).
   - Install `react-native-cli` with `$ npm i -g react-native-cli`.
 
@@ -52,7 +52,6 @@ Document Management Application built with React-Native
 # Contributing
 ## Project Structure
 ```
-
 ├── _tests_
 ├── actionTypes
 │   ├── newConatants.js
