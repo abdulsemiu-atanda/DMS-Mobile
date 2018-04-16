@@ -19,10 +19,10 @@ export default class Auth extends Component {
   }
 
   UNSAFE_componentWillMount() {
-    this.animatedValue = new Animated.Value(0);
-    this.value = 0;
+    this.animatedValue = new Animated.Value(0)
+    this.value = 0
     this.animatedValue.addListener(({value}) => {
-      this.value = value;
+      this.value = value
     })
     this.frontInterpolate = this.animatedValue.interpolate({
       inputRange: [0, 180],
@@ -49,13 +49,13 @@ export default class Auth extends Component {
           toValue: 0,
           friction: 8,
           tension: 10
-        }).start();
+        }).start()
       } else {
         Animated.spring(this.animatedValue, {
           toValue: 180,
           friction: 8,
           tension: 10
-        }).start();
+        }).start()
       }
     })
   }
@@ -83,7 +83,7 @@ export default class Auth extends Component {
             />
         }
       </View>
-    );
+    )
   }
 }
 

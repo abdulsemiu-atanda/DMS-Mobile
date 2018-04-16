@@ -55,6 +55,7 @@ const userReducer = (state = initialState, action) => {
     case asyncActionNames(SIGN_UP).success:
       return {
         ...state,
+        accessToken: action.data.refreshToken,
         logingIn: false,
         signingUp: false,
         signupError: false,
