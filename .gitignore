@@ -2,6 +2,9 @@
 #
 .DS_Store
 
+# Windows
+.vscode/
+
 # Xcode
 #
 build/
@@ -53,5 +56,6 @@ buck-out/
 */fastlane/screenshots
 
 private/data/settings.json
+package-lock.json
 # Bundle artifact
 *.jsbundle
