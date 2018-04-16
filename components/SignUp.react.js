@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {
   Animated,
+  AsyncStorage,
   Text,
   TextInput,
   TouchableHighlight,
@@ -23,9 +24,23 @@ class SignUp extends Component {
   constructor() {
     super()
 
-    this.state = {passwordMatch: ''}
+    this.state = {passwordMatch: '', navigationComplete: false}
     this.confirmPassword = this.confirmPassword.bind(this)
     this.onSignUp = this.onSignUp.bind(this)
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (!nextProps.user.signingUp && !prevState.navigationComplete && nextProps.user.token) {
+      const tokenObject = {token: nextProps.user.token, accessToken: nextProps.user.accessToken}
+
+      AsyncStorage.setItem('token', JSON.stringify(tokenObject)).then(() => {
+        nextProps.goToHome()
+      }).catch(err => console.warn(err))
+      return {
+        navigationComplete: true
+      }
+    }
+    return null
   }
 
   confirmPassword(evt) {
@@ -70,7 +85,7 @@ class SignUp extends Component {
         {rotateY: this.props.backInterpolate}
       ]
     }
-    const signUpFail = !this.props.user.signingUp && (this.props.user.message === 'Inalid Email' ||
+    const signUpFail = !this.props.user.signingUp && (this.props.user.message === 'Invalid Email' ||
       this.props.user.message === 'User already exists')
 
     return (
@@ -124,7 +139,10 @@ class SignUp extends Component {
             secureTextEntry
             style={loginStyles.input}
           />
-          <TouchableHighlight onPress={this.onSignUp} style={loginStyles.button}>
+          <TouchableHighlight
+            disabled={this.props.user.signingUp}
+            onPress={this.onSignUp}
+            style={loginStyles.button}>
             {
               this.props.user.signingUp ?
                 <Loading animating={this.props.user.signingUp} /> :

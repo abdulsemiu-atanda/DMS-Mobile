@@ -3,7 +3,7 @@ import sendRequest from '../requests/requestUtil'
 /**
  * Constructs async actions constants
  * @param {string} baseName
- * @returns {Onject}
+ * @returns {Object}
  */
 export const asyncActionNames = baseName => ({
   failure: `${baseName}_FAILURE`,
@@ -33,7 +33,7 @@ export const asyncActions = (actionName) => ({
 
 /**
  * Dispatches Redux Actions
- * @async
+ * @async asyncRequest
  * @param {string} ACTION_NAME - The name of action to be dispatched
  * @param {string} endpoint - The endpoint to resource
  * @param {string} method - HTTP method
