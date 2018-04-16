@@ -1,11 +1,21 @@
 import sendRequest from '../requests/requestUtil'
 
+/**
+ * Constructs async actions constants
+ * @param {string} baseName
+ * @returns {Onject}
+ */
 export const asyncActionNames = baseName => ({
   failure: `${baseName}_FAILURE`,
   loading: `${baseName}_LOADING`,
   success: `${baseName}_SUCCESS`
 })
 
+/**
+ * Constructs Redux async actions
+ * @param {string} actionName
+ * @returns {Object}
+ */
 export const asyncActions = (actionName) => ({
   loading: bool => ({
     type: asyncActionNames(actionName).loading,
@@ -20,6 +30,17 @@ export const asyncActions = (actionName) => ({
     data
   })
 })
+
+/**
+ * Dispatches Redux Actions
+ * @async
+ * @param {string} ACTION_NAME - The name of action to be dispatched
+ * @param {string} endpoint - The endpoint to resource
+ * @param {string} method - HTTP method
+ * @param {Object} data - HTTP request body
+ * @param {string} token - Authentication token for request
+ * @returns {Function} - Function that dispatches Redux Actions
+ */
 
 export const asyncRequest = (ACTION_NAME, endpoint, method, data, token) => dispatch => {
   dispatch(asyncActions(ACTION_NAME).loading(true))

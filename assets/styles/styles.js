@@ -7,17 +7,17 @@ const {width, height} = Dimensions.get('window')
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.white,
+    backgroundColor: colors.white
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
+    margin: 10
   },
   instructions: {
     textAlign: 'center',
     color: '#333333',
-    marginBottom: 5,
+    marginBottom: 5
   }
 })
 
@@ -158,7 +158,7 @@ export const documentListStyles = StyleSheet.create({
   container: {
     borderRadius: 5,
     marginBottom: 5,
-    width,
+    width
   },
   content: {
     backgroundColor: colors.white,
@@ -170,7 +170,7 @@ export const documentListStyles = StyleSheet.create({
   },
   collection: {
     borderBottomColor: colors.grey,
-    borderBottomWidth: 1,
+    borderBottomWidth: 1
   },
   collectionView: {
     height: (height * 0.08),
