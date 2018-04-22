@@ -25,8 +25,17 @@ class SignUp extends Component {
     super()
 
     this.state = {passwordMatch: '', navigationComplete: false}
+
+    this.animatedProps = this.animatedProps.bind(this)
+    this.buttonProps = this.buttonProps.bind(this)
     this.confirmPassword = this.confirmPassword.bind(this)
+    this.confirmPasswordInputProps = this.confirmPasswordInputProps.bind(this)
+    this.emailInputProps = this.emailInputProps.bind(this)
+    this.nameInputProps = this.nameInputProps.bind(this)
     this.onSignUp = this.onSignUp.bind(this)
+    this.passwordInputProps = this.passwordInputProps.bind(this)
+    this.sharedInputProps = this.sharedInputProps.bind(this)
+    this.usernameInputProps = this.usernameInputProps.bind(this)
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -41,6 +50,23 @@ class SignUp extends Component {
       }
     }
     return null
+  }
+
+  animatedProps() {
+    const backAnimatedStyle = {
+      transform: [
+        {rotateY: this.props.backInterpolate}
+      ]
+    }
+
+    return {
+      style: [
+        loginStyles.loginContainer,
+        loginStyles.sigupContainer,
+        backAnimatedStyle,
+        {opacity: this.props.backOpacity}
+      ]
+    }
   }
 
   confirmPassword(evt) {
@@ -79,70 +105,81 @@ class SignUp extends Component {
     }
   }
 
-  render() {
-    const backAnimatedStyle = {
-      transform: [
-        {rotateY: this.props.backInterpolate}
-      ]
+  buttonProps() {
+    return {
+      disabled: this.props.user.signingUp,
+      onPress: this.onSignUp,
+      style: loginStyles.button
     }
+  }
+
+  confirmPasswordInputProps() {
+    return {
+      onEndEditing: this.confirmPassword,
+      autoCapitalize: 'none',
+      style: loginStyles.input
+    }
+  }
+
+  sharedInputProps(placeholderValue) {
+    return {autoCapitalize: 'none', placeholder: placeholderValue}
+  }
+
+  emailInputProps() {
+    return {
+      ...this.sharedInputProps('jason@bourne.com'),
+      ref: ref => this.email = ref,
+      keyboardType: 'email-address',
+      style: loginStyles.input
+    }
+  }
+
+  nameInputProps() {
+    return {
+      ...this.sharedInputProps('Jason Bourne'),
+      ref: ref => this.fullname = ref,
+      style: loginStyles.input
+    }
+  }
+
+  passwordInputProps() {
+    return {
+      ref: ref => this.password = ref,
+      autoCapitalize: 'none',
+      style: loginStyles.input
+    }
+  }
+
+  usernameInputProps() {
+    return {
+      ...this.sharedInputProps('jbourne'),
+      ref: ref => this.username = ref,
+      style: loginStyles.input
+    }
+  }
+
+  render() {
     const signUpFail = !this.props.user.signingUp && (this.props.user.message === 'Invalid Email' ||
       this.props.user.message === 'User already exists')
 
     return (
-      <Animated.View
-        style={
-          [
-            loginStyles.loginContainer,
-            loginStyles.sigupContainer,
-            backAnimatedStyle,
-            {opacity: this.props.backOpacity}
-          ]
-        }>
+      <Animated.View {...this.animatedProps()} >
         <TouchableOpacity style={loginStyles.closer} onPress={this.props.flipCard}>
           <Icon name='ios-close' size={40} color='#cfcfd1' />
         </TouchableOpacity>
         <View style={loginStyles.form}>
           <Text style={loginStyles.headerText}>Sign Up</Text>
           <Text style={loginStyles.label}>FULL NAME</Text>
-          <TextInput
-            ref={ref => this.fullname = ref}
-            autoCapitalize='none'
-            style={loginStyles.input}
-            placeholder='Jason Bourne'
-          />
+          <TextInput {...this.nameInputProps()} />
           <Text style={loginStyles.label}>USERNAME</Text>
-          <TextInput
-            ref={ref => this.username = ref}
-            autoCapitalize='none'
-            style={loginStyles.input}
-            placeholder='jbourne'
-          />
+          <TextInput {...this.usernameInputProps()} />
           <Text style={loginStyles.label}>EMAIL</Text>
-          <TextInput
-            ref={ref => this.email = ref}
-            autoCapitalize='none'
-            keyboardType='email-address'
-            style={loginStyles.input}
-            placeholder='jason@bourne.com'
-          />
+          <TextInput {...this.emailInputProps()} />
           <Text style={loginStyles.label}>PASSWORD</Text>
-          <TextInput
-            ref={ref => this.password = ref}
-            autoCapitalize='none'
-            secureTextEntry
-            style={loginStyles.input}
-          />
+          <TextInput secureTextEntry {...this.passwordInputProps()} />
           <Text style={loginStyles.label}>CONFIRM PASSWORD</Text>
-          <TextInput
-            onEndEditing={this.confirmPassword}
-            autoCapitalize='none'
-            secureTextEntry
-            style={loginStyles.input}
-          />
-          <TouchableHighlight
-            disabled={this.props.user.signingUp}
-            onPress={this.onSignUp}
-            style={loginStyles.button}>
+          <TextInput secureTextEntry {...this.confirmPasswordInputProps()} />
+          <TouchableHighlight {...this.buttonProps()}>
             {
               this.props.user.signingUp ?
                 <Loading animating={this.props.user.signingUp} /> :
