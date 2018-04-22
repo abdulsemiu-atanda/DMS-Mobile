@@ -28,7 +28,11 @@ class Home extends Component {
     }
 
     this.addDocument = this.addDocument.bind(this)
+    this.displayAddButton = this.displayAddButton.bind(this)
+    this.documentList = this.documentList.bind(this)
     this.documentListProps = this.documentListProps.bind(this)
+    this.iconProps = this.iconProps.bind(this)
+    this.showLoader = this.showLoader.bind(this)
   }
 
   async componentDidMount() {
@@ -72,7 +76,15 @@ class Home extends Component {
     // console.log('Add Document')
   }
 
-  documentListProps() {
+  displayAddButton() {
+    const {documents} = this.props.document
+    const {routeName} = this.props.navigation.state
+
+    return (routeName === 'All' && documents.size > 0) ||
+      (routeName === 'Collections' && this.props.user.documents.size > 0)
+  }
+
+  documentList() {
     const {navigation, document, user} = this.props
     const {documents} = document
     const homeDocuments = documents.filterNot(document => document.get('access') === 'private')
@@ -85,23 +97,41 @@ class Home extends Component {
       return fromJS([])
   }
 
-  render() {
+  documentListProps() {
+    const {routeName} = this.props.navigation.state
+
+    return {
+      addDocument: this.addDocument,
+      navigation: this.props.navigation,
+      screen: routeName,
+      documents: this.documentList()
+    }
+  }
+
+  iconProps() {
+    return {
+      style: homeStyles.buttonIcon,
+      name: Platform.OS === 'ios' ? 'ios-add' : 'md-add',
+      size: 30,
+      color: color.darkBlue
+    }
+  }
+
+  showLoader() {
     const {loading} = this.state
+    const {documentLoading} = this.props.document
+    const {routeName} = this.props.navigation.state
+
+    return loading || documentLoading ||
+      (routeName === 'Collection' && this.props.user.loadingDocuments)
+  }
+
+  render() {
     const {documents, documentLoading} = this.props.document
     const {routeName} = this.props.navigation.state
 
-    if (loading || documentLoading ||
-      (routeName === 'Collection' && this.props.user.loadingDocuments)) {
-      return (
-        <ActivityIndicator
-          animating={
-            this.state.loading || documentLoading ||
-            (routeName !== 'All' && this.props.user.loadingDocuments)
-          }
-          color='blue'
-          size='large'
-        />
-      )
+    if (this.showLoader()) {
+      return <ActivityIndicator animating={this.showLoader()} color='blue' size='large' />
     }
     else if (!documentLoading && !documents.size) {
       return <EmptyDocument addDocument={this.addDocument} screen={routeName} />
@@ -109,25 +139,12 @@ class Home extends Component {
     else {
       return (
         <View style={homeStyles.container}>
-          <DocumentList
-            addDocument={this.addDocument}
-            navigation={this.props.navigation}
-            screen={routeName}
-            documents={this.documentListProps()}
-          />
+          <DocumentList {...this.documentListProps()} />
           {
-            (
-              (routeName === 'All' && documents.size > 0) ||
-              (routeName === 'Collections' && this.props.user.documents > 0)
-            ) &&
+            this.displayAddButton() &&
             (
               <TouchableHighlight onPress={this.addDocument} style={homeStyles.button}>
-                <Icon
-                  style={homeStyles.buttonIcon}
-                  name={Platform.OS === 'ios' ? 'ios-add' : 'md-add'}
-                  size={30}
-                  color={color.darkBlue}
-                />
+                <Icon {...this.iconProps()} />
               </TouchableHighlight>
             )
           }
