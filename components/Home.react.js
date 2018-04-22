@@ -42,7 +42,7 @@ class Home extends Component {
     if (isTokenExpired(tokensObject.token)) {
       this.props.asyncRequest(
         TOKEN,
-        `user/${tokensObject.accessToken}`,
+        `user?refreshToken=${tokensObject.accessToken}`,
         'GET',
         null,
         tokensObject.token
