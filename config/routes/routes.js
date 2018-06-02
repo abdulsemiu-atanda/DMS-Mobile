@@ -1,17 +1,22 @@
 import React from 'react'
-import {Platform} from 'react-native';
-import {StackNavigator, SwitchNavigator, TabNavigator} from 'react-navigation'
-import Icon from 'react-native-vector-icons/Ionicons'
+import {Platform} from 'react-native'
+import {
+  createStackNavigator,
+  createSwitchNavigator,
+  createBottomTabNavigator
+} from 'react-navigation'
 
 import Auth from '../../components/Auth.react'
 import AuthLoading from '../../components/AuthLoading.react'
 import AppHeader from '../../components/shared/AppHeader.react'
 import DocumentList from '../../components/shared/DocumentList.react'
 import Home from '../../components/Home.react'
+import AppsIcon from '../../components/icons/AppsIcon.react'
+import AlbumsIcon from '../../components/icons/AlbumsIcon.react'
 
 import colors from '../../assets/styles/colors'
 
-const AuthStack = StackNavigator({
+const AuthStack = createStackNavigator({
   SignIn: {
     screen: Auth,
     navigationOptions: {
@@ -20,19 +25,19 @@ const AuthStack = StackNavigator({
   }
 })
 
-const HomeTabs = TabNavigator({
+const HomeTabs = createBottomTabNavigator({
   All: {
     screen: Home,
     navigationOptions: {
       tabBarLabel: 'All',
-      tabBarIcon: ({tintColor}) => <Icon name='ios-albums' size={32} color={tintColor} />
+      tabBarIcon: AlbumsIcon
     }
   },
   Collection: {
     screen: Home,
     navigationOptions: {
       tabBarLabel: 'Collection',
-      tabBarIcon: ({tintColor}) => <Icon name='ios-apps' size={32} color={tintColor} />
+      tabBarIcon: AppsIcon
     }
   }
 }, {
@@ -43,12 +48,12 @@ const HomeTabs = TabNavigator({
     labelStyle: {
       fontSize: 15
     },
-    showLabel: Platform.OS === 'android' ? false : true,
+    showLabel: Platform.OS === 'ios',
     showIcon: true
   }
 })
 
-const AppStack = StackNavigator({
+const AppStack = createStackNavigator({
   Home: {
     screen: HomeTabs,
     navigationOptions: {
@@ -63,10 +68,13 @@ const AppStack = StackNavigator({
   }
 })
 
-const AppNavigator = SwitchNavigator({
+const AppNavigator = createSwitchNavigator({
   AuthLoading,
   Auth: AuthStack,
   App: AppStack
+},
+{
+  initialRouteName: 'AuthLoading'
 })
 
 export default AppNavigator
