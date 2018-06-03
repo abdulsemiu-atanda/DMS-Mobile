@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuthFooter renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "padding": 30,
+      },
+      Object {
+        "height": "16%",
+      },
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#96a1ae",
+        "fontSize": 12,
+        "fontWeight": "600",
+        "marginRight": 5,
+      }
+    }
+  >
+    DON'T HAVE AN ACCOUNT?
+  </Text>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 12,
+          "fontWeight": "700",
+        }
+      }
+    >
+      SIGN UP
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`AuthFooter renders correctly when screen is sign up 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "padding": 30,
+      },
+      Object {
+        "height": "16%",
+      },
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#96a1ae",
+        "fontSize": 12,
+        "fontWeight": "600",
+        "marginRight": 5,
+      }
+    }
+  >
+    ALREADY HAVE AN ACCOUNT?
+  </Text>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 12,
+          "fontWeight": "700",
+        }
+      }
+    >
+      SIGN IN
+    </Text>
+  </View>
+</View>
+`;
