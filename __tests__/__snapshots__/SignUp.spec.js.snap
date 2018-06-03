@@ -1,0 +1,931 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignUp renders correct message when there is an error 1`] = `
+<View
+  style={
+    Object {
+      "backfaceVisibility": "hidden",
+      "flex": 1,
+      "height": 1334,
+      "opacity": undefined,
+      "position": "absolute",
+      "transform": Array [
+        Object {
+          "rotateY": undefined,
+        },
+      ],
+      "width": "100%",
+    }
+  }
+>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "height": 133.4,
+        "opacity": 1,
+        "padding": 30,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={false}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#cfcfd1",
+            "fontSize": 40,
+          },
+          undefined,
+          Object {
+            "fontFamily": "Ionicons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 2,
+        "padding": 30,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "alignSelf": "center",
+          "fontSize": 18,
+          "marginBottom": 20,
+          "textAlign": "center",
+        }
+      }
+    >
+      Sign Up
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#96a1ae",
+          "fontSize": 10,
+        }
+      }
+    >
+      FULL NAME
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      placeholder="Jason Bourne"
+      style={
+        Object {
+          "borderBottomColor": "#bbb",
+          "borderBottomWidth": 1,
+          "marginBottom": 10,
+          "marginTop": 10,
+        }
+      }
+    />
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#96a1ae",
+          "fontSize": 10,
+        }
+      }
+    >
+      USERNAME
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      placeholder="jbourne"
+      style={
+        Object {
+          "borderBottomColor": "#bbb",
+          "borderBottomWidth": 1,
+          "marginBottom": 10,
+          "marginTop": 10,
+        }
+      }
+    />
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#96a1ae",
+          "fontSize": 10,
+        }
+      }
+    >
+      EMAIL
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      keyboardType="email-address"
+      placeholder="jason@bourne.com"
+      style={
+        Object {
+          "borderBottomColor": "#bbb",
+          "borderBottomWidth": 1,
+          "marginBottom": 10,
+          "marginTop": 10,
+        }
+      }
+    />
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#96a1ae",
+          "fontSize": 10,
+        }
+      }
+    >
+      PASSWORD
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      secureTextEntry={true}
+      style={
+        Object {
+          "borderBottomColor": "#bbb",
+          "borderBottomWidth": 1,
+          "marginBottom": 10,
+          "marginTop": 10,
+        }
+      }
+    />
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#96a1ae",
+          "fontSize": 10,
+        }
+      }
+    >
+      CONFIRM PASSWORD
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      onEndEditing={[Function]}
+      secureTextEntry={true}
+      style={
+        Object {
+          "borderBottomColor": "#bbb",
+          "borderBottomWidth": 1,
+          "marginBottom": 10,
+          "marginTop": 10,
+        }
+      }
+    />
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#0983ff",
+          "height": 40,
+          "marginTop": 20,
+          "padding": 7,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#aacfff",
+            "fontSize": 18,
+          }
+        }
+      >
+        Create
+      </Text>
+    </View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "red",
+          "marginTop": 10,
+        }
+      }
+    >
+      Invalid Email
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "padding": 30,
+        },
+        Object {
+          "height": "16%",
+        },
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#96a1ae",
+          "fontSize": 12,
+          "fontWeight": "600",
+          "marginRight": 5,
+        }
+      }
+    >
+      ALREADY HAVE AN ACCOUNT?
+    </Text>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 12,
+            "fontWeight": "700",
+          }
+        }
+      >
+        SIGN IN
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`SignUp renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backfaceVisibility": "hidden",
+      "flex": 1,
+      "height": 1334,
+      "opacity": undefined,
+      "position": "absolute",
+      "transform": Array [
+        Object {
+          "rotateY": undefined,
+        },
+      ],
+      "width": "100%",
+    }
+  }
+>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "height": 133.4,
+        "opacity": 1,
+        "padding": 30,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={false}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#cfcfd1",
+            "fontSize": 40,
+          },
+          undefined,
+          Object {
+            "fontFamily": "Ionicons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 2,
+        "padding": 30,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "alignSelf": "center",
+          "fontSize": 18,
+          "marginBottom": 20,
+          "textAlign": "center",
+        }
+      }
+    >
+      Sign Up
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#96a1ae",
+          "fontSize": 10,
+        }
+      }
+    >
+      FULL NAME
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      placeholder="Jason Bourne"
+      style={
+        Object {
+          "borderBottomColor": "#bbb",
+          "borderBottomWidth": 1,
+          "marginBottom": 10,
+          "marginTop": 10,
+        }
+      }
+    />
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#96a1ae",
+          "fontSize": 10,
+        }
+      }
+    >
+      USERNAME
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      placeholder="jbourne"
+      style={
+        Object {
+          "borderBottomColor": "#bbb",
+          "borderBottomWidth": 1,
+          "marginBottom": 10,
+          "marginTop": 10,
+        }
+      }
+    />
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#96a1ae",
+          "fontSize": 10,
+        }
+      }
+    >
+      EMAIL
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      keyboardType="email-address"
+      placeholder="jason@bourne.com"
+      style={
+        Object {
+          "borderBottomColor": "#bbb",
+          "borderBottomWidth": 1,
+          "marginBottom": 10,
+          "marginTop": 10,
+        }
+      }
+    />
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#96a1ae",
+          "fontSize": 10,
+        }
+      }
+    >
+      PASSWORD
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      secureTextEntry={true}
+      style={
+        Object {
+          "borderBottomColor": "#bbb",
+          "borderBottomWidth": 1,
+          "marginBottom": 10,
+          "marginTop": 10,
+        }
+      }
+    />
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#96a1ae",
+          "fontSize": 10,
+        }
+      }
+    >
+      CONFIRM PASSWORD
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      onEndEditing={[Function]}
+      secureTextEntry={true}
+      style={
+        Object {
+          "borderBottomColor": "#bbb",
+          "borderBottomWidth": 1,
+          "marginBottom": 10,
+          "marginTop": 10,
+        }
+      }
+    />
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#0983ff",
+          "height": 40,
+          "marginTop": 20,
+          "padding": 7,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#aacfff",
+            "fontSize": 18,
+          }
+        }
+      >
+        Create
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "padding": 30,
+        },
+        Object {
+          "height": "16%",
+        },
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#96a1ae",
+          "fontSize": 12,
+          "fontWeight": "600",
+          "marginRight": 5,
+        }
+      }
+    >
+      ALREADY HAVE AN ACCOUNT?
+    </Text>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 12,
+            "fontWeight": "700",
+          }
+        }
+      >
+        SIGN IN
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`SignUp renders spinner when sign up is loading 1`] = `
+<View
+  style={
+    Object {
+      "backfaceVisibility": "hidden",
+      "flex": 1,
+      "height": 1334,
+      "opacity": undefined,
+      "position": "absolute",
+      "transform": Array [
+        Object {
+          "rotateY": undefined,
+        },
+      ],
+      "width": "100%",
+    }
+  }
+>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "height": 133.4,
+        "opacity": 1,
+        "padding": 30,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={false}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#cfcfd1",
+            "fontSize": 40,
+          },
+          undefined,
+          Object {
+            "fontFamily": "Ionicons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 2,
+        "padding": 30,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "alignSelf": "center",
+          "fontSize": 18,
+          "marginBottom": 20,
+          "textAlign": "center",
+        }
+      }
+    >
+      Sign Up
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#96a1ae",
+          "fontSize": 10,
+        }
+      }
+    >
+      FULL NAME
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      placeholder="Jason Bourne"
+      style={
+        Object {
+          "borderBottomColor": "#bbb",
+          "borderBottomWidth": 1,
+          "marginBottom": 10,
+          "marginTop": 10,
+        }
+      }
+    />
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#96a1ae",
+          "fontSize": 10,
+        }
+      }
+    >
+      USERNAME
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      placeholder="jbourne"
+      style={
+        Object {
+          "borderBottomColor": "#bbb",
+          "borderBottomWidth": 1,
+          "marginBottom": 10,
+          "marginTop": 10,
+        }
+      }
+    />
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#96a1ae",
+          "fontSize": 10,
+        }
+      }
+    >
+      EMAIL
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      keyboardType="email-address"
+      placeholder="jason@bourne.com"
+      style={
+        Object {
+          "borderBottomColor": "#bbb",
+          "borderBottomWidth": 1,
+          "marginBottom": 10,
+          "marginTop": 10,
+        }
+      }
+    />
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#96a1ae",
+          "fontSize": 10,
+        }
+      }
+    >
+      PASSWORD
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      secureTextEntry={true}
+      style={
+        Object {
+          "borderBottomColor": "#bbb",
+          "borderBottomWidth": 1,
+          "marginBottom": 10,
+          "marginTop": 10,
+        }
+      }
+    />
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#96a1ae",
+          "fontSize": 10,
+        }
+      }
+    >
+      CONFIRM PASSWORD
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      onEndEditing={[Function]}
+      secureTextEntry={true}
+      style={
+        Object {
+          "borderBottomColor": "#bbb",
+          "borderBottomWidth": 1,
+          "marginBottom": 10,
+          "marginTop": 10,
+        }
+      }
+    />
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#0983ff",
+          "height": 40,
+          "marginTop": 20,
+          "padding": 7,
+        }
+      }
+    >
+      <ActivityIndicator
+        animating={true}
+        color="#01f0b3"
+        hidesWhenStopped={true}
+        size="large"
+      />
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "padding": 30,
+        },
+        Object {
+          "height": "16%",
+        },
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#96a1ae",
+          "fontSize": 12,
+          "fontWeight": "600",
+          "marginRight": 5,
+        }
+      }
+    >
+      ALREADY HAVE AN ACCOUNT?
+    </Text>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 12,
+            "fontWeight": "700",
+          }
+        }
+      >
+        SIGN IN
+      </Text>
+    </View>
+  </View>
+</View>
+`;
