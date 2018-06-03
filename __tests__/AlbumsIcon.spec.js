@@ -2,11 +2,11 @@ import 'react-native'
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import AppsIcon from '../components/icons/AppsIcon.react'
+import AlbumsIcon from '../components/icons/AlbumsIcon.react'
 
-describe('AppsIcon', () => {
+describe('AlbumsIcon', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(<AppsIcon tintColor='blue' />).toJSON()
+    const tree = renderer.create(<AlbumsIcon tintColor='blue' />).toJSON()
 
     expect(tree).toMatchSnapshot()
     expect(tree.props.style[0].color).toEqual('blue')
