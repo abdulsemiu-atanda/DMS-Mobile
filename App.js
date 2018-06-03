@@ -16,7 +16,7 @@ const middleware = createReactNavigationReduxMiddleware(
 
 const store = createStore(
   rootReducer,
-  applyMiddleware(middleware, thunk, createLogger())
+  applyMiddleware(middleware, thunk, __DEV__ && createLogger())
 )
 
 export default class Root extends Component {
