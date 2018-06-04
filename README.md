@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/abdulsemiu-atanda/DMS-Mobile.svg?branch=master)](https://travis-ci.org/abdulsemiu-atanda/DMS-Mobile)
+
 # DMS-Mobile
 Document Management Application built with React-Native
 
