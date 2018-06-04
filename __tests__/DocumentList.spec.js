@@ -7,20 +7,22 @@ import moment from 'moment'
 import DocumentList from '../components/shared/DocumentList.react'
 import {noop} from '../util/util'
 
+const date = new Date(1330688329321)
+
 const publicDocuments = [
   {
     title: 'Scooby Doo',
     access: 'public',
     content: 'Scooby Doo is a beloved brown dog.',
-    updatedAt: Date.now(),
-    createdAt: Date.now()
+    updatedAt: date.toISOString(),
+    createdAt: date.toISOString()
   },
   {
     title: 'Sharpie',
     access: 'public',
     content: 'Sharpie is one of the perfectly crafted products.',
-    updatedAt: Date.now(),
-    createdAt: Date.now()
+    updatedAt: date.toISOString(),
+    createdAt: date.toISOString()
   }
 ]
 const props = {
