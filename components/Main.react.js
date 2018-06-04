@@ -1,23 +1,25 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {createReduxBoundAddListener} from 'react-navigation-redux-helpers'
-import {addNavigationHelpers} from 'react-navigation'
+import {initializeListeners, createNavigationPropConstructor} from 'react-navigation-redux-helpers'
 import PropTypes from 'prop-types'
 
 import AppNavigator from '../config/routes/routes'
 
 
 class Main extends Component {
+  componentDidMount() {
+    initializeListeners('root', this.props.nav)
+  }
+
   render() {
-    const addListener = createReduxBoundAddListener('root')
+    const navigationPropConstructor = createNavigationPropConstructor('root')
 
     return (
       <AppNavigator
-        navigation={addNavigationHelpers({
-          dispatch: this.props.dispatch,
-          state: this.props.nav,
-          addListener
-        })}
+        navigation={navigationPropConstructor(
+          this.props.dispatch,
+          this.props.nav
+        )}
       />
     )
   }
