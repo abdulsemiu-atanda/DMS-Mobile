@@ -45,9 +45,14 @@ Document Management Application built with React-Native
   - Allow `gradle` to finish building.
   - Click `Run` and select `Run app` from dropdown.
 
+## Testing
+Unit Tests for components are setup using Jest and can be ran locally using the command below:
+  - `$ npm test`
+
 # Learn
 - `ReactJS` documentation [here](https://reactjs.org/docs/hello-world.html)
 - `React-Native` documentation [here](https://facebook.github.io/react-native/docs/getting-started.html)
+- `Jest` documentation [here](https://facebook.github.io/jest/docs/en/tutorial-react-native.html)
 
 # Contributing
 ## Project Structure
@@ -78,6 +83,7 @@ Document Management Application built with React-Native
 
 ## Adding a Feature
 - Create your branch off master as follows `YOUR_NAME/TYPE/FEATURE-DETAIL`.
+- Make sure all tests are passing and add new test where necessary.
 - Commit your changes and make a Pull request to master.
 
 # Reporting Issue
