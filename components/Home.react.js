@@ -17,7 +17,7 @@ import {isTokenExpired} from '../util/util'
 import color from '../assets/styles/colors'
 import {homeStyles} from '../assets/styles/styles'
 
-class Home extends Component {
+export class Home extends Component {
   constructor(props) {
     super(props)
 

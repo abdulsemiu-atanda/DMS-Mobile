@@ -19,7 +19,7 @@ import {LOG_IN} from '../actionTypes/userConstants'
 
 import {loginStyles} from '../assets/styles/styles'
 
-class LogIn extends Component {
+export class LogIn extends Component {
   constructor() {
     super()
 
@@ -57,7 +57,7 @@ class LogIn extends Component {
         {rotateY: this.props.frontInterpolate}
       ]
     }
-    const loginFail = !this.props.user.logingIn &&
+    const loginFail = !this.props.user.loggingIn &&
       this.props.user.message === 'Username or password incorrect'
 
     return (
@@ -87,12 +87,12 @@ class LogIn extends Component {
             style={loginStyles.input}
           />
           <TouchableHighlight
-            disabled={this.props.user.logingIn}
+            disabled={this.props.user.loggingIn}
             onPress={this.onLogIn}
             style={loginStyles.button}>
             {
-              this.props.user.logingIn ?
-                <Loading animating={this.props.user.logingIn} /> :
+              this.props.user.loggingIn ?
+                <Loading animating={this.props.user.loggingIn} /> :
                 <Text style={loginStyles.buttonText}>Sign In</Text>
             }
           </TouchableHighlight>
@@ -115,7 +115,7 @@ LogIn.propTypes = {
   flipCard: PropTypes.func,
   goToHome: PropTypes.func,
   user: PropTypes.shape({
-    logingIn: PropTypes.bool,
+    loggingIn: PropTypes.bool,
     message: PropTypes.string
   })
 }

@@ -1,0 +1,11 @@
+sudo: required
+dist: trusty
+language: node_js
+
+node_js:
+  - node
+
+before_script: cat private/data/settings.example.json > private/data/settings.json
+
+script:
+  - npm test

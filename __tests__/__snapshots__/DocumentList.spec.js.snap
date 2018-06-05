@@ -1,0 +1,411 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DocumentList renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "padding": 7,
+    }
+  }
+>
+  <RCTScrollView
+    dataSource={
+      ListViewDataSource {
+        "items": 2,
+      }
+    }
+    enableEmptySections={true}
+    renderRow={[Function]}
+    renderScrollComponent={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#f7f7f7",
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Object {
+            "borderRadius": 5,
+            "marginBottom": 5,
+            "width": 750,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "#fff",
+                "height": 266.8,
+                "padding": 10,
+              }
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "fontSize": 15,
+                  "fontWeight": "700",
+                  "marginBottom": 2,
+                }
+              }
+            >
+              Scooby Doo
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              numberOfLines={3}
+              style={
+                Object {
+                  "marginBottom": 106.72,
+                }
+              }
+            >
+              Scooby Doo is a beloved brown dog.
+            </Text>
+            <View
+              style={
+                Object {
+                  "borderBottomColor": "#bbb",
+                  "borderBottomWidth": 1,
+                  "marginBottom": 2,
+                }
+              }
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#bbb",
+                  "fontSize": 10,
+                }
+              }
+            >
+              Modified: 
+              Mar 2nd 12
+               / Created: 
+              Mar 2nd 12
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "borderRadius": 5,
+            "marginBottom": 5,
+            "width": 750,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "#fff",
+                "height": 266.8,
+                "padding": 10,
+              }
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "fontSize": 15,
+                  "fontWeight": "700",
+                  "marginBottom": 2,
+                }
+              }
+            >
+              Sharpie
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              numberOfLines={3}
+              style={
+                Object {
+                  "marginBottom": 106.72,
+                }
+              }
+            >
+              Sharpie is one of the perfectly crafted products.
+            </Text>
+            <View
+              style={
+                Object {
+                  "borderBottomColor": "#bbb",
+                  "borderBottomWidth": 1,
+                  "marginBottom": 2,
+                }
+              }
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#bbb",
+                  "fontSize": 10,
+                }
+              }
+            >
+              Modified: 
+              Mar 2nd 12
+               / Created: 
+              Mar 2nd 12
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`DocumentList renders correctly when there are no documents 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={false}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "grey",
+          "fontSize": 70,
+        },
+        undefined,
+        Object {
+          "fontFamily": "Ionicons",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontFamily": "Verdana",
+        "marginBottom": 20,
+        "textAlign": "center",
+      }
+    }
+  >
+    Oops! there are no public documents currently available for viewing.        Please check again later or start by adding a public document.
+  </Text>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignContent": "center",
+        "alignSelf": "center",
+        "backgroundColor": "#0983ff",
+        "padding": 7,
+        "width": 300,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#aacfff",
+          "fontSize": 15,
+          "textAlign": "center",
+        }
+      }
+    >
+      ADD DOCUMENT
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`DocumentList renders correctly when user is viewing their documents 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "padding": 7,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "padding": 10,
+        "width": 750,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontFamily": "Verdana",
+          "fontSize": 12,
+        }
+      }
+    >
+      ACCESS
+    </Text>
+    <View
+      style={
+        Array [
+          Object {
+            "borderBottomColor": "#bbb",
+            "borderBottomWidth": 1,
+            "marginBottom": 2,
+          },
+          Object {
+            "marginBottom": 8,
+            "width": 600,
+          },
+        ]
+      }
+    />
+  </View>
+  <RCTScrollView
+    dataSource={
+      ListViewDataSource {
+        "items": 2,
+      }
+    }
+    enableEmptySections={true}
+    renderRow={[Function]}
+    renderScrollComponent={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#f7f7f7",
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Object {
+            "flexDirection": "column",
+            "height": 106.72,
+            "justifyContent": "space-between",
+            "padding": 10,
+            "width": 750,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontFamily": "Verdana",
+                "fontSize": 12,
+              }
+            }
+          >
+            Public
+             (
+            2
+            )
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "borderBottomColor": "#bbb",
+              "borderBottomWidth": 1,
+              "marginBottom": 2,
+            }
+          }
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;

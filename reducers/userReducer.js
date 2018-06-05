@@ -13,7 +13,7 @@ const initialState = {
   accessToken: null,
   token: null,
   signingUp: false,
-  logingIn: false,
+  loggingIn: false,
   error: {},
   signupError: false,
   loginError: false,
@@ -31,17 +31,17 @@ const userReducer = (state = initialState, action) => {
     case asyncActionNames(LOG_IN).failure:
       return {
         ...state,
-        logingIn: false,
+        loggingIn: false,
         loginError: action.data.status,
         error: {logIn: action.data.error}
       }
     case asyncActionNames(LOG_IN).loading:
-      return {...state, logingIn: action.data}
+      return {...state, loggingIn: action.data}
     case asyncActionNames(LOG_IN).success:
       return {
         ...state,
         accessToken: action.data.refreshToken,
-        logingIn: false,
+        loggingIn: false,
         signingUp: false,
         signupError: false,
         loginError: false,
@@ -56,7 +56,7 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         accessToken: action.data.refreshToken,
-        logingIn: false,
+        loggingIn: false,
         signingUp: false,
         signupError: false,
         loginError: false,

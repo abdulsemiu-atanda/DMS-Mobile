@@ -20,7 +20,7 @@ import {SIGN_UP} from '../actionTypes/userConstants'
 
 import {loginStyles} from '../assets/styles/styles'
 
-class SignUp extends Component {
+export class SignUp extends Component {
   constructor() {
     super()
 
