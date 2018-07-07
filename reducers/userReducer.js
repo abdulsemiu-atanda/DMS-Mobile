@@ -49,7 +49,7 @@ const userReducer = (state = initialState, action) => {
         message: action.data.message
       }
     case asyncActionNames(SIGN_UP).failure:
-      return {...state, signupError: action.data.error.status, error: {signUp: action.data.error}}
+      return {...state, signupError: action.data.status, error: {signUp: action.data.error}}
     case asyncActionNames(SIGN_UP).loading:
       return {...state, signingUp: action.data}
     case asyncActionNames(SIGN_UP).success:
@@ -66,7 +66,7 @@ const userReducer = (state = initialState, action) => {
     case asyncActionNames(TOKEN).loading:
       return {...state, refreshingToken: action.data}
     case asyncActionNames(TOKEN).failure:
-      return {...state, refreshingTokenError: action.data.status, token: action.data.error}
+      return {...state, refreshingTokenError: action.data.status, tokenError: action.data.error}
     case asyncActionNames(TOKEN).success:
       return {...state, token: action.data.token, accessToken: action.data.refreshToken}
     case asyncActionNames(USER_DOCUMENTS).loading:
