@@ -4,7 +4,7 @@ import {noop} from '../util'
 
 const animatedValue = new Animated.Value(0)
 
-const authSreenProps = screen => ({
+const authScreenProps = screen => ({
   asyncRequest: noop,
   frontOpacity: animatedValue.interpolate({
     inputRange: [89, 90],
@@ -27,4 +27,11 @@ const authSreenProps = screen => ({
     }
 })
 
-export default authSreenProps
+export const authLoadingProps = screen => ({
+  ...authScreenProps(screen),
+  user: screen === 'signup' ?
+    {signingUp: true, message: ''} :
+    {loggingIn: true, message: ''}
+})
+
+export default authScreenProps

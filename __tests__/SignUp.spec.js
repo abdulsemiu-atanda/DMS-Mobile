@@ -2,7 +2,7 @@ import 'react-native'
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import authScreenProps from '../util/fixtures/authFixtures'
+import authScreenProps, {authLoadingProps} from '../util/fixtures/authFixtures'
 import {SignUp} from '../components/SignUp.react'
 
 describe('SignUp', () => {
@@ -27,11 +27,7 @@ describe('SignUp', () => {
   })
 
   it('renders spinner when sign up is loading', () => {
-    const signingUpProps = {
-      ...authScreenProps('signup'),
-      user: {signingUp: true, message: ''}
-    }
-    const tree = renderer.create(<SignUp {...signingUpProps} />).toJSON()
+    const tree = renderer.create(<SignUp {...authLoadingProps('signup')} />).toJSON()
 
     expect(tree).toMatchSnapshot()
     expect(tree.children[1].children[11].children[0].type).toEqual('ActivityIndicator')
