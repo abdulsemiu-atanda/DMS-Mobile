@@ -97,7 +97,7 @@ exports[`LogIn render correct error message when login fails 1`] = `
         Object {
           "borderBottomColor": "#bbb",
           "borderBottomWidth": 1,
-          "marginBottom": 10,
+          "marginBottom": 20,
           "marginTop": 10,
         }
       }
@@ -121,7 +121,7 @@ exports[`LogIn render correct error message when login fails 1`] = `
         Object {
           "borderBottomColor": "#bbb",
           "borderBottomWidth": 1,
-          "marginBottom": 10,
+          "marginBottom": 20,
           "marginTop": 10,
         }
       }
@@ -321,7 +321,7 @@ exports[`LogIn renders correctly 1`] = `
         Object {
           "borderBottomColor": "#bbb",
           "borderBottomWidth": 1,
-          "marginBottom": 10,
+          "marginBottom": 20,
           "marginTop": 10,
         }
       }
@@ -345,7 +345,7 @@ exports[`LogIn renders correctly 1`] = `
         Object {
           "borderBottomColor": "#bbb",
           "borderBottomWidth": 1,
-          "marginBottom": 10,
+          "marginBottom": 20,
           "marginTop": 10,
         }
       }
@@ -535,7 +535,7 @@ exports[`LogIn renders spinner when user is loggingIn 1`] = `
         Object {
           "borderBottomColor": "#bbb",
           "borderBottomWidth": 1,
-          "marginBottom": 10,
+          "marginBottom": 20,
           "marginTop": 10,
         }
       }
@@ -559,7 +559,7 @@ exports[`LogIn renders spinner when user is loggingIn 1`] = `
         Object {
           "borderBottomColor": "#bbb",
           "borderBottomWidth": 1,
-          "marginBottom": 10,
+          "marginBottom": 20,
           "marginTop": 10,
         }
       }
