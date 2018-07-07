@@ -59,9 +59,6 @@ exports[`DocumentList renders correctly 1`] = `
             }
           >
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
               style={
                 Object {
                   "fontSize": 15,
@@ -73,9 +70,6 @@ exports[`DocumentList renders correctly 1`] = `
               Scooby Doo
             </Text>
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
               numberOfLines={3}
               style={
                 Object {
@@ -95,9 +89,6 @@ exports[`DocumentList renders correctly 1`] = `
               }
             />
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
               style={
                 Object {
                   "color": "#bbb",
@@ -147,9 +138,6 @@ exports[`DocumentList renders correctly 1`] = `
             }
           >
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
               style={
                 Object {
                   "fontSize": 15,
@@ -161,9 +149,6 @@ exports[`DocumentList renders correctly 1`] = `
               Sharpie
             </Text>
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
               numberOfLines={3}
               style={
                 Object {
@@ -183,9 +168,6 @@ exports[`DocumentList renders correctly 1`] = `
               }
             />
             <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
               style={
                 Object {
                   "color": "#bbb",
@@ -217,9 +199,7 @@ exports[`DocumentList renders correctly when there are no documents 1`] = `
   }
 >
   <Text
-    accessible={true}
     allowFontScaling={false}
-    ellipsizeMode="tail"
     style={
       Array [
         Object {
@@ -238,9 +218,6 @@ exports[`DocumentList renders correctly when there are no documents 1`] = `
     
   </Text>
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "fontFamily": "Verdana",
@@ -271,9 +248,6 @@ exports[`DocumentList renders correctly when there are no documents 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#aacfff",
@@ -308,9 +282,6 @@ exports[`DocumentList renders correctly when user is viewing their documents 1`]
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "fontFamily": "Verdana",
@@ -379,9 +350,6 @@ exports[`DocumentList renders correctly when user is viewing their documents 1`]
           }
         >
           <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
             style={
               Object {
                 "fontFamily": "Verdana",

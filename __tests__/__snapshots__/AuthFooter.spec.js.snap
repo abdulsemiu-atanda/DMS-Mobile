@@ -16,9 +16,6 @@ exports[`AuthFooter renders correctly 1`] = `
   }
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#96a1ae",
@@ -46,9 +43,6 @@ exports[`AuthFooter renders correctly 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "fontSize": 12,
@@ -78,9 +72,6 @@ exports[`AuthFooter renders correctly when screen is sign up 1`] = `
   }
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "color": "#96a1ae",
@@ -108,9 +99,6 @@ exports[`AuthFooter renders correctly when screen is sign up 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "fontSize": 12,
