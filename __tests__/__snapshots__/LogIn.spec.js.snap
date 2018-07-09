@@ -26,9 +26,6 @@ exports[`LogIn render correct error message when login fails 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#f7f7f7",
@@ -41,9 +38,7 @@ exports[`LogIn render correct error message when login fails 1`] = `
       DMS
     </Text>
     <Text
-      accessible={true}
       allowFontScaling={false}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -64,9 +59,6 @@ exports[`LogIn render correct error message when login fails 1`] = `
       
     </Text>
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#fff",
@@ -87,9 +79,6 @@ exports[`LogIn render correct error message when login fails 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#96a1ae",
@@ -112,11 +101,9 @@ exports[`LogIn render correct error message when login fails 1`] = `
           "marginTop": 10,
         }
       }
+      underlineColorAndroid="transparent"
     />
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#96a1ae",
@@ -138,6 +125,7 @@ exports[`LogIn render correct error message when login fails 1`] = `
           "marginTop": 10,
         }
       }
+      underlineColorAndroid="transparent"
     />
     <View
       accessible={true}
@@ -159,9 +147,6 @@ exports[`LogIn render correct error message when login fails 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#aacfff",
@@ -173,9 +158,6 @@ exports[`LogIn render correct error message when login fails 1`] = `
       </Text>
     </View>
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "red",
@@ -201,9 +183,6 @@ exports[`LogIn render correct error message when login fails 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#96a1ae",
@@ -231,9 +210,6 @@ exports[`LogIn render correct error message when login fails 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "fontSize": 12,
@@ -274,9 +250,6 @@ exports[`LogIn renders correctly 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#f7f7f7",
@@ -289,9 +262,7 @@ exports[`LogIn renders correctly 1`] = `
       DMS
     </Text>
     <Text
-      accessible={true}
       allowFontScaling={false}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -312,9 +283,6 @@ exports[`LogIn renders correctly 1`] = `
       
     </Text>
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#fff",
@@ -335,9 +303,6 @@ exports[`LogIn renders correctly 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#96a1ae",
@@ -360,11 +325,9 @@ exports[`LogIn renders correctly 1`] = `
           "marginTop": 10,
         }
       }
+      underlineColorAndroid="transparent"
     />
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#96a1ae",
@@ -386,6 +349,7 @@ exports[`LogIn renders correctly 1`] = `
           "marginTop": 10,
         }
       }
+      underlineColorAndroid="transparent"
     />
     <View
       accessible={true}
@@ -407,9 +371,6 @@ exports[`LogIn renders correctly 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#aacfff",
@@ -436,9 +397,6 @@ exports[`LogIn renders correctly 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#96a1ae",
@@ -466,9 +424,6 @@ exports[`LogIn renders correctly 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "fontSize": 12,
@@ -509,9 +464,6 @@ exports[`LogIn renders spinner when user is loggingIn 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#f7f7f7",
@@ -524,9 +476,7 @@ exports[`LogIn renders spinner when user is loggingIn 1`] = `
       DMS
     </Text>
     <Text
-      accessible={true}
       allowFontScaling={false}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -547,9 +497,6 @@ exports[`LogIn renders spinner when user is loggingIn 1`] = `
       
     </Text>
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#fff",
@@ -570,9 +517,6 @@ exports[`LogIn renders spinner when user is loggingIn 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#96a1ae",
@@ -595,11 +539,9 @@ exports[`LogIn renders spinner when user is loggingIn 1`] = `
           "marginTop": 10,
         }
       }
+      underlineColorAndroid="transparent"
     />
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#96a1ae",
@@ -621,6 +563,7 @@ exports[`LogIn renders spinner when user is loggingIn 1`] = `
           "marginTop": 10,
         }
       }
+      underlineColorAndroid="transparent"
     />
     <View
       accessible={true}
@@ -664,9 +607,6 @@ exports[`LogIn renders spinner when user is loggingIn 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#96a1ae",
@@ -694,9 +634,6 @@ exports[`LogIn renders spinner when user is loggingIn 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "fontSize": 12,

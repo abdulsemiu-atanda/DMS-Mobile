@@ -13,9 +13,6 @@ exports[`AppHeader renders correctly 1`] = `
   }
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "fontWeight": "600",
@@ -49,9 +46,7 @@ exports[`AppHeader renders correctly 1`] = `
       }
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -89,9 +84,7 @@ exports[`AppHeader renders correctly 1`] = `
       }
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -130,9 +123,6 @@ exports[`AppHeader renders correctly when routes is not an empty array 1`] = `
   }
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "fontWeight": "600",
@@ -166,9 +156,7 @@ exports[`AppHeader renders correctly when routes is not an empty array 1`] = `
       }
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {
@@ -206,9 +194,7 @@ exports[`AppHeader renders correctly when routes is not an empty array 1`] = `
       }
     >
       <Text
-        accessible={true}
         allowFontScaling={false}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {

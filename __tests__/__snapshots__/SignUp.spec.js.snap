@@ -36,9 +36,7 @@ exports[`SignUp renders correct message when there is an error 1`] = `
     }
   >
     <Text
-      accessible={true}
       allowFontScaling={false}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -66,9 +64,6 @@ exports[`SignUp renders correct message when there is an error 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "alignSelf": "center",
@@ -81,9 +76,6 @@ exports[`SignUp renders correct message when there is an error 1`] = `
       Sign Up
     </Text>
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#96a1ae",
@@ -105,11 +97,9 @@ exports[`SignUp renders correct message when there is an error 1`] = `
           "marginTop": 10,
         }
       }
+      underlineColorAndroid="transparent"
     />
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#96a1ae",
@@ -131,11 +121,9 @@ exports[`SignUp renders correct message when there is an error 1`] = `
           "marginTop": 10,
         }
       }
+      underlineColorAndroid="transparent"
     />
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#96a1ae",
@@ -158,11 +146,9 @@ exports[`SignUp renders correct message when there is an error 1`] = `
           "marginTop": 10,
         }
       }
+      underlineColorAndroid="transparent"
     />
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#96a1ae",
@@ -184,11 +170,9 @@ exports[`SignUp renders correct message when there is an error 1`] = `
           "marginTop": 10,
         }
       }
+      underlineColorAndroid="transparent"
     />
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#96a1ae",
@@ -211,6 +195,7 @@ exports[`SignUp renders correct message when there is an error 1`] = `
           "marginTop": 10,
         }
       }
+      underlineColorAndroid="transparent"
     />
     <View
       accessible={true}
@@ -232,9 +217,6 @@ exports[`SignUp renders correct message when there is an error 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#aacfff",
@@ -246,9 +228,6 @@ exports[`SignUp renders correct message when there is an error 1`] = `
       </Text>
     </View>
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "red",
@@ -274,9 +253,6 @@ exports[`SignUp renders correct message when there is an error 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#96a1ae",
@@ -304,9 +280,6 @@ exports[`SignUp renders correct message when there is an error 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "fontSize": 12,
@@ -357,9 +330,7 @@ exports[`SignUp renders correctly 1`] = `
     }
   >
     <Text
-      accessible={true}
       allowFontScaling={false}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -387,9 +358,6 @@ exports[`SignUp renders correctly 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "alignSelf": "center",
@@ -402,9 +370,6 @@ exports[`SignUp renders correctly 1`] = `
       Sign Up
     </Text>
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#96a1ae",
@@ -426,11 +391,9 @@ exports[`SignUp renders correctly 1`] = `
           "marginTop": 10,
         }
       }
+      underlineColorAndroid="transparent"
     />
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#96a1ae",
@@ -452,11 +415,9 @@ exports[`SignUp renders correctly 1`] = `
           "marginTop": 10,
         }
       }
+      underlineColorAndroid="transparent"
     />
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#96a1ae",
@@ -479,11 +440,9 @@ exports[`SignUp renders correctly 1`] = `
           "marginTop": 10,
         }
       }
+      underlineColorAndroid="transparent"
     />
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#96a1ae",
@@ -505,11 +464,9 @@ exports[`SignUp renders correctly 1`] = `
           "marginTop": 10,
         }
       }
+      underlineColorAndroid="transparent"
     />
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#96a1ae",
@@ -532,6 +489,7 @@ exports[`SignUp renders correctly 1`] = `
           "marginTop": 10,
         }
       }
+      underlineColorAndroid="transparent"
     />
     <View
       accessible={true}
@@ -553,9 +511,6 @@ exports[`SignUp renders correctly 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "color": "#aacfff",
@@ -582,9 +537,6 @@ exports[`SignUp renders correctly 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#96a1ae",
@@ -612,9 +564,6 @@ exports[`SignUp renders correctly 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "fontSize": 12,
@@ -665,9 +614,7 @@ exports[`SignUp renders spinner when sign up is loading 1`] = `
     }
   >
     <Text
-      accessible={true}
       allowFontScaling={false}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -695,9 +642,6 @@ exports[`SignUp renders spinner when sign up is loading 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "alignSelf": "center",
@@ -710,9 +654,6 @@ exports[`SignUp renders spinner when sign up is loading 1`] = `
       Sign Up
     </Text>
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#96a1ae",
@@ -734,11 +675,9 @@ exports[`SignUp renders spinner when sign up is loading 1`] = `
           "marginTop": 10,
         }
       }
+      underlineColorAndroid="transparent"
     />
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#96a1ae",
@@ -760,11 +699,9 @@ exports[`SignUp renders spinner when sign up is loading 1`] = `
           "marginTop": 10,
         }
       }
+      underlineColorAndroid="transparent"
     />
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#96a1ae",
@@ -787,11 +724,9 @@ exports[`SignUp renders spinner when sign up is loading 1`] = `
           "marginTop": 10,
         }
       }
+      underlineColorAndroid="transparent"
     />
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#96a1ae",
@@ -813,11 +748,9 @@ exports[`SignUp renders spinner when sign up is loading 1`] = `
           "marginTop": 10,
         }
       }
+      underlineColorAndroid="transparent"
     />
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#96a1ae",
@@ -840,6 +773,7 @@ exports[`SignUp renders spinner when sign up is loading 1`] = `
           "marginTop": 10,
         }
       }
+      underlineColorAndroid="transparent"
     />
     <View
       accessible={true}
@@ -883,9 +817,6 @@ exports[`SignUp renders spinner when sign up is loading 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "color": "#96a1ae",
@@ -913,9 +844,6 @@ exports[`SignUp renders spinner when sign up is loading 1`] = `
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "fontSize": 12,
