@@ -1,32 +1,13 @@
-import {Animated} from 'react-native'
+import 'react-native'
 import React from 'react'
 import renderer from 'react-test-renderer'
 
+import authScreenProps, {authLoadingProps} from '../util/fixtures/authFixtures'
 import {LogIn} from '../components/LogIn.react'
-import {noop} from '../util/util'
-
-const animatedValue = new Animated.Value(0)
-const props = {
-  asyncRequest: noop,
-  frontOpacity: animatedValue.interpolate({
-    inputRange: [89, 90],
-    outputRange: [1, 0]
-  }),
-  frontInterpolate: animatedValue.interpolate({
-    inputRange: [0, 180],
-    outputRange: ['0deg', '180deg']
-  }),
-  flipCard: noop,
-  goToHome: noop,
-  user: {
-    loggingIn: false,
-    message: ''
-  }
-}
 
 describe('LogIn', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(<LogIn {...props} />).toJSON()
+    const tree = renderer.create(<LogIn {...authScreenProps('login')} />).toJSON()
 
     expect(tree).toMatchSnapshot()
     expect(tree.children[0].children[0].type).toEqual('Text')
@@ -37,7 +18,7 @@ describe('LogIn', () => {
 
   it('render correct error message when login fails', () => {
     const failedLoginProps = {
-      ...props,
+      ...authScreenProps('login'),
       user: {loggingIn: false, message: 'Username or password incorrect'}
     }
     const tree = renderer.create(<LogIn {...failedLoginProps} />).toJSON()
@@ -47,11 +28,7 @@ describe('LogIn', () => {
   })
 
   it('renders spinner when user is loggingIn', () => {
-    const loggingInProps = {
-      ...props,
-      user: {loggingIn: true, message: ''}
-    }
-    const tree = renderer.create(<LogIn {...loggingInProps} />).toJSON()
+    const tree = renderer.create(<LogIn {...authLoadingProps('login')} />).toJSON()
 
     expect(tree).toMatchSnapshot()
     expect(tree.children[1].children[4].children[0].type).toEqual('ActivityIndicator')

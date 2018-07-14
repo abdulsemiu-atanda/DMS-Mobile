@@ -26,7 +26,7 @@ export const loginStyles = StyleSheet.create({
     backgroundColor: colors.blue,
     height: 40,
     alignItems: 'center',
-    marginTop: 20,
+    marginTop: Platform.OS === 'ios' ? 20 : 0,
     padding: 7
   },
   buttonText: {
@@ -41,7 +41,7 @@ export const loginStyles = StyleSheet.create({
     borderBottomColor: Platform.OS === 'ios' ? colors.grey : 'rgba(0,0,0,0)',
     borderBottomWidth: 1,
     marginTop: 10,
-    marginBottom: 10
+    marginBottom: Platform.OS === 'ios' ? 20 : 0
   },
   label: {
     color: '#96a1ae',

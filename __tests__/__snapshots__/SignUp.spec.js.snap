@@ -93,7 +93,7 @@ exports[`SignUp renders correct message when there is an error 1`] = `
         Object {
           "borderBottomColor": "#bbb",
           "borderBottomWidth": 1,
-          "marginBottom": 10,
+          "marginBottom": 20,
           "marginTop": 10,
         }
       }
@@ -117,7 +117,7 @@ exports[`SignUp renders correct message when there is an error 1`] = `
         Object {
           "borderBottomColor": "#bbb",
           "borderBottomWidth": 1,
-          "marginBottom": 10,
+          "marginBottom": 20,
           "marginTop": 10,
         }
       }
@@ -142,7 +142,7 @@ exports[`SignUp renders correct message when there is an error 1`] = `
         Object {
           "borderBottomColor": "#bbb",
           "borderBottomWidth": 1,
-          "marginBottom": 10,
+          "marginBottom": 20,
           "marginTop": 10,
         }
       }
@@ -166,7 +166,7 @@ exports[`SignUp renders correct message when there is an error 1`] = `
         Object {
           "borderBottomColor": "#bbb",
           "borderBottomWidth": 1,
-          "marginBottom": 10,
+          "marginBottom": 20,
           "marginTop": 10,
         }
       }
@@ -191,7 +191,7 @@ exports[`SignUp renders correct message when there is an error 1`] = `
         Object {
           "borderBottomColor": "#bbb",
           "borderBottomWidth": 1,
-          "marginBottom": 10,
+          "marginBottom": 20,
           "marginTop": 10,
         }
       }
@@ -387,7 +387,7 @@ exports[`SignUp renders correctly 1`] = `
         Object {
           "borderBottomColor": "#bbb",
           "borderBottomWidth": 1,
-          "marginBottom": 10,
+          "marginBottom": 20,
           "marginTop": 10,
         }
       }
@@ -411,7 +411,7 @@ exports[`SignUp renders correctly 1`] = `
         Object {
           "borderBottomColor": "#bbb",
           "borderBottomWidth": 1,
-          "marginBottom": 10,
+          "marginBottom": 20,
           "marginTop": 10,
         }
       }
@@ -436,7 +436,7 @@ exports[`SignUp renders correctly 1`] = `
         Object {
           "borderBottomColor": "#bbb",
           "borderBottomWidth": 1,
-          "marginBottom": 10,
+          "marginBottom": 20,
           "marginTop": 10,
         }
       }
@@ -460,7 +460,7 @@ exports[`SignUp renders correctly 1`] = `
         Object {
           "borderBottomColor": "#bbb",
           "borderBottomWidth": 1,
-          "marginBottom": 10,
+          "marginBottom": 20,
           "marginTop": 10,
         }
       }
@@ -485,7 +485,7 @@ exports[`SignUp renders correctly 1`] = `
         Object {
           "borderBottomColor": "#bbb",
           "borderBottomWidth": 1,
-          "marginBottom": 10,
+          "marginBottom": 20,
           "marginTop": 10,
         }
       }
@@ -671,7 +671,7 @@ exports[`SignUp renders spinner when sign up is loading 1`] = `
         Object {
           "borderBottomColor": "#bbb",
           "borderBottomWidth": 1,
-          "marginBottom": 10,
+          "marginBottom": 20,
           "marginTop": 10,
         }
       }
@@ -695,7 +695,7 @@ exports[`SignUp renders spinner when sign up is loading 1`] = `
         Object {
           "borderBottomColor": "#bbb",
           "borderBottomWidth": 1,
-          "marginBottom": 10,
+          "marginBottom": 20,
           "marginTop": 10,
         }
       }
@@ -720,7 +720,7 @@ exports[`SignUp renders spinner when sign up is loading 1`] = `
         Object {
           "borderBottomColor": "#bbb",
           "borderBottomWidth": 1,
-          "marginBottom": 10,
+          "marginBottom": 20,
           "marginTop": 10,
         }
       }
@@ -744,7 +744,7 @@ exports[`SignUp renders spinner when sign up is loading 1`] = `
         Object {
           "borderBottomColor": "#bbb",
           "borderBottomWidth": 1,
-          "marginBottom": 10,
+          "marginBottom": 20,
           "marginTop": 10,
         }
       }
@@ -769,7 +769,7 @@ exports[`SignUp renders spinner when sign up is loading 1`] = `
         Object {
           "borderBottomColor": "#bbb",
           "borderBottomWidth": 1,
-          "marginBottom": 10,
+          "marginBottom": 20,
           "marginTop": 10,
         }
       }

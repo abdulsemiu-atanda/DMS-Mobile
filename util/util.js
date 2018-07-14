@@ -27,6 +27,6 @@ export const ucFirst = string => `${string.charAt(0).toUpperCase()}${string.slic
 export const makeImmutable = data => Immutable.fromJS(data)
 
 /**
- * Empty funstion for props that takes in functions in test
+ * Empty function for props that takes in functions in test
  */
 export const noop = () => {}
