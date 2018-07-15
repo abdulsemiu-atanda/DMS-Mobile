@@ -24,6 +24,12 @@ export class LogIn extends Component {
 
 
     this.state = {navigationComplete: false}
+
+    this.animatedProps = this.animatedProps.bind(this)
+    this.buttonProps = this.buttonProps.bind(this)
+    this.hasLoginFailed = this.hasLoginFailed.bind(this)
+    this.usernameInputProps = this.usernameInputProps.bind(this)
+    this.passwordInputProps = this.passwordInputProps.bind(this)
     this.onLogIn = this.onLogIn.bind(this)
   }
 
@@ -40,20 +46,59 @@ export class LogIn extends Component {
     this.props.asyncRequest(LOG_IN, 'user/login', 'POST', logInData)
   }
 
-  render() {
+  animatedProps() {
     const frontAnimatedStyle = {
       transform: [
         {rotateY: this.props.frontInterpolate}
       ]
     }
-    const loginFail = !this.props.user.loggingIn &&
-      this.props.user.message === 'Username or password incorrect'
 
+    return {
+      style: [
+        loginStyles.loginContainer,
+        frontAnimatedStyle,
+        {opacity: this.props.frontOpacity}
+      ]
+    }
+  }
+
+  hasLoginFailed() {
+    return !this.props.user.loggingIn &&
+      this.props.user.message === 'Username or password incorrect'
+  }
+
+  usernameInputProps() {
+    return {
+      ref: ref => this.username = ref,
+      autoCapitalize: 'none',
+      keyboardType: 'email-address',
+      style: loginStyles.input,
+      placeholder: 'jason@bourne.com'
+    }
+  }
+
+  passwordInputProps() {
+    return {
+      ref: ref => this.password = ref,
+      autoCapitalize: 'none',
+      secureTextEntry: true,
+      style: loginStyles.input
+    }
+  }
+
+  buttonProps() {
+    return {
+      disabled: this.props.user.loggingIn,
+      login: true,
+      onPress: this.onLogIn,
+      loggingIn: this.props.user.loggingIn,
+      style: loginStyles.button
+    }
+  }
+
+  render() {
     return (
-      <Animated.View
-        style={
-          [loginStyles.loginContainer, frontAnimatedStyle, {opacity: this.props.frontOpacity}]
-        }>
+      <Animated.View {...this.animatedProps()}>
         <View style={loginStyles.logoContainer}>
           <Text style={loginStyles.title}>DMS</Text>
           <Icon style={loginStyles.icon} name='ios-briefcase-outline' size={100} color='#f7f7f7' />
@@ -61,28 +106,13 @@ export class LogIn extends Component {
         </View>
         <View style={loginStyles.form}>
           <Text style={loginStyles.label}>USERNAME</Text>
-          <TextInput
-            ref={ref => this.username = ref}
-            autoCapitalize='none'
-            keyboardType='email-address'
-            style={loginStyles.input}
-            placeholder='jason@bourne.com'
-          />
+          <TextInput {...this.usernameInputProps()} />
           <Text style={loginStyles.label}>PASSWORD</Text>
-          <TextInput
-            ref={ref => this.password = ref}
-            autoCapitalize='none'
-            secureTextEntry
-            style={loginStyles.input}
-          />
-          <AuthButton
-            disabled={this.props.user.loggingIn}
-            login
-            onPress={this.onLogIn}
-            loggingIn={this.props.user.loggingIn}
-            style={loginStyles.button}
-          />
-          {loginFail && <Text style={loginStyles.error}>{this.props.user.message}</Text>}
+          <TextInput {...this.passwordInputProps()} />
+          <AuthButton {...this.buttonProps()} />
+          {this.hasLoginFailed() &&
+            <Text style={loginStyles.error}>{this.props.user.message}</Text>
+          }
         </View>
         <AuthFooter screen='Login' flipCard={this.props.flipCard} />
       </Animated.View>
