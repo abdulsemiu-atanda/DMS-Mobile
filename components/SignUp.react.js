@@ -39,17 +39,7 @@ export class SignUp extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (!nextProps.user.signingUp && !prevState.navigationComplete && nextProps.user.token) {
-      const tokenObject = {token: nextProps.user.token, accessToken: nextProps.user.accessToken}
-
-      AsyncStorage.setItem('token', JSON.stringify(tokenObject)).then(() => {
-        nextProps.goToHome()
-      }).catch(err => console.warn(err))
-      return {
-        navigationComplete: true
-      }
-    }
-    return null
+    return persistUser(nextProps, prevState)
   }
 
   animatedProps() {

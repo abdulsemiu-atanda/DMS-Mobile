@@ -38,6 +38,7 @@ const userReducer = (state = initialState, action) => {
     case asyncActionNames(LOG_IN).loading:
       return {...state, loggingIn: action.data}
     case asyncActionNames(LOG_IN).success:
+    case asyncActionNames(SIGN_UP).success:
       return {
         ...state,
         accessToken: action.data.refreshToken,
@@ -52,17 +53,6 @@ const userReducer = (state = initialState, action) => {
       return {...state, signupError: action.data.status, error: {signUp: action.data.error}}
     case asyncActionNames(SIGN_UP).loading:
       return {...state, signingUp: action.data}
-    case asyncActionNames(SIGN_UP).success:
-      return {
-        ...state,
-        accessToken: action.data.refreshToken,
-        loggingIn: false,
-        signingUp: false,
-        signupError: false,
-        loginError: false,
-        token: action.data.token,
-        message: action.data.message
-      }
     case asyncActionNames(TOKEN).loading:
       return {...state, refreshingToken: action.data}
     case asyncActionNames(TOKEN).failure:
