@@ -1,3 +1,19 @@
-plugins: 
-  eslint:
+engines:
+  duplication:
     enabled: true
+    config:
+      languages:
+      - javascript
+  eslint:
+    channel: 'eslint-5'
+    config:
+      config: './.eslintrc'
+    enabled: true
+ratings:
+  paths:
+  - '**.js'
+exclude_paths:
+  - 'ios/'
+  - 'android/'
+  - 'assets/'
+  - '__tests__/'
