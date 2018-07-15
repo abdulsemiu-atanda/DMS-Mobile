@@ -1,20 +1,19 @@
 import React, {Component} from 'react'
 import {
   Animated,
-  AsyncStorage,
   Text,
   View,
-  TextInput,
-  TouchableHighlight
+  TextInput
 } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 
+import AuthButton from './shared/AuthButton.react'
 import AuthFooter from './shared/AuthFooter.react'
-import Loading from './shared/Loading.react'
 
 import {asyncRequest} from '../util/asyncUtils'
+import {persistUser} from '../util/util'
 import {LOG_IN} from '../actionTypes/userConstants'
 
 import {loginStyles} from '../assets/styles/styles'
@@ -76,16 +75,13 @@ export class LogIn extends Component {
             secureTextEntry
             style={loginStyles.input}
           />
-          <TouchableHighlight
+          <AuthButton
             disabled={this.props.user.loggingIn}
+            login
             onPress={this.onLogIn}
-            style={loginStyles.button}>
-            {
-              this.props.user.loggingIn ?
-                <Loading animating={this.props.user.loggingIn} /> :
-                <Text style={loginStyles.buttonText}>Sign In</Text>
-            }
-          </TouchableHighlight>
+            loggingIn={this.props.user.loggingIn}
+            style={loginStyles.button}
+          />
           {loginFail && <Text style={loginStyles.error}>{this.props.user.message}</Text>}
         </View>
         <AuthFooter screen='Login' flipCard={this.props.flipCard} />

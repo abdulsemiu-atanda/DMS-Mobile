@@ -1,10 +1,8 @@
 import React, {Component} from 'react'
 import {
   Animated,
-  AsyncStorage,
   Text,
   TextInput,
-  TouchableHighlight,
   TouchableOpacity,
   View
 } from 'react-native'
@@ -12,10 +10,11 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 
+import AuthButton from './shared/AuthButton.react'
 import AuthFooter from './shared/AuthFooter.react'
-import Loading from './shared/Loading.react'
 
 import {asyncRequest} from '../util/asyncUtils'
+import {persistUser} from '../util/util'
 import {SIGN_UP} from '../actionTypes/userConstants'
 
 import {loginStyles} from '../assets/styles/styles'
@@ -169,13 +168,7 @@ export class SignUp extends Component {
           <TextInput secureTextEntry {...this.passwordInputProps()} />
           <Text style={loginStyles.label}>CONFIRM PASSWORD</Text>
           <TextInput secureTextEntry {...this.confirmPasswordInputProps()} />
-          <TouchableHighlight {...this.buttonProps()}>
-            {
-              this.props.user.signingUp ?
-                <Loading animating={this.props.user.signingUp} /> :
-                <Text style={loginStyles.buttonText}>Create</Text>
-            }
-          </TouchableHighlight>
+          <AuthButton {...this.buttonProps()} signingUp={this.props.user.signingUp} />
           {
             this.state.passwordMatch === 'false' &&
             <Text style={loginStyles.error}>Your password do not match</Text>
