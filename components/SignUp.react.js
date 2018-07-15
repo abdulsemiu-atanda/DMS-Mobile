@@ -1,17 +1,14 @@
 import React, {Component} from 'react'
 import {
   Animated,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View
+  TouchableOpacity
 } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 
-import AuthButton from './shared/AuthButton.react'
 import AuthFooter from './shared/AuthFooter.react'
+import SignUpForm from './SignUpForm.react'
 
 import {asyncRequest} from '../util/asyncUtils'
 import {persistUser} from '../util/util'
@@ -156,25 +153,17 @@ export class SignUp extends Component {
         <TouchableOpacity style={loginStyles.closer} onPress={this.props.flipCard}>
           <Icon name='ios-close' size={40} color='#cfcfd1' />
         </TouchableOpacity>
-        <View style={loginStyles.form}>
-          <Text style={loginStyles.headerText}>Sign Up</Text>
-          <Text style={loginStyles.label}>FULL NAME</Text>
-          <TextInput {...this.nameInputProps()} />
-          <Text style={loginStyles.label}>USERNAME</Text>
-          <TextInput {...this.usernameInputProps()} />
-          <Text style={loginStyles.label}>EMAIL</Text>
-          <TextInput {...this.emailInputProps()} />
-          <Text style={loginStyles.label}>PASSWORD</Text>
-          <TextInput secureTextEntry {...this.passwordInputProps()} />
-          <Text style={loginStyles.label}>CONFIRM PASSWORD</Text>
-          <TextInput secureTextEntry {...this.confirmPasswordInputProps()} />
-          <AuthButton {...this.buttonProps()} signingUp={this.props.user.signingUp} />
-          {
-            this.state.passwordMatch === 'false' &&
-            <Text style={loginStyles.error}>Your password do not match</Text>
-          }
-          {signUpFail && <Text style={loginStyles.error}>{this.props.user.message}</Text>}
-        </View>
+        <SignUpForm
+          nameInputProps={this.nameInputProps}
+          usernameInputProps={this.usernameInputProps}
+          emailInputProps={this.emailInputProps}
+          passwordInputProps={this.passwordInputProps}
+          confirmPasswordInputProps={this.confirmPasswordInputProps}
+          buttonProps={this.buttonProps}
+          passwordMatch={this.state.passwordMatch}
+          user={this.props.user}
+          signUpFail={signUpFail}
+        />
         <AuthFooter screen='Signup' flipCard={this.props.flipCard} />
       </Animated.View>
     )
