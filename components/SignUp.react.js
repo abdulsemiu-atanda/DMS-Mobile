@@ -152,7 +152,7 @@ export class SignUp extends Component {
       this.props.user.message === 'User already exists')
 
     return (
-      <Animated.View {...this.animatedProps()} >
+      <Animated.View {...this.animatedProps()}>
         <TouchableOpacity style={loginStyles.closer} onPress={this.props.flipCard}>
           <Icon name='ios-close' size={40} color='#cfcfd1' />
         </TouchableOpacity>
