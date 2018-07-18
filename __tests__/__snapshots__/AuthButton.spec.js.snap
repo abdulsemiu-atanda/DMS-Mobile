@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuthButton Login renders correctly when not logging in 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={null}
+>
+  <Text
+    style={
+      Object {
+        "color": "#aacfff",
+        "fontSize": 18,
+      }
+    }
+  >
+    Sign In
+  </Text>
+</View>
+`;
+
+exports[`AuthButton Login renders spinner when logging in 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={null}
+>
+  <ActivityIndicator
+    animating={true}
+    color="#01f0b3"
+    hidesWhenStopped={true}
+    size="large"
+  />
+</View>
+`;
+
+exports[`AuthButton SignUp renders correctly when not signing up 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={null}
+>
+  <Text
+    style={
+      Object {
+        "color": "#aacfff",
+        "fontSize": 18,
+      }
+    }
+  >
+    Create
+  </Text>
+</View>
+`;
+
+exports[`AuthButton SignUp renders spinner when signing up 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={null}
+>
+  <ActivityIndicator
+    animating={true}
+    color="#01f0b3"
+    hidesWhenStopped={true}
+    size="large"
+  />
+</View>
+`;

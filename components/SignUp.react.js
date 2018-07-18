@@ -1,21 +1,17 @@
 import React, {Component} from 'react'
 import {
   Animated,
-  AsyncStorage,
-  Text,
-  TextInput,
-  TouchableHighlight,
-  TouchableOpacity,
-  View
+  TouchableOpacity
 } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 
 import AuthFooter from './shared/AuthFooter.react'
-import Loading from './shared/Loading.react'
+import SignUpForm from './SignUpForm.react'
 
 import {asyncRequest} from '../util/asyncUtils'
+import {persistUser} from '../util/util'
 import {SIGN_UP} from '../actionTypes/userConstants'
 
 import {loginStyles} from '../assets/styles/styles'
@@ -39,17 +35,7 @@ export class SignUp extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (!nextProps.user.signingUp && !prevState.navigationComplete && nextProps.user.token) {
-      const tokenObject = {token: nextProps.user.token, accessToken: nextProps.user.accessToken}
-
-      AsyncStorage.setItem('token', JSON.stringify(tokenObject)).then(() => {
-        nextProps.goToHome()
-      }).catch(err => console.warn(err))
-      return {
-        navigationComplete: true
-      }
-    }
-    return null
+    return persistUser(nextProps, prevState)
   }
 
   animatedProps() {
@@ -163,35 +149,21 @@ export class SignUp extends Component {
       this.props.user.message === 'User already exists')
 
     return (
-      <Animated.View {...this.animatedProps()} >
+      <Animated.View {...this.animatedProps()}>
         <TouchableOpacity style={loginStyles.closer} onPress={this.props.flipCard}>
           <Icon name='ios-close' size={40} color='#cfcfd1' />
         </TouchableOpacity>
-        <View style={loginStyles.form}>
-          <Text style={loginStyles.headerText}>Sign Up</Text>
-          <Text style={loginStyles.label}>FULL NAME</Text>
-          <TextInput {...this.nameInputProps()} />
-          <Text style={loginStyles.label}>USERNAME</Text>
-          <TextInput {...this.usernameInputProps()} />
-          <Text style={loginStyles.label}>EMAIL</Text>
-          <TextInput {...this.emailInputProps()} />
-          <Text style={loginStyles.label}>PASSWORD</Text>
-          <TextInput secureTextEntry {...this.passwordInputProps()} />
-          <Text style={loginStyles.label}>CONFIRM PASSWORD</Text>
-          <TextInput secureTextEntry {...this.confirmPasswordInputProps()} />
-          <TouchableHighlight {...this.buttonProps()}>
-            {
-              this.props.user.signingUp ?
-                <Loading animating={this.props.user.signingUp} /> :
-                <Text style={loginStyles.buttonText}>Create</Text>
-            }
-          </TouchableHighlight>
-          {
-            this.state.passwordMatch === 'false' &&
-            <Text style={loginStyles.error}>Your password do not match</Text>
-          }
-          {signUpFail && <Text style={loginStyles.error}>{this.props.user.message}</Text>}
-        </View>
+        <SignUpForm
+          nameInputProps={this.nameInputProps}
+          usernameInputProps={this.usernameInputProps}
+          emailInputProps={this.emailInputProps}
+          passwordInputProps={this.passwordInputProps}
+          confirmPasswordInputProps={this.confirmPasswordInputProps}
+          buttonProps={this.buttonProps}
+          passwordMatch={this.state.passwordMatch}
+          user={this.props.user}
+          signUpFail={signUpFail}
+        />
         <AuthFooter screen='Signup' flipCard={this.props.flipCard} />
       </Animated.View>
     )

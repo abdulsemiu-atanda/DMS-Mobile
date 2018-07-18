@@ -1,0 +1,371 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignUpForm render correctly when rendering conditions are present 1`] = `
+<View
+  style={
+    Object {
+      "flex": 2,
+      "padding": 30,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "alignSelf": "center",
+        "fontSize": 18,
+        "marginBottom": 20,
+        "textAlign": "center",
+      }
+    }
+  >
+    Sign Up
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#96a1ae",
+        "fontSize": 10,
+      }
+    }
+  >
+    FULL NAME
+  </Text>
+  <TextInput
+    allowFontScaling={true}
+    autoCapitalize="none"
+    placeholder="Jason Bourne"
+    style={
+      Object {
+        "borderBottomColor": "#bbb",
+        "borderBottomWidth": 1,
+        "marginBottom": 20,
+        "marginTop": 10,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <Text
+    style={
+      Object {
+        "color": "#96a1ae",
+        "fontSize": 10,
+      }
+    }
+  >
+    USERNAME
+  </Text>
+  <TextInput
+    allowFontScaling={true}
+    autoCapitalize="none"
+    placeholder="jbourne"
+    style={
+      Object {
+        "borderBottomColor": "#bbb",
+        "borderBottomWidth": 1,
+        "marginBottom": 20,
+        "marginTop": 10,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <Text
+    style={
+      Object {
+        "color": "#96a1ae",
+        "fontSize": 10,
+      }
+    }
+  >
+    EMAIL
+  </Text>
+  <TextInput
+    allowFontScaling={true}
+    autoCapitalize="none"
+    keyboardType="email-address"
+    placeholder="jason@bourne.com"
+    style={
+      Object {
+        "borderBottomColor": "#bbb",
+        "borderBottomWidth": 1,
+        "marginBottom": 20,
+        "marginTop": 10,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <Text
+    style={
+      Object {
+        "color": "#96a1ae",
+        "fontSize": 10,
+      }
+    }
+  >
+    PASSWORD
+  </Text>
+  <TextInput
+    allowFontScaling={true}
+    autoCapitalize="none"
+    secureTextEntry={true}
+    style={
+      Object {
+        "borderBottomColor": "#bbb",
+        "borderBottomWidth": 1,
+        "marginBottom": 20,
+        "marginTop": 10,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <Text
+    style={
+      Object {
+        "color": "#96a1ae",
+        "fontSize": 10,
+      }
+    }
+  >
+    CONFIRM PASSWORD
+  </Text>
+  <TextInput
+    allowFontScaling={true}
+    autoCapitalize="none"
+    onEndEditing={[Function]}
+    secureTextEntry={true}
+    style={
+      Object {
+        "borderBottomColor": "#bbb",
+        "borderBottomWidth": 1,
+        "marginBottom": 20,
+        "marginTop": 10,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#0983ff",
+        "height": 40,
+        "marginTop": 20,
+        "padding": 7,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#aacfff",
+          "fontSize": 18,
+        }
+      }
+    >
+      Create
+    </Text>
+  </View>
+  <Text
+    style={
+      Object {
+        "color": "red",
+        "marginTop": 10,
+      }
+    }
+  >
+    Your password do not match
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "red",
+        "marginTop": 10,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`SignUpForm renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 2,
+      "padding": 30,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "alignSelf": "center",
+        "fontSize": 18,
+        "marginBottom": 20,
+        "textAlign": "center",
+      }
+    }
+  >
+    Sign Up
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#96a1ae",
+        "fontSize": 10,
+      }
+    }
+  >
+    FULL NAME
+  </Text>
+  <TextInput
+    allowFontScaling={true}
+    autoCapitalize="none"
+    placeholder="Jason Bourne"
+    style={
+      Object {
+        "borderBottomColor": "#bbb",
+        "borderBottomWidth": 1,
+        "marginBottom": 20,
+        "marginTop": 10,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <Text
+    style={
+      Object {
+        "color": "#96a1ae",
+        "fontSize": 10,
+      }
+    }
+  >
+    USERNAME
+  </Text>
+  <TextInput
+    allowFontScaling={true}
+    autoCapitalize="none"
+    placeholder="jbourne"
+    style={
+      Object {
+        "borderBottomColor": "#bbb",
+        "borderBottomWidth": 1,
+        "marginBottom": 20,
+        "marginTop": 10,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <Text
+    style={
+      Object {
+        "color": "#96a1ae",
+        "fontSize": 10,
+      }
+    }
+  >
+    EMAIL
+  </Text>
+  <TextInput
+    allowFontScaling={true}
+    autoCapitalize="none"
+    keyboardType="email-address"
+    placeholder="jason@bourne.com"
+    style={
+      Object {
+        "borderBottomColor": "#bbb",
+        "borderBottomWidth": 1,
+        "marginBottom": 20,
+        "marginTop": 10,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <Text
+    style={
+      Object {
+        "color": "#96a1ae",
+        "fontSize": 10,
+      }
+    }
+  >
+    PASSWORD
+  </Text>
+  <TextInput
+    allowFontScaling={true}
+    autoCapitalize="none"
+    secureTextEntry={true}
+    style={
+      Object {
+        "borderBottomColor": "#bbb",
+        "borderBottomWidth": 1,
+        "marginBottom": 20,
+        "marginTop": 10,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <Text
+    style={
+      Object {
+        "color": "#96a1ae",
+        "fontSize": 10,
+      }
+    }
+  >
+    CONFIRM PASSWORD
+  </Text>
+  <TextInput
+    allowFontScaling={true}
+    autoCapitalize="none"
+    onEndEditing={[Function]}
+    secureTextEntry={true}
+    style={
+      Object {
+        "borderBottomColor": "#bbb",
+        "borderBottomWidth": 1,
+        "marginBottom": 20,
+        "marginTop": 10,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#0983ff",
+        "height": 40,
+        "marginTop": 20,
+        "padding": 7,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#aacfff",
+          "fontSize": 18,
+        }
+      }
+    >
+      Create
+    </Text>
+  </View>
+</View>
+`;

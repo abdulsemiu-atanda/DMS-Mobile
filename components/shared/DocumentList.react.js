@@ -49,22 +49,9 @@ class DocumentList extends Component {
     this.props.navigation.navigate('ViewDocuments', {documents: accessDocuments})
   }
 
-  renderRow(document) {
-    const {content, createdAt, updatedAt, title, access} = document
-    const count = this.props.documents &&
-      this.props.documents.filter(document => document.get('access') === access).size
+  renderDocument(document) {
+    const {content, title, updatedAt, createdAt} = document
 
-    if (this.props.screen === 'Collection' && this.previousValue !== access) {
-      this.previousValue = access
-      return (
-        <View style={documentListStyles.collectionView}>
-          <TouchableOpacity onPress={() => this.viewDocuments(access)}>
-            <Text style={documentListStyles.headerText}>{ucFirst(access)} ({count})</Text>
-          </TouchableOpacity>
-          <View style={documentListStyles.hr} />
-        </View>
-      )
-    } else if (this.props.screen === 'Collection' && this.previousValue === access) {return null}
     return (
       <View style={documentListStyles.container}>
         <TouchableOpacity>
@@ -81,6 +68,25 @@ class DocumentList extends Component {
         </TouchableOpacity>
       </View>
     )
+  }
+
+  renderRow(document) {
+    const {access} = document
+    const count = this.props.documents &&
+      this.props.documents.filter(document => document.get('access') === access).size
+
+    if (this.props.screen === 'Collection' && this.previousValue !== access) {
+      this.previousValue = access
+      return (
+        <View style={documentListStyles.collectionView}>
+          <TouchableOpacity onPress={() => this.viewDocuments(access)}>
+            <Text style={documentListStyles.headerText}>{ucFirst(access)} ({count})</Text>
+          </TouchableOpacity>
+          <View style={documentListStyles.hr} />
+        </View>
+      )
+    } else if (this.props.screen === 'Collection' && this.previousValue === access) {return null}
+    return this.renderDocument(document)
   }
 
   render() {

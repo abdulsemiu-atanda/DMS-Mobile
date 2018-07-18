@@ -1,3 +1,4 @@
+import {AsyncStorage} from 'react-native'
 import jwt from 'jwt-decode'
 import Immutable from 'immutable'
 
@@ -30,3 +31,24 @@ export const makeImmutable = data => Immutable.fromJS(data)
  * Empty function for props that takes in functions in test
  */
 export const noop = () => {}
+
+/**
+ * Persits user by setting auth token to AsyncStorage
+ * @param {Object} nextProps
+ * @param {Object} prevState
+ * @returns {(void|Object)}
+ */
+
+export const persistUser = (nextProps, prevState) => {
+  if (!nextProps.user.logingIn && !prevState.navigationComplete && nextProps.user.token) {
+    const tokenObject = {token: nextProps.user.token, accessToken: nextProps.user.accessToken}
+
+    AsyncStorage.setItem('token', JSON.stringify(tokenObject)).then(() => {
+      nextProps.goToHome()
+    }).catch(err => console.warn(err))
+    return {
+      navigationComplete: true
+    }
+  }
+  return null
+}
