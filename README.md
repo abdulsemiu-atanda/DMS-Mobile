@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/abdulsemiu-atanda/DMS-Mobile.svg?branch=master)](https://travis-ci.org/abdulsemiu-atanda/DMS-Mobile)
+[![Maintainability](https://api.codeclimate.com/v1/badges/733de8c947ffbc6adcb0/maintainability)](https://codeclimate.com/github/abdulsemiu-atanda/DMS-Mobile/maintainability)
 
 # DMS-Mobile
 Document Management Application built with React-Native
