@@ -3,7 +3,7 @@ import {Platform} from 'react-native'
 import {
   createStackNavigator,
   createSwitchNavigator,
-  createBottomTabNavigator
+  createTabNavigator
 } from 'react-navigation'
 
 import Auth from '../../components/Auth.react'
@@ -25,7 +25,7 @@ const AuthStack = createStackNavigator({
   }
 })
 
-const HomeTabs = createBottomTabNavigator({
+const HomeTabs = createTabNavigator({
   All: {
     screen: Home,
     navigationOptions: {
@@ -45,12 +45,14 @@ const HomeTabs = createBottomTabNavigator({
   tabBarOptions: {
     activeTintColor: Platform.OS === 'android' ? colors.white : colors.blue,
     inActiveTintColor: colors.darkBlue,
+    indicatorStyle: {opacity: 0},
     labelStyle: {
       fontSize: 15
     },
     showLabel: Platform.OS === 'ios',
     showIcon: true
-  }
+  },
+  tabBarPosition: 'bottom'
 })
 
 const AppStack = createStackNavigator({
