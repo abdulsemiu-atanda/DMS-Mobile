@@ -7,7 +7,7 @@ import {emptyDocumentStyles} from '../../assets/styles/styles'
 
 const EmptyDocument = props => (
   <View style={emptyDocumentStyles.container}>
-    <Icon name='ios-list-box-outline' size={70} color='grey' />
+    <Icon name='ios-list-box' size={70} color='grey' />
     <Text style={emptyDocumentStyles.instructions}>
       {props.screen === 'All' ?
         'Oops! there are no public documents currently available for viewing.\

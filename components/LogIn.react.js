@@ -101,7 +101,7 @@ export class LogIn extends Component {
       <Animated.View {...this.animatedProps()}>
         <View style={loginStyles.logoContainer}>
           <Text style={loginStyles.title}>DMS</Text>
-          <Icon style={loginStyles.icon} name='ios-briefcase-outline' size={100} color='#f7f7f7' />
+          <Icon style={loginStyles.icon} name='ios-briefcase' size={100} color='#f7f7f7' />
           <Text style={loginStyles.phrase}>Manage your documents elegantly.</Text>
         </View>
         <View style={loginStyles.form}>
