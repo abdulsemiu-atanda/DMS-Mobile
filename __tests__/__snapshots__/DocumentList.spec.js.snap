@@ -212,10 +212,11 @@ exports[`DocumentList renders correctly when there are no documents 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
         },
+        Object {},
       ]
     }
   >
-    
+    
   </Text>
   <Text
     style={

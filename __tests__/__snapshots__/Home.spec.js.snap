@@ -24,10 +24,11 @@ exports[`Home does not render add button when there are no documents 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
         },
+        Object {},
       ]
     }
   >
-    
+    
   </Text>
   <Text
     style={
@@ -306,6 +307,7 @@ exports[`Home renders correctly 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
           },
+          Object {},
         ]
       }
     >
@@ -547,6 +549,7 @@ exports[`Home renders correctly when user is viewing their documents 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
           },
+          Object {},
         ]
       }
     >

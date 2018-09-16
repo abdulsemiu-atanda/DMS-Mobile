@@ -53,10 +53,11 @@ exports[`LogIn render correct error message when login fails 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
           },
+          Object {},
         ]
       }
     >
-      
+      
     </Text>
     <Text
       style={
@@ -277,10 +278,11 @@ exports[`LogIn renders correctly 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
           },
+          Object {},
         ]
       }
     >
-      
+      
     </Text>
     <Text
       style={
@@ -491,10 +493,11 @@ exports[`LogIn renders spinner when user is loggingIn 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
           },
+          Object {},
         ]
       }
     >
-      
+      
     </Text>
     <Text
       style={

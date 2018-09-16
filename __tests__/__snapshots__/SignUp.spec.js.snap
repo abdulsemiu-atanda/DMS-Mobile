@@ -49,6 +49,7 @@ exports[`SignUp renders correct message when there is an error 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
           },
+          Object {},
         ]
       }
     >
@@ -343,6 +344,7 @@ exports[`SignUp renders correctly 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
           },
+          Object {},
         ]
       }
     >
@@ -627,6 +629,7 @@ exports[`SignUp renders spinner when sign up is loading 1`] = `
             "fontStyle": "normal",
             "fontWeight": "normal",
           },
+          Object {},
         ]
       }
     >

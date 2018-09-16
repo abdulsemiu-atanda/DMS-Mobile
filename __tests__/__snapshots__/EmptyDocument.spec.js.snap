@@ -24,10 +24,11 @@ exports[`EmptyDocument renders correctly 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
         },
+        Object {},
       ]
     }
   >
-    
+    
   </Text>
   <Text
     style={
@@ -98,10 +99,11 @@ exports[`EmptyDocument renders correctly when screen is not All 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
         },
+        Object {},
       ]
     }
   >
-    
+    
   </Text>
   <Text
     style={
